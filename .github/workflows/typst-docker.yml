@@ -16,7 +16,7 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/opt/data \
-        ghcr.io/typst/typst:latest /bin/bash -c "typst compile /opt/data/src/main.typ /opt/data/memoire.pdf"
+        ghcr.io/typst/typst:latest /bin/sh -c "typst compile /opt/data/src/main.typ /opt/data/memoire.pdf"
     - name: Test file presence
       run: file memoire.pdf
     - name: Release
