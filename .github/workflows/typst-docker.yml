@@ -1,0 +1,25 @@
+name: Typst pdf CI
+
+on:
+  push:
+    tags: ["v*.*.*"]
+  
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Compile the source into a pdf with a typst/typst container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/opt/data \
+        ghcr.io/typst/typst:latest /bin/bash -c "typst compile /opt/data/src/main.typ /opt/data/memoire.pdf"
+    - name: Test file presence
+      run: file memoire.pdf
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: memoire.pdf
