@@ -2,8 +2,42 @@
 # see https://github.com/typst/hayagriva/blob/main/docs/file-format.md
 # see https://typst.app/docs/reference/meta/bibliography/
 
+## DEFINITIONS EXPERTS
+
+booch-ood:
+  type: Book
+  title: Object Oriented Design with Applications
+  author:
+    - Booch, Grady
+  editor:
+    - Booch, Grady
+  publisher: Benjamin/Cummings Publishing Company
+  organization: University of Michigan
+  isbn: 9780805300918
+  page-range: 209-209
+  page-total: 580
+  date: 1991
+
 wikipedia-ci:
   type: Web
   title: Intégration Continue
   author: Wikipédia
   url: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue
+
+aws-ci-def:
+  type: Web
+  title: Qu'est-ce que l'intégration continue ?
+  author: Amazon Web Services
+  url: https://aws.amazon.com/fr/devops/continuous-integration/
+
+ibm-ci-def:
+  type: Web
+  title: Qu'est-ce que l'intégration continue ?
+  author: IBM
+  url: https://www.ibm.com/fr-fr/topics/continuous-integration
+
+atlassian-ci-def:
+  type: Web
+  title: Qu'est-ce que l'intégration continue ? 
+  author: Rehkopf, Max
+  url: https://www.atlassian.com/fr/continuous-delivery/continuous-integration

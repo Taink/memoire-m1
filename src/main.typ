@@ -55,9 +55,43 @@ finirons en déterminant le positionnement de notre étude dans l'état de l'art
 avant de tirer nos conclusions sur notre problématique.
 
 = État de l'art
-#lorem(50)
+/* Parmi ces outils, les outils d'intégration continue
+sont une partie essentielle du processus de déploiement.
+Il s'agit d'un ensemble de pratiques visant
+à assurer la qualité du code écrit au fur du développement
+de nouvelles fonctionnalités. */
+
+Comme nous l'avons dit plus tôt, les outils d'intégration continue
+sont une composante essentielle de des processus de déploiement modernes.
+Commençons donc par en établir une définition.
+
 == Définition
-#lorem(200)
+
+La définition exacte de l'intégration continue,
+bien qu'elle soit largement similaire,
+diffère parmi les experts du domaine
+#cite("booch-ood", "aws-ci-def", "ibm-ci-def", "atlassian-ci-def").
+
+Le socle commun est bien retranscrit par la définition de Wikipédia@wikipedia-ci:
+"L'intégration continue est un ensemble de pratiques utilisées en génie logiciel
+consistant à vérifier à chaque modification de code source
+que le résultat des modifications ne produit pas de régression
+dans l'application développée."
+
+Il est en effet important de comprendre que l'intégration continue
+désigne les pratiques à intégrer dans ses processus métiers,
+et non les outils qui permettent d'en faciliter la mise en place.
+Les experts s'accordent aussi sur les objectifs de l'intégration continue :
+- Accélérer la correction de bugs, au travers de tests systématiques
+  sur les modifications réalisées
+- Améliorer communication des problèmes potentiels,
+  au travers de notifications lorsque les tests échouent par exemple
+- Visualiser rapidement l'évolution du développement du logiciel
+
+Enfin, l'intégration continue porte sur un certain ensemble de tâches particulier :
+principalement les tests d'intégration évidemment, mais aussi la compilation,
+et d'éventuels tests de conformité avec les politiques établies au début du projet.
+
 == Présentation d'outils et technologies d'intégration continue
 #lorem(700)
 == Revue de littérature contextualisée
@@ -72,6 +106,7 @@ avant de tirer nos conclusions sur notre problématique.
 == Défis et lacunes
 #lorem(500)
 == Gains potentiels et avantages
+#lorem(200)
 
 #pagebreak()
 
