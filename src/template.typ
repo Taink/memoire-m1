@@ -8,7 +8,8 @@
   abstract_en: [],
   authors: (),
   date: none,
-  logo: none,
+  schoolLogo: none,
+  companyLogo: none,
   body,
 ) = {
   // Set the document's basic properties.
@@ -35,12 +36,14 @@
 
 
   // Title page.
-  // The page can contain a logo if you pass one with `logo: "logo.png"`.
   v(0.6fr)
-  if logo != none {
-    align(right, image(logo, width: 26%))
+  if schoolLogo != none {
+    align(right, image(schoolLogo, width: 33%))
   }
-  v(9.6fr)
+  if companyLogo != none {
+    align(right, image(companyLogo, width: 33%))
+  }
+  v(7fr)
 
   text(1.1em, date)
   v(1.2em, weak: true)
@@ -59,7 +62,7 @@
         *#author.name* \
         #author.company \
         #author.email \
-        #author.company_mail
+        #author.company_email
       ]),
     ),
   )

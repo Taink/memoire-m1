@@ -1,0 +1,9 @@
+# this is a hayagriva file.
+# see https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+# see https://typst.app/docs/reference/meta/bibliography/
+
+wikipedia-ci:
+  type: Web
+  title: Intégration Continue
+  author: Wikipédia
+  url: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue

@@ -1,24 +1,21 @@
 #import "template.typ": project
 
-// Take a look at the file `template.typ` in the file panel
-// to customize this template and discover how it works.
+// voir fichier `template.typ` pour modifier le template
 #show: project.with(
   title: "Incorporer des outils d'intégration continue dans les processus métiers",
   subtitle: "Mémoire de fin d'année de M1 à l'EFREI",
   authors: (
-    (name: "Maxime Daniel", email: "maxime.daniel@efrei.net", company: "Adagp", company_mail: "maxime.daniel@adagp.fr"),
+    (name: "Maxime Daniel", email: "maxime.daniel@efrei.net", company: "Adagp", company_email: "maxime.daniel@adagp.fr"),
   ),
-  // Insert your abstract after the colon, wrapped in brackets.
-  // Example: `abstract: [This is my abstract...]`
   abstract: lorem(300),
   abstract_en: lorem(300),
-  // abstract: [],
+  // abstract: [
+  //   blabla
+  // ],
   date: "Version du 31 Juillet 2023",
+  schoolLogo: "./assets/efrei.png",
+  companyLogo: "./assets/adagp.svg",
 )
-
-// We generated the example code below so you can see how
-// your document will look. Go ahead and replace it with
-// your own content!
 
 = Introduction
 L'évolution des projets informatiques modernes
@@ -136,13 +133,9 @@ avant de tirer nos conclusions sur notre problématique.
 
 #pagebreak()
 
-= Bibliographie
-#lorem(50)
+#bibliography("./bibliography.yml", title: "Bibliographie")
 
 #pagebreak()
 
 = Annexes
 #lorem(50)
- Conclusion
-
-#lorem(500)

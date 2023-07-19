@@ -1,0 +1,2 @@
+# compiled files should generally not be committed into git
+*.pdf
