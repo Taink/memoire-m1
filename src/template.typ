@@ -19,16 +19,22 @@
   let body-font = "New Computer Modern Sans"
   let heading-font = "Linux Libertine"
   
-  set text(font: body-font, lang: "fr")
+  set text(12pt, font: body-font, lang: "fr")
   show heading: set text(font: heading-font)
   show math.equation: set text(weight: 400)
-  set heading(numbering: "I.1")
+  set heading(numbering: (first, second, ..other) => {
+    if other.pos().len() > 0 {
+      text(0.9em, weight: 700, first + "." + second + ".")
+    } else {
+      text(0.9em, weight: 700, first + ".")
+    }
+  })
 
-  // Set run-in subheadings, starting at level 3.
+  // Set run-in subheadings, starting at level 4.
   show heading: it => {
-    if it.level > 2 {
+    if it.level > 3 {
       parbreak()
-      text(11pt, style: "italic", weight: "regular", it.body + ".")
+      text(12pt, style: "italic", weight: "regular", it.body + ".")
     } else {
       it
     }

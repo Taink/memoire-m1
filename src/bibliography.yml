@@ -41,3 +41,32 @@ atlassian-ci-def:
   title: Qu'est-ce que l'intégration continue ? 
   author: Rehkopf, Max
   url: https://www.atlassian.com/fr/continuous-delivery/continuous-integration
+
+ieee-report-ci-tools:
+  type: Article
+  title: Continuous Integration and Its Tools
+  author:
+    - Meyer, Mathias
+  date: 2014-05 # around may 2014
+  doi: '10.1109/MS.2014.58'
+  page-range: 14-16
+  parent:
+    type: Periodical
+    title: IEEE Software
+    volume: 31
+    issue: 3
+
+ieee-ci-review:
+  type: Article
+  title: 'Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices'
+  author:
+    - Shahin, Mojtaba
+    - Ali Babar, Muhammad
+    - Zhu, Liming
+  date: 2017-03-22
+  doi: '10.1109/ACCESS.2017.2685629'
+  page-range: 14-16
+  parent:
+    type: Periodical
+    title: IEEE Access
+    volume: 5

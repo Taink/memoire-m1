@@ -89,11 +89,36 @@ Les experts s'accordent aussi sur les objectifs de l'intégration continue :
 - Visualiser rapidement l'évolution du développement du logiciel
 
 Enfin, l'intégration continue porte sur un certain ensemble de tâches particulier :
-principalement les tests d'intégration évidemment, mais aussi la compilation,
-et d'éventuels tests de conformité avec les politiques établies au début du projet.
+principalement les tests d'intégration évidemment, mais aussi la compilation.
+Il s'appuie généralement sur une automatisation de ces tâches,
+et sur un système de notification en cas d'échec.
+Ces systèmes fonctionnent eux-même mieux lorsqu'ils sont intégrés
+dans des systèmes de gestion de version, comme Git.
+L'intégration continue est donc un ensemble de pratiques qui
+redéfinissent les processus de développement de logiciels en profondeur.
 
-== Présentation d'outils et technologies d'intégration continue
-#lorem(700)
+== Présentation d'outils et technologies
+Nous l'avons vu plus tôt, l'intégration continue s'appuie sur
+une multitude de pratiques.
+De nombreuses technologies et outils existent pour en faciliter la mise
+œuvre, et nous allons en présenter quelques-uns.
+
+=== Jenkins
+Jenkins est un outil d'intégration continue open-source écrit en Java.
+Il est l'un des plus anciens outils d'intégration continue,
+et est toujours très utilisé aujourd'hui.
+Il est très flexible, et permet de mettre en place des pipelines
+d'intégration continue très complexes.
+Il est également très facile à prendre en main,
+et dispose d'une très grande communauté d'utilisateurs. @ieee-report-ci-tools
+
+=== GitLab CI
+GitLab CI est un outil d'intégration continue open-source
+intégré à la plateforme GitLab.
+Il est lui aussi très flexible, et permet de mettre en place
+des pipelines d'intégration continue très complexes.
+
+
 == Revue de littérature contextualisée
 #lorem(400)
 
@@ -168,7 +193,7 @@ et d'éventuels tests de conformité avec les politiques établies au début du 
 
 #pagebreak()
 
-#bibliography("./bibliography.yml", title: "Bibliographie")
+#bibliography("./bibliography.yml", title: "Bibliographie", style: "ieee")
 
 #pagebreak()
 
