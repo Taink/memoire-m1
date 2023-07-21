@@ -42,7 +42,7 @@ atlassian-ci-def:
   author: Rehkopf, Max
   url: https://www.atlassian.com/fr/continuous-delivery/continuous-integration
 
-ieee-report-ci-tools:
+meyer-ci-tools:
   type: Article
   title: Continuous Integration and Its Tools
   author:
@@ -70,3 +70,47 @@ ieee-ci-review:
     type: Periodical
     title: IEEE Access
     volume: 5
+
+fowler-ci:
+  type: Web
+  title: Continuous Integration
+  author:
+    - Fowler, Martin
+  url: https://martinfowler.com/articles/continuousIntegration.html
+
+gitlab-ci-benefits:
+  type: Web
+  title: What is continuous integration (CI)?
+  author:
+    - Gitlab
+  url: https://about.gitlab.com/topics/ci-cd/benefits-continuous-integration/
+
+atlassian-tools-comparison:
+  type: Web
+  title: Comparaison des sept principaux outils d'intégration continue
+  author:
+    - Rehkopf, Max
+  url: https://www.atlassian.com/fr/continuous-delivery/continuous-integration/tools
+
+packt-hands-on-ci-cd:
+  type: Book
+  title: Hands-on continuous integration and delivery build and release quality software at scale with Jenkins, Travis CI, and CircleCI
+  author:
+    - Belmont, Jean-Marcel
+  isbn: 9781789133073
+  page-total: 416
+  page-range: 266-266
+
+travis-ci-compat:
+  type: Web
+  title: What Repository Providers or Version Control Systems Can I Use?
+  author:
+    - Travis CI
+  url: https://docs.travis-ci.com/user/customizing-the-build/#what-repository-providers-or-version-control-systems-can-i-use
+
+travis-blog-install:
+  type: Web
+  title: How We Improved the Installation and Update Experience for Travis CI Enterprise
+  author:
+    - Meyer, Mathias
+  url: https://web.archive.org/web/20230325140745/https://blog.travis-ci.com/2015-06-19-how-we-improved-travis-ci-installation/
