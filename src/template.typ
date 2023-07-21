@@ -22,13 +22,7 @@
   set text(12pt, font: body-font, lang: "fr")
   show heading: set text(font: heading-font)
   show math.equation: set text(weight: 400)
-  set heading(numbering: (first, second, ..other) => {
-    if other.pos().len() > 0 {
-      text(0.9em, weight: 700, first + "." + second + ".")
-    } else {
-      text(0.9em, weight: 700, first + ".")
-    }
-  })
+  set heading(numbering: "I.1.A -")
 
   // Set run-in subheadings, starting at level 4.
   show heading: it => {
