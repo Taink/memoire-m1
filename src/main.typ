@@ -55,28 +55,32 @@ finirons en déterminant le positionnement de notre étude dans l'état de l'art
 avant de tirer nos conclusions sur notre problématique.
 
 = État de l'art
-/* Parmi ces outils, les outils d'intégration continue
-sont une partie essentielle du processus de déploiement.
-Il s'agit d'un ensemble de pratiques visant
-à assurer la qualité du code écrit au fur du développement
-de nouvelles fonctionnalités. */
+// Intro de cette partie ?
+// idées ci-dessous
 
-Comme nous l'avons dit plus tôt, les outils d'intégration continue
-sont une composante essentielle de des processus de déploiement modernes.
-Commençons donc par en établir une définition.
+// Parmi ces outils, les outils d'intégration continue
+// sont une partie essentielle du processus de déploiement.
+// Il s'agit d'un ensemble de pratiques visant
+// à assurer la qualité du code écrit au fur du développement
+// de nouvelles fonctionnalités.
 
-== Définition
+// Comme nous l'avons dit plus tôt, les outils d'intégration continue
+// sont une composante essentielle de des processus de déploiement modernes.
+// Commençons donc par en établir une définition.
+
+== Définition de l'intégration continue
 
 La définition exacte de l'intégration continue,
 bien qu'elle soit largement similaire,
 diffère parmi les experts du domaine
 #cite("booch-ood", "aws-ci-def", "ibm-ci-def", "atlassian-ci-def").
 
-Le socle commun est bien retranscrit par la définition de Wikipédia@wikipedia-ci:
-"L'intégration continue est un ensemble de pratiques utilisées en génie logiciel
-consistant à vérifier à chaque modification de code source
-que le résultat des modifications ne produit pas de régression
-dans l'application développée."
+Le socle commun est bien retranscrit par la définition de Wikipédia :
+"L'intégration continue est un ensemble de pratiques utilisées
+en génie logiciel consistant à
+vérifier à chaque modification de code source que
+le résultat des modifications ne produit pas de régression
+dans l'application développée."@wikipedia-ci
 
 Il est en effet important de comprendre que l'intégration continue
 désigne les pratiques à intégrer dans ses processus métiers,
@@ -88,29 +92,31 @@ Les experts s'accordent aussi sur les objectifs de l'intégration continue :
   au travers de notifications lorsque les tests échouent par exemple
 - Visualiser rapidement l'évolution du développement du logiciel
 
-Enfin, l'intégration continue porte sur un certain ensemble de tâches particulier :
-principalement les tests d'intégration évidemment, mais aussi la compilation.
+Enfin, l'intégration continue porte principalement sur
+les tests d'intégration évidemment, mais aussi la
+compilation#footnote[La compilation consiste à transformer
+du code source en code binaire exécutable par la machine].
 Il s'appuie généralement sur une automatisation de ces tâches,
-et sur un système de notification en cas d'échec.
+et sur un système de notification en cas d'échec
+#cite("aws-ci-def", "atlassian-ci-def").
 Ces systèmes fonctionnent eux-même mieux lorsqu'ils sont intégrés
 dans des systèmes de gestion de version, comme Git.
 L'intégration continue est donc un ensemble de pratiques qui
 redéfinissent les processus de développement de logiciels en profondeur.
 
 == Présentation d'outils et technologies
-Nous l'avons vu plus tôt, l'intégration continue s'appuie sur
-une multitude de pratiques.
-De nombreuses technologies et outils existent pour en faciliter la mise
-œuvre, et nous allons en présenter quelques-uns.
+Nous nous proposons maintenant à réaliser une liste non-exhaustive
+des outils d'intégration continue les plus utilisés.
+@ieee-report-ci-tools.
 
 === Jenkins
 Jenkins est un outil d'intégration continue open-source écrit en Java.
 Il est l'un des plus anciens outils d'intégration continue,
-et est toujours très utilisé aujourd'hui.
+et il est toujours très utilisé aujourd'hui.
 Il est très flexible, et permet de mettre en place des pipelines
 d'intégration continue très complexes.
 Il est également très facile à prendre en main,
-et dispose d'une très grande communauté d'utilisateurs. @ieee-report-ci-tools
+et dispose d'une très grande communauté d'utilisateurs.
 
 === GitLab CI
 GitLab CI est un outil d'intégration continue open-source
