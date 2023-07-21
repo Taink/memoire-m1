@@ -68,9 +68,42 @@ avant de tirer nos conclusions sur notre problématique.
 // sont une composante essentielle de des processus de déploiement modernes.
 // Commençons donc par en établir une définition.
 
-== Définition de l'intégration continue
+== Définitions
+=== Intégration
+Avant de parler d'intégration continue, définir la notion d'intégration
+dans notre contexte devrait permettre de faire comprendre exactement
+ce que l'intégration _continue_ vise à faire.
 
-La définition exacte de l'intégration continue
+Dans notre contexte, l'intégration désigne l'étape durant laquelle
+on rassemble les modifications réalisées par les équipes de développement.
+Cette étape précède généralement l'envoi d'un livrable au client,
+et comprend donc la mise en commun des modifications,
+la compilation (ou une étape équivalente), et enfin
+les tests de conformité fonctionnelle (souvent par un service QA dédié).
+
+C'est une étape longue et compliquée, car elle peut révèler des bugs
+qui nécessiteront un travail conséquent pour être corrigés.
+C'est également souvent une source de conflits entre les équipes de
+développement, l'une introduisant des changements qui impactent les autres,
+sans qu'aucune équipe ne soit au courant avant l'intégration.
+De plus, sur les projets à plus long terme,
+c'est une étape qui peut révèler des bugs de _régression_#footnote[La
+régression correspond à une diminution de la qualité ou de la complétude
+du logiciel développé. Autrement dit, un changement introduit dans
+une nouvelle version qui vient perturber un mécanisme d'une version
+plus ancienne.], qui sont autrement plus difficile à déceler pendant
+le développement.
+#cite(
+  "fowler-ci",
+  "packt-hands-on-ci-cd",
+)
+
+=== Intégration continue
+Introduite dans les pratiques d'_Extreme Programming_#footnote[Il s'agit
+d'une méthodologie similaire à la méthode Agile. Nous n'entrerons pas
+dans les détails de son fonctionnement ici puisque la CI est devenue
+indépendante de sa création et s'est standardisée dans l'industrie.]
+la définition exacte de l'intégration continue
 (ou "CI" pour "_Continuous Integration_"),
 bien qu'elle soit souvent similaire,
 diffère parmi les experts du domaine
@@ -83,7 +116,8 @@ diffère parmi les experts du domaine
   "fowler-ci"
 ).
 
-Le socle commun est bien retranscrit par la définition de @wikipedia-ci :
+Le socle commun est bien retranscrit par la définition de Wikipedia
+@wikipedia-ci :
 "L'intégration continue est un ensemble de pratiques utilisées
 en génie logiciel consistant à
 vérifier à chaque modification de code source que
@@ -93,23 +127,25 @@ dans l'application développée."
 Il est en effet important de comprendre que l'intégration continue
 désigne les pratiques à intégrer dans ses processus métiers,
 et non les outils qui permettent d'en faciliter la mise en place.
-@fowler-ci explique que la différence entre un projet qui utilise de
-l'intégration continue et un projet qui n'en utilise pas
-ne réside pas dans l'utilisation d'un outil cher et/ou complexe,
+Martin Fowler @fowler-ci explique d'ailleurs, dans son article sur le sujet,
+que la différence entre un projet qui pratique de la CI
+et un projet qui n'en pratique pas ne réside pas dans l'utilisation
+d'un outil cher et/ou complexe,
 mais dans la pratique quotidienne d'une intégration par les développeurs
 sur un répertoire contrôlé du code source#footnote[Un répertoire contrôlé
 du code source est un répertoire de code source utilisant un système de
 contrôle de version, comme Git, CVS ou Subversion par exemple.]<vcs>.
 
-Les experts s'accordent aussi sur les objectifs de l'intégration continue :
+Par ailleurs, les experts s'accordent aussi sur les objectifs de
+l'intégration continue :
 - Accélérer la correction de bugs, au travers de tests systématiques
   sur les modifications réalisées
   #cite(
     "aws-ci-def",
     "ibm-ci-def",
     "atlassian-ci-def",
+    "fowler-ci",
     "meyer-ci-tools",
-    "fowler-ci"
   )
 - Améliorer la communication des problèmes potentiels,
   au travers de notifications lorsque les tests échouent par exemple
@@ -125,24 +161,34 @@ Les experts s'accordent aussi sur les objectifs de l'intégration continue :
     "atlassian-ci-def"
   )
 
-Enfin, l'intégration continue porte principalement sur
-les tests d'intégration évidemment, mais aussi la
-compilation#footnote[La compilation consiste à transformer
-du code source en code binaire exécutable par la machine].
-Il s'appuie généralement sur une automatisation de ces tâches,
-et sur un système de notification en cas d'échec
-#cite("aws-ci-def", "atlassian-ci-def").
-Ces systèmes fonctionnent eux-même mieux lorsqu'ils sont intégrés
-dans des systèmes de gestion de version, comme Git, CVS ou Subversion.
-L'intégration continue est donc un ensemble de pratiques qui
-redéfinissent les processus de développement de logiciels en profondeur.
+En somme, l'intégration continue vise à réduire les problèmes
+introduits par la collaboration sur les projets informatiques,
+en particulier en ciblant le moment du partage des modifications
+du code source.
+#cite(
+  "aws-ci-def",
+  "ieee-ci-review",
+  "fowler-ci",
+  "meyer-ci-tools",
+  "packt-hands-on-ci-cd",
+)
+
+La CI s'appuie généralement sur une automatisation de ses pratiques,
+et sur un système de notification en cas d'échec.
+#cite("aws-ci-def", "atlassian-ci-def")
+
+L'automatisation ne devient possible que lorsque le code source est
+géré sur le répertoire d'un système de contrôle de version,
+comme Git, CVS ou Subversion.
+L'intégration continue peut donc nécessiter une redéfinition
+en profondeur des processus de développement de logiciels.
 
 == Présentation d'outils et technologies
 Nous nous proposons maintenant de lister
 les outils d'intégration continue les plus utilisés,
 en analysant leur position dans le marché.
 
-=== Jenkins
+=== Jenkins <jenkins>
 Jenkins est un outil d'intégration continue open-source écrit en Java.
 Il est très flexible, et permet de mettre en place des pipelines
 d'intégration continue très complexes.
@@ -181,7 +227,8 @@ mais son intégration sur une infrastructure n'est pas facile,
 de l'aveu de l'entreprise elle-même@travis-blog-install],
 et s'est surtout fait connaître pour son offre gratuite pour les
 répertoires publics open-source.
-Il est plutôt flexible, et permet à peu près 
+Il est plutôt flexible, et permet de faire à peu près la même chose
+que #link(label("jenkins"))[Jenkins].
 
 #table(
   columns: (1fr, 1fr),
@@ -217,6 +264,9 @@ reproductible, souvent très proche de celui de production.
 Son principal atout réside dans son intégration à la plateforme
 GitLab, qui offre des fonctionnalités de gestion supplémentaires
 à travers l'utilisation de son service GitLab CI.
+
+Ce service fonctionne main dans la main avec le reste de l'offre de GitLab,
+qui se vend d'ailleurs comme une "plateforme DevOps".
 
 == Revue de littérature
 #lorem(400)

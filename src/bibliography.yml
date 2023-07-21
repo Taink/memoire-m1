@@ -114,3 +114,11 @@ travis-blog-install:
   author:
     - Meyer, Mathias
   url: https://web.archive.org/web/20230325140745/https://blog.travis-ci.com/2015-06-19-how-we-improved-travis-ci-installation/
+
+trunk-based-development-website:
+  type: Web
+  title: Trunk Based Development
+  author:
+    - Hammant, Paul
+    - al.
+  url: https://trunkbaseddevelopment.com/
