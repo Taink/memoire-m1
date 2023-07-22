@@ -6,16 +6,20 @@
 
 booch-ood:
   type: Book
-  title: Object Oriented Design with Applications
+  title: Object-oriented analysis and design with applications
   author:
     - Booch, Grady
   editor:
     - Booch, Grady
   publisher: Benjamin/Cummings Publishing Company
   organization: University of Michigan
-  isbn: 9780805300918
-  page-range: 209-209
-  page-total: 580
+  isbn: 9781580539111
+  parent:
+    type: Series
+    title: The Benjamin/Cummings series in object-oriented software engineering
+  # page-range: 209-209
+  page-total: 543
+  edition: 2nd ed
   date: 1991
 
 wikipedia-ci:
@@ -97,6 +101,8 @@ packt-hands-on-ci-cd:
   title: Hands-on continuous integration and delivery build and release quality software at scale with Jenkins, Travis CI, and CircleCI
   author:
     - Belmont, Jean-Marcel
+  publisher: Packt Publishing
+  date: 2018
   isbn: 9781789133073
   page-total: 416
   page-range: 266-266
