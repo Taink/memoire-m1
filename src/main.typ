@@ -530,7 +530,21 @@ par ordre d'importance :
 6. Le domaine d'application
 7. Une infrastructure appropriée
 
-#pagebreak()
+Une lacune présente dans la littérature existante est cependant qu'elle peut
+être sujette, du fait de sa production par des acteurs de l'industrie,
+à des conflits d'intérêts ou du moins des manques d'objectivité.
+Il est donc difficile de se baser sur l'avis d'une ou deux revues.
+
+Une autre lacune, celle-là beaucoup plus importante, est que la plupart
+des ouvrages récents publiés présupposent une grande familiarité avec le
+reste des pratiques DevOps, et oublient un peu comment simplement intégrer
+les idées de l'intégration continue dans un contexte moins compatible.
+Très peu de publications expliquent leur choix de technologie, et les défis
+qui ont pu les réorienter.
+
+Cette étude se place donc comme un témoignage de l'applicabilité des pratiques
+d'intégration continue, à travers l'incorporation de leurs outils au sein de
+processus métiers orthogonaux aux pratiques DevOps.
 
 = Contextualisation de la mission en entreprise
 #lorem(300)
