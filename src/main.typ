@@ -78,8 +78,9 @@ Dans notre contexte, l'intégration désigne l'étape durant laquelle
 on rassemble les modifications réalisées par les équipes de développement.
 Cette étape précède généralement l'envoi d'un livrable au client,
 et comprend donc la mise en commun des modifications,
-la compilation (ou une étape équivalente), et enfin
-les tests de conformité fonctionnelle (souvent par un service QA dédié).
+la compilation (ou une étape équivalente), qu'on appelle généralement _build_,
+et enfin les tests de conformité fonctionnelle
+(souvent réalisés par un service QA dédié).
 
 C'est une étape longue et compliquée, car elle peut révèler des bugs
 qui nécessiteront un travail conséquent pour être corrigés.
@@ -485,6 +486,27 @@ Voici une pipeline équivalente à celle décrite plus haut :
 La littérature sur l'intégration continue est souvent produite par
 des acteurs du métier, mais sa croissance suit l'intérêt qui est porté
 pour cette approche qui facilite grandement les projets informatiques.
+
+Martin Fowler, dans son article sur l'intégration continue @fowler-ci,
+présente le concept au plus grand nombre.
+C'est un article fondateur, écrit en 2006, qui fournit plusieurs
+informations importantes sur le concept d'intégration continue,
+son utilité, et son applicabilité.
+Il appuie sa présentation par des exemples pratiques tirés de
+son expérience professionnelle, et y établit les critères nécessaires à
+la bonne conduite de l'intégration continue :
+- Maintenir une source de vérité unique pour le code source
+- Automatiser le build
+- Ajouter des tests à l'étape de build
+- Tous les développeurs devraient pousser leurs modifications (ou _commits_
+  dans le contexte de Git et Subversion) quotidiennement
+- Toutes les commits devraient déclencher un build
+- Un build raté devrait être corrigé aussitôt
+- Garder un build rapide
+- Réaliser les tests dans un clone de l'environnement de production
+- Rendre l'accès à un exécutable récent très facile
+- Tout le monde doit voir ce qui se passe
+- Automatiser le déploiement
 
 Mojtaba Shahin et al. @ieee-ci-review ont produit un travail remarquable
 dans leur propre revue de la littérature sur le sujet, et ils y produisent
