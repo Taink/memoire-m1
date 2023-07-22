@@ -120,5 +120,23 @@ trunk-based-development-website:
   title: Trunk Based Development
   author:
     - Hammant, Paul
-    - al.
   url: https://trunkbaseddevelopment.com/
+
+travis-vs-circleci:
+  type: Web
+  title: 'CircleCI vs TravisCI: Core Differences'
+  author:
+    - Tej, Krishna
+  url: https://www.browserstack.com/guide/circleci-vs-travis-ci
+
+github-about-ci:
+  type: Web
+  title: About Continuous Integration
+  author: Github
+  url: https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration
+
+gitlab-about-ci:
+  type: Web
+  title: Continous Integration and Delivery
+  author: Gitlab
+  url: https://about.gitlab.com/features/continuous-integration/

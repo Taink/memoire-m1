@@ -108,12 +108,12 @@ la définition exacte de l'intégration continue
 bien qu'elle soit souvent similaire,
 diffère parmi les experts du domaine
 #cite(
+  "fowler-ci",
   "booch-ood",
   "aws-ci-def",
   "ibm-ci-def",
   "atlassian-ci-def",
   "ieee-ci-review",
-  "fowler-ci"
 ).
 
 Le socle commun est bien retranscrit par la définition de Wikipedia
@@ -141,10 +141,10 @@ l'intégration continue :
 - Accélérer la correction de bugs, au travers de tests systématiques
   sur les modifications réalisées
   #cite(
+    "fowler-ci",
     "aws-ci-def",
     "ibm-ci-def",
     "atlassian-ci-def",
-    "fowler-ci",
     "meyer-ci-tools",
   )
 - Améliorer la communication des problèmes potentiels,
@@ -166,11 +166,11 @@ introduits par la collaboration sur les projets informatiques,
 en particulier en ciblant le moment du partage des modifications
 du code source.
 #cite(
+  "fowler-ci",
+  "packt-hands-on-ci-cd",
   "aws-ci-def",
   "ieee-ci-review",
-  "fowler-ci",
   "meyer-ci-tools",
-  "packt-hands-on-ci-cd",
 )
 
 La CI s'appuie généralement sur une automatisation de ses pratiques,
@@ -183,10 +183,14 @@ comme Git, CVS ou Subversion.
 L'intégration continue peut donc nécessiter une redéfinition
 en profondeur des processus de développement de logiciels.
 
+// === DevOps
+// Le DevOps est un ensemble de méthodologies qui consistent à accélerer
+// les cycles de vie des projets de développement d'applications.
+
+
 == Présentation d'outils et technologies
 Nous nous proposons maintenant de lister
-les outils d'intégration continue les plus utilisés,
-en analysant leur position dans le marché.
+les outils d'intégration continue les plus utilisés.
 
 === Jenkins <jenkins>
 Jenkins est un outil d'intégration continue open-source écrit en Java.
@@ -195,13 +199,37 @@ d'intégration continue très complexes.
 Il est relativement facile à prendre en main,
 mais la complexité des pipelines qu'il permet de mettre en œuvre
 impacte sa facilité d'utilisation par rapport à des solutions plus modernes.
-C'est en effet un des premiers outils de son genre et
+C'est en effet un des premiers outils répandu de son genre et
 il a défini de nombreux standards dans son marché.
 Il occupe encore aujourd'hui une large part
 du marché des outils d'intégration continue, même si
 des solutions plus récentes l'ont fait peu à peu tomber en désuétude,
 notamment en créant des alternatives plus faciles d'utilisation.
 #cite("ieee-ci-review", "packt-hands-on-ci-cd")
+
+Voici un exemple d'une pipeline Jenkins qui permet de tester une application
+Java Maven en générant un rapport (sa syntaxe est celle de Groovy) :
+
+#align(center)[
+  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+    ```groovy
+    node {
+      stage('SCM') {
+        git 'https://github.com/user/repo.git'
+      }
+      
+      stage('Build') {
+        sh 'mvn clean install'
+      }
+      
+      stage('Test') {
+        sh 'mvn test'
+        junit 'target/surefire-reports/*.xml'
+      }
+    }
+    ```
+  ])
+]
 
 #table(
   columns: (1fr, 1fr),
@@ -211,24 +239,52 @@ notamment en créant des alternatives plus faciles d'utilisation.
   [
     - Écosystème robuste,
     - Communauté active,
-    - Exécution sur site#footnote[L'exécution sur site est souvent
+    - Exécution sur site gratuite#footnote[L'exécution sur site est souvent
       nécessaire dans des contextes où les données utilisées
-      sont sensibles@ieee-ci-review]<onsite>
+      sont sensibles@ieee-ci-review, ou du moins si le réseau d'entreprise
+      est derrière un pare-feu peu laxiste.]
   ],
   [
-
+    N'importe quel système : Jenkins est un serveur d'automatisation.
+    À partir du moment où une étape est automatisable, Jenkins peut
+    l'automatiser.
   ]
 )
 
-=== Travis CI
+=== Travis CI <travis>
 Travis CI est un service hébergé d'intégration continue.
 Il est distribué sous une licence libre#footnote[Le code est certes libre,
-mais son intégration sur une infrastructure n'est pas facile,
-de l'aveu de l'entreprise elle-même@travis-blog-install],
+mais l'intégration de son offre "entreprise", qui permet d'héberger sur 
+site sur une infrastructure n'est pas facile,
+de l'aveu de Travis eux-même@travis-blog-install],
 et s'est surtout fait connaître pour son offre gratuite pour les
 répertoires publics open-source.
 Il est plutôt flexible, et permet de faire à peu près la même chose
 que #link(label("jenkins"))[Jenkins].
+La seule différence avec ce dernier c'est qu'il doit suivre les changements
+réalisés sur une plateforme en ligne, ce qui limite logiquement
+sa compatibilité à une poignée de sites.
+Il est cependant très facile d'utilisation, et utilise un fichier de
+configuration écrit en YAML (son format est donc répandu).
+C'est une idée qui est reprise dans beaucoup d'autres systèmes
+similaires (et le reste des outils présentés dans cette section sont
+configurés en YAML également).
+
+Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
+aussi de tester une application Java Maven en générant un rapport :
+#align(center)[
+  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+    ```yaml
+    language: java
+    jdk:
+      - openjdk8
+    script:
+      - mvn clean install
+      - mvn test
+      - cat target/surefire-reports/*.txt
+    ```
+  ])
+]
 
 #table(
   columns: (1fr, 1fr),
@@ -236,11 +292,10 @@ que #link(label("jenkins"))[Jenkins].
   align: horizon,
   [*Principaux atouts*], [*Compatible avec*@travis-ci-compat],
   [
-    - Écosystème robuste,
+    - Facile d'utilisation,
     - Communauté active,
-    - Exécution sur site#footnote[L'exécution sur site est souvent
-      nécessaire dans des contextes où les données utilisées
-      sont sensibles@ieee-ci-review]<onsite>
+    - Mise en place très rapide,
+    - Gratuit sur les projets open-source
   ],
   [
     - Github
@@ -250,25 +305,183 @@ que #link(label("jenkins"))[Jenkins].
   ]
 )
 
-=== CircleCI
-CircleCI est un autre service
+=== CircleCI <circle>
+CircleCI est un autre service alternatif à #link(label("travis"))[Travis].
+Il est fonctionnellement très similaire, mais s'en distingue
+par une attention plus importante à la performance et l'efficacité.
+Il est un peu moins facile d'utilisation (mais toujours plus que Jenkins),
+mais a mis en place beaucoup de fonctionnalités permettant d'améliorer
+la rapidité des étapes de build et de test, ce qui accélère encore
+davantage l'intégration continue.
+@travis-vs-circleci
 
-=== GitLab CI
+Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
+aussi de tester une application Java Maven en générant un rapport :
+#align(center)[
+  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+    ```yaml
+    version: 2.1
+    jobs:
+      build:
+        docker:
+          - image: circleci/openjdk:8-jdk
+        steps:
+          - checkout
+          - run: mvn clean install
+          - run: mvn test
+          - store_test_results:
+              path: target/surefire-reports
+    ```
+  ])
+]
+#pagebreak() // necessary for styling
+#table(
+  columns: (1fr, 1fr),
+  inset: 10pt,
+  align: horizon,
+  [*Principaux atouts*], [*Compatible avec*@travis-vs-circleci],
+  [
+    - Assez facile d'utilisation,
+    - Mise en place et exécution très rapides,
+    - Gratuit sur les projets open-source
+  ],
+  [
+    - Github
+    - Atlassian Bitbucket
+    - Github Enterprise
+  ]
+)
+
+=== GitLab CI <gitlab-ci>
 GitLab CI est un outil d'intégration continue open-source
 intégré à la plateforme GitLab.
-Il est lui aussi très flexible, et permet de mettre en place
-des pipelines d'intégration continue tout aussi complexes.
+Il est moins flexible que #link(label("travis"))[TravisCI] ou
+#link(label("circle"))[CircleCI] mais compense son exclusivité avec
+Gitlab par une intégration inatteignable pour un service externe.
 Il s'appuie sur l'utilisation de conteneurs Docker,
 qui lui permettent d'exécuter ses tâches dans un environnement
 reproductible, souvent très proche de celui de production.
-Son principal atout réside dans son intégration à la plateforme
-GitLab, qui offre des fonctionnalités de gestion supplémentaires
-à travers l'utilisation de son service GitLab CI.
+Son principal atout réside dans son intégration à la plateforme GitLab ;
+il est possible depuis une pipeline Gitlab d'interagir en profondeur
+avec le reste de plateforme, qui peut alors réagir directement aux
+changements introduits dans les dernières versions.
+@gitlab-about-ci
 
-Ce service fonctionne main dans la main avec le reste de l'offre de GitLab,
-qui se vend d'ailleurs comme une "plateforme DevOps".
+Il faut par ailleurs noter que l'exécuteur des tâches est un
+"runner" qu'il est possible d'héberger sur site gratuitement. Des runners
+hébergés par l'instance du site sont cependant mis à disposition des
+utilisateurs, qui disposent de crédits d'utilisation à la minute
+-- ce fonctionnement est alors le même que #link(label("travis"))[TravisCI]
+et #link(label("circle"))[CircleCI].
+Héberger le runner permet de l'utiliser dans un réseau d'entreprise sans
+permettre à Gitlab d'y accéder, mais l'orchestration des pipelines entre
+les runners est laissée à l'instance Gitlab#footnote[L'instance peut aussi
+être hébergée sur site, mais c'est un projet à part entière.]
 
-== Revue de littérature
+Le service CI fonctionne main dans la main avec le reste de l'offre de 
+GitLab, qui se vend d'ailleurs comme une "plateforme DevOps", et qui offre
+ainsi la possibilité d'unifier toutes les informations nécessaires à la
+gestion du projet, fournissant des services de gestion de projet approchant
+à certains égards des plateformes dédiées (comme Jira par exemple).
+
+Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
+aussi de tester une application Java Maven en générant un rapport :
+#align(center)[
+  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+    ```yaml
+    image: maven:3.6.1-jdk-8
+    stages:
+      - build
+      - test
+    build:
+      stage: build
+      script: mvn clean install
+    test:
+      stage: test
+      script: mvn test
+      artifacts:
+        when: always
+        paths:
+          - target/surefire-reports
+    ```
+  ])
+]
+#pagebreak() // necessary for styling
+#table(
+  columns: (1fr, 1fr),
+  inset: 10pt,
+  align: horizon,
+  [*Principaux atouts*], [*Compatible avec*],
+  [
+    - Intégration privilégiée avec Gitlab
+    - Gratuit si runner auto-hébergé + crédits gratuits sur runners partagés
+  ],
+  [
+    Gitlab seulement, possibilité d'importer des projets depuis
+    Bitbucket et Github cependant.
+  ]
+)
+
+=== Github Actions <github-actions>
+Github Actions est un service très similaire à
+#link(label("gitlab-ci"))[Gitlab CI],
+mais pour Github au lieu de Gitlab.
+
+Il en diffère cependant sur certains points @github-about-ci :
+- Il se base non seulement sur Docker, mais aussi sur des étapes
+  partagées par la communauté
+- Il peut interagir avec des évènements plus variés que des modifications
+  de code ; des pull requests, des issues, des commentaires, des reviews...
+  C'est un outil donc beaucoup plus flexible sur la communication que
+  son concurrent, qui lui est davantage pensé pour fonctionner
+  avec des systèmes de déploiement complexes.
+- Son runner n'est pas lui-même dans un conteneur Docker : c'est simplement
+  un script shell. Cela signifie que l'environnement d'exécution du runner
+  n'est pas isolé du serveur sur lequel il est exécuté.
+
+Voici une pipeline équivalente à celle décrite plus haut :
+#align(center)[
+  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+    ```yaml
+    name: Java CI
+    on: [push, pull_request]
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Set up JDK 1.8
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.8
+        - name: Build with Maven
+          run: mvn clean install
+        - name: Test with Maven
+          run: mvn test
+        - name: Archive test results
+          uses: actions/upload-artifact@v2
+          with:
+            name: surefire-reports
+            path: target/surefire-reports
+    ```
+  ])
+]
+
+#table(
+  columns: (1fr, 1fr),
+  inset: 10pt,
+  align: horizon,
+  [*Principaux atouts*], [*Compatible avec*],
+  [
+    - Intégration privilégiée avec Github
+    - Gratuit si runner auto-hébergé + crédits gratuits sur runners partagés
+  ],
+  [
+    Github seulement.
+  ]
+)
+
+== Revue de la littérature
 #lorem(400)
 
 #pagebreak()
