@@ -482,7 +482,31 @@ Voici une pipeline équivalente à celle décrite plus haut :
 )
 
 == Revue de la littérature
-#lorem(400)
+La littérature sur l'intégration continue est souvent produite par
+des acteurs du métier, mais sa croissance suit l'intérêt qui est porté
+pour cette approche qui facilite grandement les projets informatiques.
+
+Mojtaba Shahin et al. @ieee-ci-review ont produit un travail remarquable
+dans leur propre revue de la littérature sur le sujet, et ils y produisent
+une synthèse très instructive sur les tenants et aboutissants de la CI mais
+aussi d'autres étapes du cycle DevOps : la livraison et le déploiement
+continus.
+Dans leur sélection (qui inclut 69 ouvrages, de 2004 à juin 2016), ils
+notent que la majorité sont récents, et qu'ils sont pour la plupart produit
+par l'industrie du développement logiciel.
+Ils constatent en outre une majorité de projets web et utilitaires,
+avec comme outils principaux Git/Github et Subversion pour le contrôle de
+version et Jenkins comme serveur d'intégration.
+Ils établissent enfin une liste de 7 facteurs qui impactent le succès des
+projets d'incorporation des outils d'intégration continue,
+par ordre d'importance :
+1. L'effort et le temps alloués pour tester les approches
+2. La transparence et la communication au sein de l'équipe
+3. De bons principes de conceptions
+4. Le client
+5. La présence d'éléments motivés et compétents au sein de l'équipe
+6. Le domaine d'application
+7. Une infrastructure appropriée
 
 #pagebreak()
 
