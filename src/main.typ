@@ -547,9 +547,70 @@ d'intégration continue, à travers l'incorporation de leurs outils au sein de
 processus métiers orthogonaux aux pratiques DevOps.
 
 = Contextualisation de la mission en entreprise
-#lorem(300)
+// #lorem(300)
+Notre allons réaliser une étude de cas, celui de l'Adagp.
+Cette entreprise, créée en 1953, est une société à but non lucratif.
+
+"ADAGP" est un acronyme qui signie
+"Association pour la Diffusion des Arts Graphiques et Plastiques"
+#footnote[
+  Elle a été rebaptisée depuis la loi 3 juillet 1986 en "Société des artistes
+  dans les arts graphiques et visuels"
+] ;
+c'est un _Organisme de Gestion Collective_,
+qui représente des artistes d'horizons très différents :
+plus de 40 disciplines artistiques sont représentées
+parmi les arts graphiques et plastiques
+(allant de la peinture à l'architecture,
+la photographie à la sculpture,
+en passant par la ferronerie et la bande dessinée ou le manga).
+
+Elle défend leurs droits, et a été fondée par des artistes pour des artistes.
+Elle joue en somme un rôle d'intermédiaire juridique entre les artistes
+et les personnes qui, d'une façon ou d'une autre,
+veulent utiliser leurs œuvres.
+
+C'est une entreprise de taille moyenne, dont le nombre d'employés (aussi
+appelés _gestionnaires_ dans ce contexte) tourne autour de 70 personnes.
+
+Son statut juridique de SPRD
+#footnote[
+  Pour Société de Perception et de Répartition des Droits
+]
+la soumet à un contrôle annuel de la Cour des
+Comptes (à l'instar d'autres sociétés d'auteur comme la SACEM ou la SACD par
+exemple) et son statut de société d'auteur (et de société à but non lucratif)
+l'oblige à redistribuer une partie de ses perceptions dans diverses actions,
+dont l'Action Culturelle par exemple.
+
 == Contexte de l'entreprise et processus métiers existants
-#lorem(400)
+// #lorem(400)
+Je suis alternant au sein du service informatique de l'Adagp.
+Ce service est composé de 4 personnes (3 si on omet ma présence),
+et intervient dans tous les autres services de l'Adagp,
+notamment à travers l'ERP développé en interne, SIGEDAV.
+Ce dernier est l'outil utilisé par l'ensemble de l'entreprise
+pour gérer les droits de ses adhérents.
+
+C'est un service important, essentiel au bon fonctionnement de l'Adagp,
+et qui a à ce titre une multitude de responsabilités, parmi lesquelles :
+- Le développement et le support de SIGEDAV, l'ERP interne (écrit en Java),
+- Le développement et le support de l'extranet,
+- La gestion du parc informatique de l'Adagp,
+- La gestion du réseau interne,
+- Le support technique
+
+Contrairement à la plupart des autres services de l'Adagp,
+ses effectifs n'ont pas changé depuis le début de mon alternance.
+Sa petite taille est à la racine de ses choix de processus métiers.
+
+Chacun des membres du service a une spécialité qui lui incombe,
+mais tous doivent être en mesure de réaliser du support
+en l'absence d'un des autres membres.
+En particulier, chaque membre fournit aux autres une documentation relative
+à la gestion des applications dont il a la responsabilité
+(installation, exploitation, mise à jour...).
+
 == Défis et lacunes
 #lorem(500)
 == Gains potentiels et avantages

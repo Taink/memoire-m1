@@ -146,3 +146,9 @@ gitlab-about-ci:
   title: Continous Integration and Delivery
   author: Gitlab
   url: https://about.gitlab.com/features/continuous-integration/
+
+adagp-presentation:
+  type: Web
+  title: Présentation générale de l'ADAGP
+  author: ADAGP
+  url: https://www.adagp.fr/fr/role-et-missions-de-ladagp/presentation-generale-de-ladagp
