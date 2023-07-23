@@ -610,11 +610,44 @@ en l'absence d'un des autres membres.
 En particulier, chaque membre fournit aux autres une documentation relative
 à la gestion des applications dont il a la responsabilité
 (installation, exploitation, mise à jour...).
+// TODO(Maxime): lister d'autres processus métiers
+
+Ma mission consiste à épauler les autres membres du service informatique
+sur de nouveaux projets, soit en collaboration avec eux, soit en
+réalisant des projets en autonomie.
+Parmi ces derniers,
+on peut citer le développement du formulaire d'adhésion en ligne,
+qui permet aux artistes d'adhérer à l'Adagp par internet,
+ce qui permet de faciliter le traitement de ces demandes pour le service
+des adhésions.
+// 267/400, 133 restants (environ 1 page), progression : 66%
 
 == Défis et lacunes
-#lorem(500)
+// #lorem(500)
+L'incorporation d'outils et méthodologies d'intégration continue
+peut constituer un défi à de multiples égards.
+
+Premièrement, l'intégration continue bénéficie grandement
+de l'automatisation de certaines tâches,
+travail qui n'est généralement pas déjà fait à l'Adagp.
+
+De plus, l'équipe du service informatique n'est pas formée aux dernières
+technologies d'intégration,
+et n'a pas nécessairement le temps de se former en profondeur sur le sujet.
+Il faut donc trouver un compromis entre la mise en place d'une solution
+efficace et la facilité d'utilisation de cette dernière.
+
+Enfin, l'Adagp est une entreprise à but non lucratif de taille moyenne,
+qui n'a pas nécessairement les moyens de mettre en place une solution
+d'intégration continue complexe et coûteuse.
+Il faut donc trouver une solution qui soit à la fois efficace et si
+possible gratuite, sinon très peu coûteuse.
+// 130/500, 370 restants (environ 2 pages), progression : 26%
+
 == Gains potentiels et avantages
 #lorem(200)
+
+// méthodologies agiles ?
 
 #pagebreak()
 
