@@ -621,17 +621,37 @@ en l'absence d'un des autres membres.
 En particulier, chaque membre fournit aux autres une documentation relative
 à la gestion des applications dont il a la responsabilité
 (installation, exploitation, mise à jour...).
-// TODO(Maxime): lister d'autres processus métiers
 
-Ma mission consiste à épauler les autres membres du service informatique
-sur de nouveaux projets, soit en collaboration avec eux, soit en
-réalisant des projets en autonomie.
-Parmi ces derniers,
-on peut citer le développement du formulaire d'adhésion en ligne,
-qui permet aux artistes d'adhérer à l'Adagp par internet,
-ce qui permet de faciliter le traitement de ces demandes pour le service
-des adhésions.
-// 267/400, 133 restants (environ 1 page), progression : 66%
+Le développement sur les applications à l'ADAGP
+suit un processus d'amélioration continue.
+En premier lieu, une demande est formulée par une personne de l'Adagp.
+Ensuite, la demande est évaluée par le précopil ;
+il s'agit d'un comité décisionnel composé
+du service informatique
+et des utilisateurs à l'origine de la demande.
+Une seconde évaluation est réalisée par le copil ;
+ce comité est composé
+du service informatique,
+de la direction administrative et financière,
+et du service études et prospectives.
+
+Ce dernier comité va en particulier établir l'importance de la demande.
+Pour ce faire, il va en évaluer les gains, et risques potentiels.
+Cette importance détermine la priorité et les échéances d'implémentation
+de la demande si cette dernière est acceptée.
+En effet, les demandes, une fois acceptées,
+sont ajoutées au planning du service informatique,
+soit avec une échéance immédiate
+(pour les demandes hautement prioritaires),
+soit avec une échéance indéfinie
+(pour les demandes jugées peu importantes).
+L'importance de la demande fera osciller son échéance dans le planning
+entre ces deux extrêmes.
+Parfois, la demande constitue une obligation réglementaire :
+dans ce cas, il est nécessaire de se mettre en conformité
+avec la nouvelle législation,
+la demande a alors une priorité absolue
+et doit être traitée dans les plus brefs délais.
 
 == Défis et lacunes
 // #lorem(500)
@@ -673,9 +693,17 @@ possible gratuite, sinon très peu coûteuse.
 #pagebreak()
 
 = Mise en œuvre et responsabilités liées à la mission
-== Actions entreprises
-#lorem(500)
 == Responsabilités assumées
+Ma mission consiste à épauler les autres membres du service informatique
+sur de nouveaux projets, soit en collaboration avec eux, soit en
+réalisant des projets en autonomie.
+Parmi ces derniers,
+on peut citer le développement du formulaire d'adhésion en ligne,
+qui permet aux artistes d'adhérer à l'Adagp par internet,
+ce qui permet de faciliter le traitement de ces demandes pour le service
+des adhésions.
+// #lorem(500)
+== Actions entreprises
 #lorem(500)
 == Défis rencontrés et leurs solutions
 #lorem(500)
