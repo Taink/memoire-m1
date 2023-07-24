@@ -565,7 +565,18 @@ parmi les arts graphiques et plastiques
 la photographie à la sculpture,
 en passant par la ferronerie et la bande dessinée ou le manga).
 
-Elle défend leurs droits, et a été fondée par des artistes pour des artistes.
+D'après le CNC @cnc-sprd,
+"[l'ADAGP] intervient dans les domaines suivants :
+droit de reproduction
+(livres, posters, presse, merchandising...),
+droit de représentation
+(audiovisuel, présentation publique...),
+droit de suite,
+multimédia,
+copie privée,
+photocopie,
+droit de prêt".
+
 Elle joue en somme un rôle d'intermédiaire juridique entre les artistes
 et les personnes qui, d'une façon ou d'une autre,
 veulent utiliser leurs œuvres.
