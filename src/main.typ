@@ -673,12 +673,34 @@ qui n'a pas nécessairement les moyens de mettre en place une solution
 d'intégration continue complexe et coûteuse.
 Il faut donc trouver une solution qui soit à la fois efficace et si
 possible gratuite, sinon très peu coûteuse.
-// 130/500, 370 restants (environ 2 pages), progression : 26%
+Le plus difficile sera de trouver une solution
+qui soit à la fois efficace et facile d'utilisation,
+car les solutions gratuites sont souvent plus complexes à mettre en place.
+
+En effet, @ieee-ci-review note que l'effort et le temps alloués
+à l'expérimentation des approches d'intégration continue
+sont les facteurs les plus importants pour le succès
+des projets d'incorporation des pratiques d'intégration continue,
+or les effectifs du service informatique de l'Adagp étant limités,
+il est difficile de trouver du temps pour expérimenter
+les différentes solutions disponibles
+en plus des améliorations à apporter aux applications existantes.
 
 == Gains potentiels et avantages
-#lorem(200)
+// #lorem(200)
+L'Adagp peut gagner beaucoup en facilité de collaboration
+en incorporant des outils d'intégration continue dans ses processus métiers.
+En effet, l'intégration continue permet de réduire les conflits
+de fusion de branches sur les projets informatiques à court terme,
+et permet de réduire les risques de régression à long terme.
 
 // méthodologies agiles ?
+Le service informatique pourra tirer partie
+des rituels déjà mis en place
+dans ses processus d'inspiration Agile
+pour faciliter l'incorporation de ces outils.
+
+// atlassian bamboo ?
 
 #pagebreak()
 
