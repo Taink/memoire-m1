@@ -208,11 +208,8 @@ des solutions plus récentes l'ont fait peu à peu tomber en désuétude,
 notamment en créant des alternatives plus faciles d'utilisation.
 #cite("ieee-ci-review", "packt-hands-on-ci-cd")
 
-Voici un exemple d'une pipeline Jenkins qui permet de tester une application
-Java Maven en générant un rapport (sa syntaxe est celle de Groovy) :
-
-#align(center)[
-  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+#figure(
+  box(fill: luma(230), inset: 8pt, radius: 5pt, [
     ```groovy
     node {
       stage('SCM') {
@@ -229,28 +226,44 @@ Java Maven en générant un rapport (sa syntaxe est celle de Groovy) :
       }
     }
     ```
-  ])
-]
-
-#table(
-  columns: (1fr, 1fr),
-  inset: 10pt,
-  align: horizon,
-  [*Principaux atouts*], [*Compatible avec*],
-  [
-    - Écosystème robuste,
-    - Communauté active,
-    - Exécution sur site gratuite#footnote[L'exécution sur site est souvent
-      nécessaire dans des contextes où les données utilisées
-      sont sensibles@ieee-ci-review, ou du moins si le réseau d'entreprise
-      est derrière un pare-feu peu laxiste.]
+  ]),
+  caption: [
+    Une pipeline Jenkins qui permet de tester une application
+    Java Maven en générant un rapport (écrite en
+    #link("https://www.groovy-lang.org/", "Groovy"))
   ],
-  [
-    N'importe quel système : Jenkins est un serveur d'automatisation.
-    À partir du moment où une étape est automatisable, Jenkins peut
-    l'automatiser.
-  ]
-)
+  kind: "example",
+  supplement: "Exemple"
+) <jenkins-example>
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    [
+      #align(left)[
+        - Écosystème robuste,
+        - Communauté active,
+        - Exécution sur site gratuite
+          #footnote[
+            L'exécution sur site est souvent
+            nécessaire dans des contextes où les données utilisées
+            sont sensibles@ieee-ci-review,
+            ou du moins si le réseau d'entreprise
+            est derrière un pare-feu peu laxiste.
+          ]
+      ]
+    ],
+    [
+      N'importe quel système : Jenkins est un serveur d'automatisation.
+      À partir du moment où une étape est automatisable, Jenkins peut
+      l'automatiser.
+    ]
+  ),
+  caption: [Récapitulatif Jenkins],
+) <recap-jenkins>
 
 === Travis CI <travis>
 Travis CI est un service hébergé d'intégration continue.
