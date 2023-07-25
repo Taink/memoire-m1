@@ -16,6 +16,7 @@
   set document(author: authors.map(a => a.name), title: title)
   set page(numbering: "1", number-align: center)
 
+  // Keep in mind this is also used in the SVGs.
   let body-font = "New Computer Modern Sans"
   let heading-font = "Linux Libertine"
   

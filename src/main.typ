@@ -624,34 +624,67 @@ En particulier, chaque membre fournit aux autres une documentation relative
 
 Le développement sur les applications à l'ADAGP
 suit un processus d'amélioration continue.
-En premier lieu, une demande est formulée par une personne de l'Adagp.
-Ensuite, la demande est évaluée par le précopil ;
-il s'agit d'un comité décisionnel composé
-du service informatique
-et des utilisateurs à l'origine de la demande.
-Une seconde évaluation est réalisée par le copil ;
-ce comité est composé
-du service informatique,
-de la direction administrative et financière,
-et du service études et prospectives.
+1. En premier lieu, une demande est formulée par une personne de l'Adagp.
+2. Ensuite, la demande est évaluée par le *précopil* ;
+  il s'agit d'un comité décisionnel composé
+  du service informatique
+  et du comité utilisateur --
+  ce dernier est composé d'utilisateurs représentatifs,
+  qui pourront poser des questions aux utilisateurs
+  à l'origine de la demande.
+3. Une seconde évaluation est réalisée par le *copil* ;
+  ce comité est composé
+  du service informatique,
+  de la direction administrative et financière,
+  et du service études et prospectives.
 
-Ce dernier comité va en particulier établir l'importance de la demande.
-Pour ce faire, il va en évaluer les gains, et risques potentiels.
-Cette importance détermine la priorité et les échéances d'implémentation
-de la demande si cette dernière est acceptée.
-En effet, les demandes, une fois acceptées,
-sont ajoutées au planning du service informatique,
-soit avec une échéance immédiate
-(pour les demandes hautement prioritaires),
-soit avec une échéance indéfinie
-(pour les demandes jugées peu importantes).
-L'importance de la demande fera osciller son échéance dans le planning
-entre ces deux extrêmes.
-Parfois, la demande constitue une obligation réglementaire :
-dans ce cas, il est nécessaire de se mettre en conformité
-avec la nouvelle législation,
-la demande a alors une priorité absolue
-et doit être traitée dans les plus brefs délais.
+  Ce dernier comité va en particulier établir l'importance de la demande.
+  Pour ce faire, il va en évaluer les gains, et risques potentiels.
+  Cette importance détermine la priorité et les échéances d'implémentation
+  de la demande si cette dernière est acceptée.
+  En effet, les demandes, une fois acceptées,
+  sont ajoutées au planning du service informatique,
+  soit avec une échéance immédiate
+  (pour les demandes hautement prioritaires),
+  soit avec une échéance indéfinie
+  (pour les demandes jugées peu importantes).
+  L'importance de la demande fera osciller son échéance dans le planning
+  entre ces deux extrêmes.
+  Parfois, la demande constitue une obligation réglementaire :
+  dans ce cas, il est nécessaire de se mettre en conformité
+  avec la nouvelle législation,
+  la demande a alors une priorité absolue
+  et doit être traitée dans les plus brefs délais.
+4. Un cahier des charges est rédigé,
+  ainsi que des spécifications techniques,
+  et une étude d'impact
+  (pour déterminer quels services seront impactés par la demande).
+  Cette rédaction est réalisée en collaboration
+  avec les personnes à l'origine de la demande.
+5. Vient enfin le temps du développement de la fonctionnalité.
+  C'est aussi pendant cette étape que les tests sont écrits.
+6. C'est généralement à ce stade qu'une intégration est réalisée.
+  Dans certains cas,
+  cette étape peut constituer la mise en place d'un environnement de test
+7. Après le développement,
+  une série de tests est réalisée avec les équipes des services
+  à l'origine de la demande.
+8. Si tout s'est bien passé,
+  la demande a bien été réalisée.
+  Les modifications sont mises en production
+  Une rétrospective sera faite en précopil et en copil.
+
+Un schéma récapitulatif est disponible en @cycle-dev-adagp.
+On peut y voir que certaines étapes peuvent mener à revenir en arrière,
+notamment les tests et l'intégration.
+Des erreurs à ces étapes nécessitent en effet une correction
+dans les étapes précédentes ;
+en ce sens ce cycle a des similitudes avec le cycle en V.
+
+#figure(
+  image("assets/cycle-développement-adagp.excalidraw.svg", width: 80%),
+  caption: [Cycle de l'amélioration continue des applications à l'Adagp.]
+) <cycle-dev-adagp>
 
 == Défis et lacunes
 // #lorem(500)
@@ -693,8 +726,12 @@ en incorporant des outils d'intégration continue dans ses processus métiers.
 En effet, l'intégration continue permet de réduire les conflits
 de fusion de branches sur les projets informatiques à court terme,
 et permet de réduire les risques de régression à long terme.
+// retour d'expérience méthodologies agiles
+// permet d'éviter les régressions
+// gain en transparence et en communication ( logs )
+// facilite la collaboration
+// prétexte pour automatisation des processus
 
-// méthodologies agiles ?
 Le service informatique pourra tirer partie
 des rituels déjà mis en place
 dans ses processus d'inspiration Agile
