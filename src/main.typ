@@ -242,19 +242,17 @@ notamment en créant des alternatives plus faciles d'utilisation.
     inset: 10pt,
     align: horizon,
     [*Principaux atouts*], [*Compatible avec*],
-    [
-      #align(left)[
-        - Écosystème robuste,
-        - Communauté active,
-        - Exécution sur site gratuite
-          #footnote[
-            L'exécution sur site est souvent
-            nécessaire dans des contextes où les données utilisées
-            sont sensibles@ieee-ci-review,
-            ou du moins si le réseau d'entreprise
-            est derrière un pare-feu peu laxiste.
-          ]
-      ]
+    align(left)[
+      - Écosystème robuste,
+      - Communauté active,
+      - Exécution sur site gratuite
+        #footnote[
+          L'exécution sur site est souvent
+          nécessaire dans des contextes où les données utilisées
+          sont sensibles@ieee-ci-review,
+          ou du moins si le réseau d'entreprise
+          est derrière un pare-feu peu laxiste.
+        ]
     ],
     [
       N'importe quel système : Jenkins est un serveur d'automatisation.
@@ -263,7 +261,7 @@ notamment en créant des alternatives plus faciles d'utilisation.
     ]
   ),
   caption: [Récapitulatif Jenkins],
-) <recap-jenkins>
+) <jenkins-recap>
 
 === Travis CI <travis>
 Travis CI est un service hébergé d'intégration continue.
@@ -284,10 +282,8 @@ C'est une idée qui est reprise dans beaucoup d'autres systèmes
 similaires (et le reste des outils présentés dans cette section sont
 configurés en YAML également).
 
-Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
-aussi de tester une application Java Maven en générant un rapport :
-#align(center)[
-  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+#figure(
+  box(fill: luma(230), inset: 8pt, radius: 5pt, [
     ```yaml
     language: java
     jdk:
@@ -297,27 +293,36 @@ aussi de tester une application Java Maven en générant un rapport :
       - mvn test
       - cat target/surefire-reports/*.txt
     ```
-  ])
-]
-
-#table(
-  columns: (1fr, 1fr),
-  inset: 10pt,
-  align: horizon,
-  [*Principaux atouts*], [*Compatible avec*@travis-ci-compat],
-  [
-    - Facile d'utilisation,
-    - Communauté active,
-    - Mise en place très rapide,
-    - Gratuit sur les projets open-source
+  ]),
+  caption: [
+    Une pipeline Travis qui permet de tester une application
+    Java Maven en générant un rapport
   ],
-  [
-    - Github
-    - Atlassian Bitbucket
-    - GitLab
-    - Assembla
-  ]
-)
+  kind: "example",
+  supplement: "Exemple"
+) <travis-example>
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*@travis-ci-compat],
+    align(left)[
+      - Facile d'utilisation,
+      - Communauté active,
+      - Mise en place très rapide,
+      - Gratuit sur les projets open-source
+    ],
+    align(left)[
+      - Github
+      - Atlassian Bitbucket
+      - GitLab
+      - Assembla
+    ]
+  ),
+  caption: [Récapitulatif TravisCI],
+) <travis-recap>
 
 === CircleCI <circle>
 CircleCI est un autre service alternatif à #link(label("travis"))[Travis].
@@ -329,10 +334,8 @@ la rapidité des étapes de build et de test, ce qui accélère encore
 davantage l'intégration continue.
 @travis-vs-circleci
 
-Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
-aussi de tester une application Java Maven en générant un rapport :
-#align(center)[
-  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+#figure(
+  box(fill: luma(230), inset: 8pt, radius: 5pt, [
     ```yaml
     version: 2.1
     jobs:
@@ -346,25 +349,34 @@ aussi de tester une application Java Maven en générant un rapport :
           - store_test_results:
               path: target/surefire-reports
     ```
-  ])
-]
-#pagebreak() // necessary for styling
-#table(
-  columns: (1fr, 1fr),
-  inset: 10pt,
-  align: horizon,
-  [*Principaux atouts*], [*Compatible avec*@travis-vs-circleci],
-  [
-    - Assez facile d'utilisation,
-    - Mise en place et exécution très rapides,
-    - Gratuit sur les projets open-source
+  ]),
+  caption: [
+    Une pipeline CircleCI qui permet de tester une application
+    Java Maven en générant un rapport
   ],
-  [
-    - Github
-    - Atlassian Bitbucket
-    - Github Enterprise
-  ]
-)
+  kind: "example",
+  supplement: "Exemple"
+) <circle-example>
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*@travis-vs-circleci],
+    align(left)[
+      - Assez facile d'utilisation,
+      - Mise en place et exécution très rapides,
+      - Gratuit sur les projets open-source
+    ],
+    align(left)[
+      - Github
+      - Atlassian Bitbucket
+      - Github Enterprise
+    ]
+  ),
+  caption: [Récapitulatif CircleCI],
+) <circle-recap>
 
 === GitLab CI <gitlab-ci>
 GitLab CI est un outil d'intégration continue open-source
@@ -398,10 +410,8 @@ ainsi la possibilité d'unifier toutes les informations nécessaires à la
 gestion du projet, fournissant des services de gestion de projet approchant
 à certains égards des plateformes dédiées (comme Jira par exemple).
 
-Voici une pipeline équivalente à celle décrite plus haut, qui permet elle
-aussi de tester une application Java Maven en générant un rapport :
-#align(center)[
-  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+#figure(
+  box(fill: luma(230), inset: 8pt, radius: 5pt, [
     ```yaml
     image: maven:3.6.1-jdk-8
     stages:
@@ -418,23 +428,33 @@ aussi de tester une application Java Maven en générant un rapport :
         paths:
           - target/surefire-reports
     ```
-  ])
-]
-#pagebreak() // necessary for styling
-#table(
-  columns: (1fr, 1fr),
-  inset: 10pt,
-  align: horizon,
-  [*Principaux atouts*], [*Compatible avec*],
-  [
-    - Intégration privilégiée avec Gitlab
-    - Gratuit si runner auto-hébergé + crédits gratuits sur runners partagés
+  ]),
+  caption: [
+    Une pipeline Gitlab qui permet de tester une application
+    Java Maven en générant un rapport
   ],
-  [
-    Gitlab seulement, possibilité d'importer des projets depuis
-    Bitbucket et Github cependant.
-  ]
-)
+  kind: "example",
+  supplement: "Exemple"
+) <gitlab-example>
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+      - Intégration privilégiée avec Gitlab
+      - Gratuit si runner auto-hébergé +
+        crédits gratuits sur runners partagés
+    ],
+    [
+      Gitlab seulement, possibilité d'importer des projets depuis
+      Bitbucket et Github cependant.
+    ]
+  ),
+  caption: [Récapitulatif Gitlab CI],
+) <gitlab-recap>
 
 === Github Actions <github-actions>
 Github Actions est un service très similaire à
@@ -453,9 +473,8 @@ Il en diffère cependant sur certains points @github-about-ci :
   un script shell. Cela signifie que l'environnement d'exécution du runner
   n'est pas isolé du serveur sur lequel il est exécuté.
 
-Voici une pipeline équivalente à celle décrite plus haut :
-#align(center)[
-  #box(fill: luma(230), inset: 8pt, radius: 5pt, [
+#figure(
+  box(fill: luma(230), inset: 8pt, radius: 5pt, [
     ```yaml
     name: Java CI
     on: [push, pull_request]
@@ -478,22 +497,32 @@ Voici une pipeline équivalente à celle décrite plus haut :
             name: surefire-reports
             path: target/surefire-reports
     ```
-  ])
-]
-
-#table(
-  columns: (1fr, 1fr),
-  inset: 10pt,
-  align: horizon,
-  [*Principaux atouts*], [*Compatible avec*],
-  [
-    - Intégration privilégiée avec Github
-    - Gratuit si runner auto-hébergé + crédits gratuits sur runners partagés
+  ]),
+  caption: [
+    Une pipeline Github Actions qui permet de tester une application
+    Java Maven en générant un rapport
   ],
-  [
-    Github seulement.
-  ]
-)
+  kind: "example",
+  supplement: "Exemple"
+) <github-actions-example>
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+      - Intégration privilégiée avec Github,
+      - Gratuit si runner auto-hébergé +
+        crédits gratuits sur runners partagés
+    ],
+    [
+      Github seulement.
+    ]
+  ),
+  caption: [Récapitulatif Github Actions]
+) <github-actions-recap>
 
 == Revue de la littérature
 La littérature sur l'intégration continue est souvent produite par
