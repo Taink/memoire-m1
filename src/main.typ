@@ -647,13 +647,6 @@ Contrairement à la plupart des autres services de l'Adagp,
 ses effectifs n'ont pas changé depuis le début de mon alternance.
 Sa petite taille est à la racine de ses choix de processus métiers.
 
-Chacun des membres du service a une spécialité qui lui incombe,
-mais tous doivent être en mesure de réaliser du support
-en l'absence d'un des autres membres.
-En particulier, chaque membre fournit aux autres une documentation relative
-à la gestion des applications dont il a la responsabilité
-(installation, exploitation, mise à jour...).
-
 Le développement sur les applications à l'ADAGP
 suit un processus d'amélioration continue.
 1. En premier lieu, une demande est formulée par une personne de l'Adagp.
@@ -697,7 +690,8 @@ suit un processus d'amélioration continue.
   C'est aussi pendant cette étape que les tests sont écrits.
 6. C'est généralement à ce stade qu'une intégration est réalisée.
   Dans certains cas,
-  cette étape peut constituer la mise en place d'un environnement de test
+  cette étape peut constituer la mise en place
+  d'un environnement de pré-production
 7. Après le développement,
   une série de tests est réalisée avec les équipes des services
   à l'origine de la demande.
@@ -706,17 +700,32 @@ suit un processus d'amélioration continue.
   Les modifications sont mises en production
   Une rétrospective sera faite en précopil et en copil.
 
-Un schéma récapitulatif est disponible en @cycle-dev-adagp.
-On peut y voir que certaines étapes peuvent mener à revenir en arrière,
-notamment les tests et l'intégration.
-Des erreurs à ces étapes nécessitent en effet une correction
-dans les étapes précédentes ;
-en ce sens ce cycle a des similitudes avec le cycle en V.
-
 #figure(
   image("assets/cycle-développement-adagp.excalidraw.svg", width: 80%),
   caption: [Cycle de l'amélioration continue des applications à l'Adagp.]
 ) <cycle-dev-adagp>
+
+On peut voir en @cycle-dev-adagp que certaines étapes
+mènent à revenir en arrière dans le processus d'amélioration continue.
+Une autre façon de schématiser le cycle de développement de l'Adagp
+est comme une série de cycles en V
+(dont le cas général est produit en @cycle-en-v),
+pour chaque nouvelle demande d'amélioration d'une application.
+
+Enfin, chacun des membres du service a une spécialité qui lui incombe
+(Web, Applications Java, ...),
+et les application tombent dans l'une de ces spécialités.
+L'application tombe sous la responsabilité de la personne
+qui est spécialisé dans le domaine de l'application.
+Ça n'exclut évidemment pas la responsabilité de support,
+et si le membre responsable d'une application particulière est absent,
+il faut que les autres membres puissent au moins diagnostiquer les erreurs
+qui pourraient survenir pour y remédier.
+Par conséquent, chaque membre fournit aux autres une documentation relative
+à la gestion des applications dont il a la responsabilité
+(installation, exploitation, mise à jour...).
+La rédaction de cette documentation est un processus interne au service,
+qui s'ajoute au cycle d'amélioration continue.
 
 == Défis et lacunes
 // #lorem(500)
@@ -726,6 +735,10 @@ peut constituer un défi à de multiples égards.
 Premièrement, l'intégration continue bénéficie grandement
 de l'automatisation de certaines tâches,
 travail qui n'est généralement pas déjà fait à l'Adagp.
+Les tâches de test et de déploiement sont réalisées manuellement,
+ce qui peut entraîner des oublis et des erreurs.
+Le code d'automatisation devra donc être intégralement écrit
+pendant la mise en place des outils.
 
 De plus, l'équipe du service informatique n'est pas formée aux dernières
 technologies d'intégration,
@@ -751,25 +764,58 @@ il est difficile de trouver du temps pour expérimenter
 les différentes solutions disponibles
 en plus des améliorations à apporter aux applications existantes.
 
+Le plus gros défi sera cependant à long terme.
+L'absence d'outils d'intégration continue n'a pas encouragé
+le service à écrire beaucoup de tests unitaires
+(en pratique, seuls des tests unitaires basiques sont écrits) ;
+ils constituent une charge de développement supplémentaire,
+charge qu'il peut être difficile d'assumer en plus du support.
+@fowler-ci encourage d'ailleurs le test du code pendant l'intégration.
+Il faudra donc aussi commencer à réintégrer l'écriture
+de tests de façon plus systématique
+pendant le développement.
+
 == Gains potentiels et avantages
 // #lorem(200)
-L'Adagp peut gagner beaucoup en facilité de collaboration
-en incorporant des outils d'intégration continue dans ses processus métiers.
-En effet, l'intégration continue permet de réduire les conflits
-de fusion de branches sur les projets informatiques à court terme,
-et permet de réduire les risques de régression à long terme.
+Le gain potentiel principal de l'ajout de processus d'intégration continue
+est le gain en facilité de collaboration entre les membres du service.
+
+Au-delà des simples améliorations de qualité de vie
+(l'intégration continue diminue l'impact des conflits
+de fusion de branches sur les système de contrôle de version comme Git,
+car l'intégration comprend la compilation des projets :
+on est assurés que le projet fonctionne car il _build_ malgré la fusion),
+l'ajout d'outils de CI à un projet permet surtout d'augmenter
+la confiance dans le code écrit par les autres collaborateurs.
+Les outils de CI permettant d'intégrer à chaque modification,
+ils augmentent mécaniquement la transparence et la communication
+(au travers des logs et des notifications d'échec ou de rétablissement)
+pendant le développement.
+
+À plus long terme, l'intégration continue est surtout un bon moyen
+d'éviter les régressions issue des modifications.
+Le service informatique n'y a été que très peu confronté
+car les projets sont généralement très cloisonnés,
+de sorte que chacun connaît très bien les projets qui lui incombent
+et les problèmes de régression sont généralement facilement identifiés
+et rapidement corrigés.
+
 // retour d'expérience méthodologies agiles
 // permet d'éviter les régressions
 // gain en transparence et en communication ( logs )
 // facilite la collaboration
 // prétexte pour automatisation des processus
 
-Le service informatique pourra tirer partie
-des rituels déjà mis en place
-dans ses processus d'inspiration Agile
-pour faciliter l'incorporation de ces outils.
+Un autre avantage à l'incorporation de ces outils,
+c'est que beaucoup de processus internes seront automatisés.
+C'est une charge supplémentaires mais un gain conséquent.
 
-// atlassian bamboo ?
+Enfin, l'intégration continue est un des chemins
+que le service informatique souhaite emprunter
+pour mettre en place des méthodologies agiles.
+L'intégration continue est en effet une étape clé
+de certaines méthodologie d'inspiration agile ;
+ce projet pourra constituer un retour d'expérience supplémentaire.
 
 #pagebreak()
 
@@ -844,4 +890,13 @@ des adhésions.
 #pagebreak()
 
 = Annexes
-#lorem(50)
+#figure(
+  image("assets/wikipedia-cycle-en-v.png"),
+  caption: [
+    Cycle en V
+    (Source: #link("https://fr.wikipedia.org/wiki/Cycle_en_V", "wikipedia"))
+  ],
+  kind: "appendix",
+  supplement: "Annexe",
+  numbering: "A"
+) <cycle-en-v>
