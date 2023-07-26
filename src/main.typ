@@ -800,21 +800,15 @@ de sorte que chacun connaît très bien les projets qui lui incombent
 et les problèmes de régression sont généralement facilement identifiés
 et rapidement corrigés.
 
-// retour d'expérience méthodologies agiles
-// permet d'éviter les régressions
-// gain en transparence et en communication ( logs )
-// facilite la collaboration
-// prétexte pour automatisation des processus
-
 Un autre avantage à l'incorporation de ces outils,
 c'est que beaucoup de processus internes seront automatisés.
-C'est une charge supplémentaires mais un gain conséquent.
+C'est une charge supplémentaire mais un gain conséquent.
 
 Enfin, l'intégration continue est un des chemins
 que le service informatique souhaite emprunter
 pour mettre en place des méthodologies agiles.
 L'intégration continue est en effet une étape clé
-de certaines méthodologie d'inspiration agile ;
+de certaines méthodologies d'inspiration agile ;
 ce projet pourra constituer un retour d'expérience supplémentaire.
 
 #pagebreak()
