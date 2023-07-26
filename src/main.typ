@@ -209,24 +209,22 @@ notamment en créant des alternatives plus faciles d'utilisation.
 #cite("ieee-ci-review", "packt-hands-on-ci-cd")
 
 #figure(
-  box(fill: luma(230), inset: 8pt, radius: 5pt, [
-    ```groovy
-    node {
-      stage('SCM') {
-        git 'https://github.com/user/repo.git'
-      }
-      
-      stage('Build') {
-        sh 'mvn clean install'
-      }
-      
-      stage('Test') {
-        sh 'mvn test'
-        junit 'target/surefire-reports/*.xml'
-      }
+  ```groovy
+  node {
+    stage('SCM') {
+      git 'https://github.com/user/repo.git'
     }
-    ```
-  ]),
+    
+    stage('Build') {
+      sh 'mvn clean install'
+    }
+    
+    stage('Test') {
+      sh 'mvn test'
+      junit 'target/surefire-reports/*.xml'
+    }
+  }
+  ```,
   caption: [
     Une pipeline Jenkins qui permet de tester une application
     Java Maven en générant un rapport (écrite en
@@ -283,17 +281,15 @@ similaires (et le reste des outils présentés dans cette section sont
 configurés en YAML également).
 
 #figure(
-  box(fill: luma(230), inset: 8pt, radius: 5pt, [
-    ```yaml
-    language: java
-    jdk:
-      - openjdk8
-    script:
-      - mvn clean install
-      - mvn test
-      - cat target/surefire-reports/*.txt
-    ```
-  ]),
+  ```yaml
+  language: java
+  jdk:
+    - openjdk8
+  script:
+    - mvn clean install
+    - mvn test
+    - cat target/surefire-reports/*.txt
+  ```,
   caption: [
     Une pipeline Travis qui permet de tester une application
     Java Maven en générant un rapport
@@ -335,21 +331,19 @@ davantage l'intégration continue.
 @travis-vs-circleci
 
 #figure(
-  box(fill: luma(230), inset: 8pt, radius: 5pt, [
-    ```yaml
-    version: 2.1
-    jobs:
-      build:
-        docker:
-          - image: circleci/openjdk:8-jdk
-        steps:
-          - checkout
-          - run: mvn clean install
-          - run: mvn test
-          - store_test_results:
-              path: target/surefire-reports
-    ```
-  ]),
+  ```yaml
+  version: 2.1
+  jobs:
+    build:
+      docker:
+        - image: circleci/openjdk:8-jdk
+      steps:
+        - checkout
+        - run: mvn clean install
+        - run: mvn test
+        - store_test_results:
+            path: target/surefire-reports
+  ```,
   caption: [
     Une pipeline CircleCI qui permet de tester une application
     Java Maven en générant un rapport
@@ -411,24 +405,22 @@ gestion du projet, fournissant des services de gestion de projet approchant
 à certains égards des plateformes dédiées (comme Jira par exemple).
 
 #figure(
-  box(fill: luma(230), inset: 8pt, radius: 5pt, [
-    ```yaml
-    image: maven:3.6.1-jdk-8
-    stages:
-      - build
-      - test
-    build:
-      stage: build
-      script: mvn clean install
-    test:
-      stage: test
-      script: mvn test
-      artifacts:
-        when: always
-        paths:
-          - target/surefire-reports
-    ```
-  ]),
+  ```yaml
+  image: maven:3.6.1-jdk-8
+  stages:
+    - build
+    - test
+  build:
+    stage: build
+    script: mvn clean install
+  test:
+    stage: test
+    script: mvn test
+    artifacts:
+      when: always
+      paths:
+        - target/surefire-reports
+  ```,
   caption: [
     Une pipeline Gitlab qui permet de tester une application
     Java Maven en générant un rapport
@@ -474,30 +466,28 @@ Il en diffère cependant sur certains points @github-about-ci :
   n'est pas isolé du serveur sur lequel il est exécuté.
 
 #figure(
-  box(fill: luma(230), inset: 8pt, radius: 5pt, [
-    ```yaml
-    name: Java CI
-    on: [push, pull_request]
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Set up JDK 1.8
-          uses: actions/setup-java@v1
-          with:
-            java-version: 1.8
-        - name: Build with Maven
-          run: mvn clean install
-        - name: Test with Maven
-          run: mvn test
-        - name: Archive test results
-          uses: actions/upload-artifact@v2
-          with:
-            name: surefire-reports
-            path: target/surefire-reports
-    ```
-  ]),
+  ```yaml
+  name: Java CI
+  on: [push, pull_request]
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Maven
+        run: mvn clean install
+      - name: Test with Maven
+        run: mvn test
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+  ```,
   caption: [
     Une pipeline Github Actions qui permet de tester une application
     Java Maven en générant un rapport

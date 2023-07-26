@@ -35,6 +35,14 @@
     }
   }
 
+  show raw: it => box(
+    fill: luma(230),
+    radius: 4pt,
+    inset: 8pt,
+    stroke: gray,
+    it,
+  )
+
 
   // Title page.
   v(0.6fr)
