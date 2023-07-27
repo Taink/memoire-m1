@@ -99,13 +99,16 @@ le développement.
   "packt-hands-on-ci-cd",
 )
 
-=== Intégration continue
+=== Intégration continue <définition-ci>
 Introduite dans les pratiques d'_Extreme Programming_#footnote[Il s'agit
 d'une méthodologie similaire à la méthode Agile. Nous n'entrerons pas
 dans les détails de son fonctionnement ici puisque la CI est devenue
 indépendante de sa création et s'est standardisée dans l'industrie.]
 la définition exacte de l'intégration continue
-(ou "CI" pour "_Continuous Integration_"),
+(ou "CI" pour "_Continuous Integration_"
+et "IC" pour "_Intégration Continue_" dans certains ouvrages en français
+-- nous utiliserons "IC" ou "intégration continue"
+dans le reste de ce mémoire),
 bien qu'elle soit souvent similaire,
 diffère parmi les experts du domaine
 #cite(
@@ -174,7 +177,7 @@ du code source.
   "meyer-ci-tools",
 )
 
-La CI s'appuie généralement sur une automatisation de ses pratiques,
+L'IC s'appuie généralement sur une automatisation de ses pratiques,
 et sur un système de notification en cas d'échec.
 #cite("aws-ci-def", "atlassian-ci-def")
 
@@ -182,7 +185,9 @@ L'automatisation ne devient possible que lorsque le code source est
 géré sur le répertoire d'un système de contrôle de version,
 comme Git, CVS ou Subversion.
 L'intégration continue peut donc nécessiter une redéfinition
-en profondeur des processus de développement de logiciels.
+en profondeur des processus de développement de logiciels,
+comme nous le verrons dans notre approche théorique
+de la mise en place de ce projet (voir @approche-théorie).
 
 // === DevOps
 // Le DevOps est un ensemble de méthodologies qui consistent à accélerer
@@ -542,7 +547,7 @@ la bonne conduite de l'intégration continue :
 
 Mojtaba Shahin et al. @ieee-ci-review ont produit un travail remarquable
 dans leur propre revue de la littérature sur le sujet, et ils y produisent
-une synthèse très instructive sur les tenants et aboutissants de la CI mais
+une synthèse très instructive sur les tenants et aboutissants de l'IC mais
 aussi d'autres étapes du cycle DevOps : la livraison et le déploiement
 continus.
 Dans leur sélection (qui inclut 69 ouvrages, de 2004 à juin 2016), ils
@@ -793,9 +798,9 @@ Au-delà des simples améliorations de qualité de vie
 de fusion de branches sur les système de contrôle de version comme Git,
 car l'intégration comprend la compilation des projets :
 on est assurés que le projet fonctionne car il _build_ malgré la fusion),
-l'ajout d'outils de CI à un projet permet surtout d'augmenter
+l'ajout d'outils d'IC à un projet permet surtout d'augmenter
 la confiance dans le code écrit par les autres collaborateurs.
-Les outils de CI permettant d'intégrer à chaque modification,
+Les outils d'IC permettant d'intégrer à chaque modification,
 ils augmentent mécaniquement la transparence et la communication
 (au travers des logs et des notifications d'échec ou de rétablissement)
 pendant le développement.
@@ -822,7 +827,7 @@ ce projet pourra constituer un retour d'expérience supplémentaire.
 #pagebreak()
 
 = Proposition d'une solution
-== Approche théorique
+== Approche théorique <approche-théorie>
 // #lorem(750)
 
 Une solution idéale, d'après nos conclusions précédentes,
