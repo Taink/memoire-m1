@@ -727,7 +727,7 @@ Par conséquent, chaque membre fournit aux autres une documentation relative
 La rédaction de cette documentation est un processus interne au service,
 qui s'ajoute au cycle d'amélioration continue.
 
-== Défis et lacunes
+== Défis et lacunes <défis-et-lacunes>
 // #lorem(500)
 L'incorporation d'outils et méthodologies d'intégration continue
 peut constituer un défi à de multiples égards.
@@ -745,6 +745,14 @@ technologies d'intégration,
 et n'a pas nécessairement le temps de se former en profondeur sur le sujet.
 Il faut donc trouver un compromis entre la mise en place d'une solution
 efficace et la facilité d'utilisation de cette dernière.
+L'expérience du service avec un outil d'intégration continue
+se limite à la solution Bamboo d'Atlassian,
+qui était utilisée pour l'intégration continue de l'ERP interne
+avant son abandon par manque d'intérêt.
+Depuis lors, l'Adagp n'a pas réutilisé d'outils d'intégration continue.
+De plus, Bamboo est un outil qui est aujourd'hui délaissé par Atlassian,
+en faveur de la solution Bitbucket Pipelines,
+et qui est payant.
 
 Enfin, l'Adagp est une entreprise à but non lucratif de taille moyenne,
 qui n'a pas nécessairement les moyens de mettre en place une solution
@@ -775,7 +783,7 @@ Il faudra donc aussi commencer à réintégrer l'écriture
 de tests de façon plus systématique
 pendant le développement.
 
-== Gains potentiels et avantages
+== Gains potentiels et avantages <gains-et-avantages>
 // #lorem(200)
 Le gain potentiel principal de l'ajout de processus d'intégration continue
 est le gain en facilité de collaboration entre les membres du service.
@@ -815,7 +823,17 @@ ce projet pourra constituer un retour d'expérience supplémentaire.
 
 = Proposition d'une solution
 == Approche théorique
-#lorem(750)
+// #lorem(750)
+
+Une solution idéale, d'après nos conclusions précédentes,
+aurait les caractéristiques suivantes :
+- Elle serait facile (voire agréable) d'utilisation
+- Elle serait gratuite
+- Elle serait compatible avec les technologies utilisées à l'Adagp
+  (Java, Maven, Git, Github)
+- Elle serait facile à mettre en place
+- Elle ne nécessiterait pas de maintenance
+
 == Étapes clés et bonnes pratiques de mise en place
 #lorem(350)
 == Pertinence
