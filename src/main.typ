@@ -17,7 +17,7 @@
   companyLogo: "./assets/adagp.svg",
 )
 
-= Introduction
+#heading(numbering: none)[Introduction]
 L'évolution des projets informatiques modernes
 accompagne celle de l'industrie dans son ensemble :
 les projets ont hautement gagné en taille et en âge.
@@ -940,7 +940,7 @@ des adhésions.
 
 #pagebreak()
 
-= Conclusion
+#heading(numbering: none)[Conclusion]
 
 // - Résumé des principales conclusions du mémoire
 // - Récapitulation des contributions et des recommandations
@@ -954,7 +954,7 @@ des adhésions.
 
 #pagebreak()
 
-= Annexes
+#heading(numbering: none)[Annexes]
 #figure(
   image("assets/wikipedia-cycle-en-v.png"),
   caption: [
