@@ -830,6 +830,12 @@ ce projet pourra constituer un retour d'expérience supplémentaire.
 == Approche théorique <approche-théorie>
 // #lorem(750)
 
+Nous avons vu précédemment, dans la @défis-et-lacunes, // Section III.2
+que le service informatique a négligé jusqu'ici l'intégration continue,
+principalement à cause de la charge de travail que représente
+la maintenance d'un outil de ce genre,
+sans compter la charge monétaire des outils les plus faciles à maintenir.
+
 Une solution idéale, d'après nos conclusions précédentes,
 aurait les caractéristiques suivantes :
 - Elle serait facile (voire agréable) d'utilisation
@@ -837,12 +843,54 @@ aurait les caractéristiques suivantes :
 - Elle serait compatible avec les technologies utilisées à l'Adagp
   (Java, Maven, Git, Github)
 - Elle serait facile à mettre en place
-- Elle ne nécessiterait pas de maintenance
+- Elle ne nécessiterait pas (ou très peu) de maintenance
+
+L'outil qui s'approche le plus de ces critères,
+c'est les Github Actions (voir @github-actions-recap).
+
+Le choix des Github Actions n'est pas anodin ;
+l'Adagp confie déjà l'hébergement de ses répertoires de code à Github,
+donc il n'y aura pas de migration de code à réaliser.
+
+En effet, la solution Github Actions bénéficie
+d'une documentation extensive,
+est officiellement supportée par Github,
+est gratuite pourvu qu'on héberge simplement le runner
+(ce qui ne devrait pas nécessiter de grosse maintenance),
+et est très facile d'utilisation car sa communauté a développé
+beaucoup d'outils adaptés à des configurations potentiellement très exotiques.
+
+Ce projet ne se limite cependant pas seulement au choix d'un outil ;
+un projet de ce genre consiste aussi à changer les processus métiers
+pour s'adapter à ces nouvelles méthodologies.
+
+Puisque le choix s'est porté sur les Github actions,
+il va être possible de tirer pleinement partie
+de l'ensemble des fonctionnalités de Github :
+- Les Issues, qui permettent de noter des tâches à réaliser sur le projet
+- Les Pull requests, qui permettent de gérer la fusion des branches,
+  de faire des revues de code,
+  et de déclencher une intégration en affichant des informations
+- Une interface de gestion de projet, qui permet de manipuler
+  des Issues et de les organiser sur différentes vues
+  (tableau Kanban, Roadmap, liste)
+- Une interface permettant de lister les environnements d'exécution
+  du projet
+- Un gestionnaire de versions avec changelog
+  #footnote[]
+  et hébergement d'exécutables.
 
 == Étapes clés et bonnes pratiques de mise en place
 #lorem(350)
+
 == Pertinence
-#lorem(350)
+// #lorem(350)
+
+Nous avons vu dans la @gains-et-avantages // Section III.3
+que la mise en place des outils d'IC est devenue suffisamment intéressante
+puisqu'elle facilitera la collaboration sur un même projet
+de deux colloborateurs,
+sans parler des avantages classiques de l'IC.
 
 #pagebreak()
 
