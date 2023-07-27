@@ -80,6 +80,7 @@ fowler-ci:
   title: Continuous Integration
   author:
     - Fowler, Martin
+  date: 2006-05-01
   url: https://martinfowler.com/articles/continuousIntegration.html
 
 gitlab-ci-benefits:
