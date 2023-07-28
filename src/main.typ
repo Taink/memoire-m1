@@ -893,7 +893,7 @@ Au-delà du choix de l'outil,
 l'ajout de l'intégration continue dans le processus de développement
 nécessitera aussi une réflexion sur le processus de développement lui-même.
 
-Puisque le choix s'est porté sur les Github actions,
+Puisque le choix s'est porté sur les Github Actions,
 il va être possible de tirer pleinement parti
 de l'ensemble des fonctionnalités de Github :
 - Les Issues, qui permettent de noter des tâches à réaliser sur le projet
@@ -901,7 +901,7 @@ de l'ensemble des fonctionnalités de Github :
   de faire des revues de code, et de déclencher des actions
 - Une interface de gestion de projet, qui permet de manipuler
   des Issues et de les organiser sur différentes vues
-  (tableau Kanban, Roadmap, liste)
+  (tableau Kanban, Roadmap, Liste)
 - Une interface permettant de lister les environnements d'exécution
   du projet
 - Un gestionnaire de versions avec changelog
@@ -914,8 +914,8 @@ de l'ensemble des fonctionnalités de Github :
 
 Toutes ces fonctionnalités sont très utiles mais
 nous préfèrerons limiter la portée du projet dans un premier temps.
-Nous nous limiterons donc à l'utilisation des Pull requests
-dans un premier temps, et nous verrons par la suite
+Nous nous limiterons donc à l'utilisation des Pull requests,
+et nous verrons par la suite
 si l'utilisation des autres fonctionnalités
 est pertinente pour le service informatique.
 Il est préférable d'opérer des modifications
@@ -926,9 +926,9 @@ permettra de déterminer si la solution est assez robuste.
 
 Puisque le code est géré par Git, nous allons aussi pouvoir tirer parti
 de sa capacité de gestion de branches pour mettre en place
-un processus de développement de type tronc commun.
-Le développement en tronc commun,
-ou _trunk-based development_
+un processus de développement en tronc commun.
+Le développement en tronc commun
+-- _trunk-based development_ en anglais --
 #cite(
   "fowler-ci",
   "trunk-based-development-website",
@@ -936,16 +936,19 @@ ou _trunk-based development_
 ),
 est un modèle de gestion de branches
 qui consiste à fusionner les branches de développement
-dès que leurs modifications sont validées
 dans une branche principale, commune à tous les développeurs,
-et de faire en sorte que tout développement supplémentaire soit basé
+dès que leurs modifications sont validées.
+Tout développement supplémentaire doit être basé
 sur cette branche principale.
 Un diagramme résumant le processus est disponible en
 @trunk-based-development-branch-diagram.
-Cela permet de réduire le nombre de branches à maintenir,
+
+Ce modèle de gestion de branches permet de réduire
+le nombre de branches à maintenir,
 et de réduire le nombre de conflits lors des fusions de ces branches.
 L'étape de validation des modifications peut être automatisée
-par l'intermédiaire de l'intégration continue.
+par l'intermédiaire de l'intégration continue,
+notamment, dans le cas de Github, par l'intermédiaire des Pull requests.
 @trunk-based-development-website
 
 == Étapes clés et bonnes pratiques de mise en place
