@@ -524,7 +524,8 @@ Il en diffère cependant sur certains points @github-about-ci :
 == Revue de la littérature
 La littérature sur l'intégration continue est souvent produite par
 des acteurs du métier, mais sa croissance suit l'intérêt qui est porté
-pour cette approche qui facilite grandement les projets informatiques.
+pour cette approche qui facilite grandement la collaboration sur
+les projets informatiques.
 
 #cite("fowler-ci", style: "chicago-author-title"),
 présente le concept au plus grand nombre.
@@ -608,7 +609,7 @@ parmi les arts graphiques et plastiques
 la photographie à la sculpture,
 en passant par la ferronerie et la bande dessinée ou le manga).
 
-D'après #cite("cnc-sprd", style: "chicago-author-date"),
+D'après le CNC @cnc-sprd,
 "[l'ADAGP] intervient dans les domaines suivants :
 droit de reproduction
 (livres, posters, presse, merchandising...),
@@ -625,7 +626,7 @@ et les personnes qui, d'une façon ou d'une autre,
 veulent utiliser leurs œuvres.
 
 C'est une entreprise de taille moyenne, dont le nombre d'employés (aussi
-appelés _gestionnaires_ dans ce contexte) tourne autour de 70 personnes.
+appelés _gestionnaires_ dans ce contexte) est d'environ 70 personnes.
 
 Son statut juridique de SPRD
 #footnote[
@@ -634,7 +635,7 @@ Son statut juridique de SPRD
 la soumet à un contrôle annuel de la Cour des
 Comptes (à l'instar d'autres sociétés d'auteur comme la SACEM ou la SACD par
 exemple) et son statut de société d'auteur (et de société à but non lucratif)
-l'oblige à redistribuer une partie de ses perceptions dans diverses actions,
+l'oblige à redistribuer ses perceptions dans diverses actions,
 dont l'Action Culturelle par exemple.
 
 == Contexte de l'entreprise et processus métiers existants
@@ -660,12 +661,12 @@ Sa petite taille est à la racine de ses choix de processus métiers.
 
 Le développement sur les applications à l'ADAGP
 suit un processus d'amélioration continue.
-1. En premier lieu, une demande est formulée par une personne de l'Adagp.
+1. En premier lieu, une demande est formulée par un utilisateur du SI
 2. Ensuite, la demande est évaluée par le *précopil* ;
   il s'agit d'un comité décisionnel composé
   du service informatique
   et du comité utilisateur --
-  ce dernier est composé d'utilisateurs représentatifs,
+  ce dernier est de 2 représentants des utilisateurs,
   qui pourront poser des questions aux utilisateurs
   à l'origine de la demande.
 3. Une seconde évaluation est réalisée par le *copil* ;
@@ -674,21 +675,20 @@ suit un processus d'amélioration continue.
   de la direction administrative et financière,
   et du service études et prospectives.
 
-  Ce dernier comité va en particulier établir l'importance de la demande.
+  Ce comité va en particulier établir l'importance de la demande.
   Pour ce faire, il va en évaluer les gains, et risques potentiels.
-  Cette importance détermine la priorité et les échéances d'implémentation
+  Ce score détermine la priorité et les échéances d'implémentation
   de la demande si cette dernière est acceptée.
   En effet, les demandes, une fois acceptées,
   sont ajoutées au planning du service informatique,
-  soit avec une échéance immédiate
-  (pour les demandes hautement prioritaires),
-  soit avec une échéance indéfinie
-  (pour les demandes jugées peu importantes).
-  L'importance de la demande fera osciller son échéance dans le planning
-  entre ces deux extrêmes.
+  et le score d'importance va déterminer l'échéance de la tâche,
+  qui ira d'une échéance immédiate
+  pour les demandes hautement prioritaires,
+  à une échéance indéfinie
+  pour les demandes jugées peu importantes.
   Parfois, la demande constitue une obligation réglementaire :
   dans ce cas, il est nécessaire de se mettre en conformité
-  avec la nouvelle législation,
+  avec la nouvelle législation --
   la demande a alors une priorité absolue
   et doit être traitée dans les plus brefs délais.
 4. Un cahier des charges est rédigé,
@@ -738,7 +738,7 @@ Par conséquent, chaque membre fournit aux autres une documentation relative
 La rédaction de cette documentation est un processus interne au service,
 qui s'ajoute au cycle d'amélioration continue.
 
-== Défis et lacunes <défis-et-lacunes>
+== Défis et obstacles <défis-et-obstacles>
 // #lorem(500)
 L'incorporation d'outils et méthodologies d'intégration continue
 peut constituer un défi à de multiples égards.
@@ -751,7 +751,7 @@ ce qui peut entraîner des oublis et des erreurs.
 Le code d'automatisation devra donc être intégralement écrit
 pendant la mise en place des outils.
 
-De plus, l'équipe du service informatique n'est pas formée aux dernières
+De plus, l'équipe du service informatique n'utilise pas les dernières
 technologies d'intégration,
 et n'a pas nécessairement le temps de se former en profondeur sur le sujet.
 Il faut donc trouver un compromis entre la mise en place d'une solution
@@ -772,7 +772,8 @@ Il faut donc trouver une solution qui soit à la fois efficace et si
 possible gratuite, sinon très peu coûteuse.
 Le plus difficile sera de trouver une solution
 qui soit à la fois efficace et facile d'utilisation,
-car les solutions gratuites sont souvent plus complexes à mettre en place.
+car les solutions gratuites sont souvent plus complexes
+à installer et maintenir.
 
 En effet,
 #cite("ieee-ci-review", style: "chicago-author-date")
@@ -790,7 +791,7 @@ L'absence d'outils d'intégration continue n'a pas encouragé
 le service à écrire beaucoup de tests unitaires
 (en pratique, seuls des tests unitaires basiques sont écrits) ;
 ils constituent une charge de développement supplémentaire,
-charge qu'il peut être difficile d'assumer en plus du support.
+charge qui peut être difficile à assumer en plus du support.
 #cite("fowler-ci", style: "chicago-author-date")
 encourage d'ailleurs le test du code pendant l'intégration.
 Il faudra donc aussi commencer à réintégrer l'écriture
@@ -855,7 +856,7 @@ constitue surtout un retour d'expérience
 sur la mise en place de l'intégration continue
 dans un processus de développement de bout en bout.
 
-Nous avons vu précédemment, dans la @défis-et-lacunes, // Section II.2
+Nous avons vu précédemment, dans la @défis-et-obstacles, // Section II.2
 que le service informatique a négligé jusqu'ici l'intégration continue,
 principalement à cause de la charge de travail que représente
 la maintenance d'un outil de ce genre,
