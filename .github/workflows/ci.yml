@@ -32,18 +32,6 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     steps:
     - uses: actions/checkout@v3
-    - name: Is tag on master HEAD?
-      shell: pwsh
-      run: |
-        git checkout master
-        $mastersha = $(git show-ref refs/heads/master --hash)
-        $tagsha = $(git show-ref ${{ github.ref }} --hash)
-        Write-Output "refs/heads/master: $mastersha"
-        Write-Output "${{ github.ref }}: $tagsha"
-        if ($mastersha -ne $tagsha) {
-          Write-Error "tag must match HEAD of master"
-          exit 1
-        }
     - name: Download pdf
       uses: actions/download-artifact@v3
       with:
@@ -51,4 +39,3 @@ jobs:
     - uses: softprops/action-gh-release@v1
       with:
         files: memoire.pdf
-        tag_name: ${{ github.ref }}
