@@ -18,41 +18,61 @@
 )
 
 #heading(numbering: none)[Introduction]
-L'évolution des projets informatiques modernes
-accompagne celle de l'industrie dans son ensemble :
-les projets ont hautement gagné en taille et en âge.
+L'informatique est un domaine qui bénéficie
+du fait que son produit n'est pas constitué d'atomes.
+Il est possible de créer un produit logiciel à partir de rien,
+car il n'y a pas de contraintes physiques à la création d'un logiciel.
+Il n'est pas nécessaire de rassembler des matières premières,
+de les transformer, de les assembler, etc.
+Il suffit de créer un fichier texte, et d'y inscrire du code --
+ce code sera ensuite exécuté par une machine, et le logiciel sera créé.
 
-Pour accompagner cette nouvelle complexité,
-des outils aidant au développement
-et à la gestion des infrastructures
-permettant de la faire fonctionner sont apparus.
+Ce benéfice est accompagné d'un piège :
+il est très facile de créer un logiciel,
+mais il est difficile de créer un logiciel _de qualité_.
 
-Parmi ces outils, les outils d'intégration continue
-sont une partie essentielle du processus de déploiement.
-Il s'agit d'un ensemble de pratiques visant
-à assurer la qualité du code écrit au fur du développement
-de nouvelles fonctionnalités.
+D'une certaine manière, le produit logiciel est l'opposé du produit physique :
+plus il est utilisé, plus il est difficile à échelonner.
+Plus un produit physique est âgé, plus il se déteriore.
+Un produit logiciel, lui, ne se déteriore pas de la même manière :
+il gagne en complexité, et devient plus difficile à maintenir.
+Il doit accomoder de plus en plus de cas d'utilisation,
+et couvrir de plus en plus de fonctionnalités.
+Pour gérer cette complexité grandissante,
+il est nécessaire de mettre en place des processus de développement
+qui permettent de maintenir la qualité du logiciel.
+C'est là que la discipline des collaborateurs intervient :
+il est difficile de maintenir la complexité
+à des niveaux raisonnables sans discipline.
+L'obstacle principal à la création d'un logiciel de qualité est
+la discipline nécessaire à sa création.
+
+Pour pallier cet obstacle, divers outils ont été créés pour aider
+à maintenir la discipline nécessaire à la création d'un logiciel de qualité.
+Ce sont les outils qui facilitent l'intégration continue.
+Ces outils permettent de s'assurer que le code écrit par les développeurs
+maintient toujours le même standard de qualité,
+de façon automatique et systématisée.
 
 Ce mémoire aura donc pour but de répondre à la question suivante :
-comment intégrer les pratiques d'intégration continue dans des processus métiers existants ?
+comment intégrer les outils d'intégration continue dans des processus métiers existants ?
 
-Outre la réponse à cette question, ce mémoire vise également
-à produire quelque éclairage sur les voies menant à un projet d'intégrations
-des méthodologies d'intégration continue au sein des processus métiers
-d'une entreprise.
+Pour y répondre, nous nous intéresserons au cas de l'Adagp,
+qui souhaite incorporer à ses processus métiers
+des outils d'intégration continue.
+Nous aborderons notre problématique dans un projet qui consistera
+à mettre en place ces outils d'intégration continue,
+et à les intégrer dans les processus métiers de l'Adagp.
 
-En tout cas, pour répondre à notre problématique,
-nous baserons nos conclusions sur une revue de travaux antérieurs sur ce sujet
-et sur une étude de cas autour des projets réalisés pendant la rédaction du mémoire.
-
-Nous commencerons donc par une analyse de l'état de l'art
-au travers d'une revue de la littérature existante sur le sujet.
+Ce mémoire commencera par une analyse de l'état de l'art
+au travers d'une revue de la littérature existante sur les pratiques
+d'intégration continue.
 Nous continuerons en analysant le contexte de notre étude de cas,
 avant de proposer une solution à notre problématique
 au travers d'approches aussi bien théoriques que pratiques.
 Nous mettrons en œuvre cette solution, et en critiquerons les résultats puis
-finirons en déterminant le positionnement de notre étude dans l'état de l'art,
-avant de tirer nos conclusions sur notre problématique.
+finirons en positionnant notre projet dans l'état de l'art,
+pour conclure par une réponse à notre problématique.
 
 #pagebreak()
 
