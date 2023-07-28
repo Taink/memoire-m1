@@ -54,6 +54,8 @@ Nous mettrons en œuvre cette solution, et en critiquerons les résultats puis
 finirons en déterminant le positionnement de notre étude dans l'état de l'art,
 avant de tirer nos conclusions sur notre problématique.
 
+#pagebreak()
+
 = État de l'art
 // Intro de cette partie ?
 // idées ci-dessous
@@ -524,10 +526,11 @@ La littérature sur l'intégration continue est souvent produite par
 des acteurs du métier, mais sa croissance suit l'intérêt qui est porté
 pour cette approche qui facilite grandement les projets informatiques.
 
-Martin Fowler, dans son article sur l'intégration continue @fowler-ci,
+#cite("fowler-ci", style: "chicago-author-title"),
 présente le concept au plus grand nombre.
-C'est un article fondateur, écrit en 2006, qui fournit plusieurs
-informations importantes sur le concept d'intégration continue,
+C'est un article fondateur, écrit en 2000 puis édité en 2006,
+qui fournit plusieurs informations importantes
+sur le concept d'intégration continue,
 son utilité, et son applicabilité.
 Il appuie sa présentation par des exemples pratiques tirés de
 son expérience professionnelle, et y établit les critères nécessaires à
@@ -545,8 +548,9 @@ la bonne conduite de l'intégration continue :
 - Tout le monde doit voir ce qui se passe
 - Automatiser le déploiement
 
-Mojtaba Shahin et al. @ieee-ci-review ont produit un travail remarquable
-dans leur propre revue de la littérature sur le sujet, et ils y produisent
+#cite("ieee-ci-review", style: "chicago-author-title")
+est un travail remarquable ; dans leur propre revue de la littérature
+sur le sujet, ils produisent
 une synthèse très instructive sur les tenants et aboutissants de l'IC mais
 aussi d'autres étapes du cycle DevOps : la livraison et le déploiement
 continus.
@@ -579,9 +583,11 @@ les idées de l'intégration continue dans un contexte moins compatible.
 Très peu de publications expliquent leur choix de technologie, et les défis
 qui ont pu les réorienter.
 
-Cette étude se place donc comme un témoignage de l'applicabilité des pratiques
+Ce mémoire se place donc comme un témoignage de l'applicabilité des pratiques
 d'intégration continue, à travers l'incorporation de leurs outils au sein de
 processus métiers orthogonaux aux pratiques DevOps.
+
+#pagebreak()
 
 = Contextualisation de la mission en entreprise
 // #lorem(300)
@@ -602,7 +608,7 @@ parmi les arts graphiques et plastiques
 la photographie à la sculpture,
 en passant par la ferronerie et la bande dessinée ou le manga).
 
-D'après le CNC @cnc-sprd,
+D'après #cite("cnc-sprd", style: "chicago-author-date"),
 "[l'ADAGP] intervient dans les domaines suivants :
 droit de reproduction
 (livres, posters, presse, merchandising...),
@@ -768,7 +774,9 @@ Le plus difficile sera de trouver une solution
 qui soit à la fois efficace et facile d'utilisation,
 car les solutions gratuites sont souvent plus complexes à mettre en place.
 
-En effet, @ieee-ci-review note que l'effort et le temps alloués
+En effet,
+#cite("ieee-ci-review", style: "chicago-author-date")
+note que l'effort et le temps alloués
 à l'expérimentation des approches d'intégration continue
 sont les facteurs les plus importants pour le succès
 des projets d'incorporation des pratiques d'intégration continue,
@@ -783,7 +791,8 @@ le service à écrire beaucoup de tests unitaires
 (en pratique, seuls des tests unitaires basiques sont écrits) ;
 ils constituent une charge de développement supplémentaire,
 charge qu'il peut être difficile d'assumer en plus du support.
-@fowler-ci encourage d'ailleurs le test du code pendant l'intégration.
+#cite("fowler-ci", style: "chicago-author-date")
+encourage d'ailleurs le test du code pendant l'intégration.
 Il faudra donc aussi commencer à réintégrer l'écriture
 de tests de façon plus systématique
 pendant le développement.
@@ -806,7 +815,7 @@ ils augmentent mécaniquement la transparence et la communication
 pendant le développement.
 
 À plus long terme, l'intégration continue est surtout un bon moyen
-d'éviter les régressions issue des modifications.
+d'éviter les régressions issues des modifications.
 Le service informatique n'y a été que très peu confronté
 car les projets sont généralement très cloisonnés,
 de sorte que chacun connaît très bien les projets qui lui incombent
@@ -830,7 +839,23 @@ ce projet pourra constituer un retour d'expérience supplémentaire.
 == Approche théorique <approche-théorie>
 // #lorem(750)
 
-Nous avons vu précédemment, dans la @défis-et-lacunes, // Section III.2
+Avant de détailler la solution proposée,
+il est important de noter que ce projet
+ne se limite pas à l'installation d'un outil.
+Il s'agit d'un projet de changement de processus métier,
+qui nécessitera donc une communication importante
+avec les développeurs et les chefs de projets.
+Il faudra donc prévoir un temps de formation
+pour les développeurs et les chefs de projets,
+et un temps de communication pour les autres collaborateurs,
+si cela est jugé nécessaire.
+
+Il faut aussi prendre en considération que ce projet
+constitue surtout un retour d'expérience
+sur la mise en place de l'intégration continue
+dans un processus de développement de bout en bout.
+
+Nous avons vu précédemment, dans la @défis-et-lacunes, // Section II.2
 que le service informatique a négligé jusqu'ici l'intégration continue,
 principalement à cause de la charge de travail que représente
 la maintenance d'un outil de ce genre,
@@ -846,13 +871,17 @@ aurait les caractéristiques suivantes :
 - Elle ne nécessiterait pas (ou très peu) de maintenance
 
 L'outil qui s'approche le plus de ces critères,
-c'est les Github Actions (voir @github-actions-recap).
+ce sont les Github Actions (voir @github-actions-recap).
 
 Le choix des Github Actions n'est pas anodin ;
 l'Adagp confie déjà l'hébergement de ses répertoires de code à Github,
 donc il n'y aura pas de migration de code à réaliser.
+De plus, Github Actions est un outil
+très facile à mettre en place et à maintenir,
+car son orchestration est gérée par Github
+-- seul le runner est hébergé sur site.
 
-En effet, la solution Github Actions bénéficie
+En outre, la solution Github Actions bénéficie
 d'une documentation extensive,
 est officiellement supportée par Github,
 est gratuite pourvu qu'on héberge simplement le runner
@@ -860,37 +889,134 @@ est gratuite pourvu qu'on héberge simplement le runner
 et est très facile d'utilisation car sa communauté a développé
 beaucoup d'outils adaptés à des configurations potentiellement très exotiques.
 
-Ce projet ne se limite cependant pas seulement au choix d'un outil ;
-un projet de ce genre consiste aussi à changer les processus métiers
-pour s'adapter à ces nouvelles méthodologies.
+Au-delà du choix de l'outil,
+l'ajout de l'intégration continue dans le processus de développement
+nécessitera aussi une réflexion sur le processus de développement lui-même.
 
 Puisque le choix s'est porté sur les Github actions,
-il va être possible de tirer pleinement partie
+il va être possible de tirer pleinement parti
 de l'ensemble des fonctionnalités de Github :
 - Les Issues, qui permettent de noter des tâches à réaliser sur le projet
 - Les Pull requests, qui permettent de gérer la fusion des branches,
-  de faire des revues de code,
-  et de déclencher une intégration en affichant des informations
+  de faire des revues de code, et de déclencher des actions
 - Une interface de gestion de projet, qui permet de manipuler
   des Issues et de les organiser sur différentes vues
   (tableau Kanban, Roadmap, liste)
 - Une interface permettant de lister les environnements d'exécution
   du projet
 - Un gestionnaire de versions avec changelog
-  #footnote[]
+  #footnote[
+    Un changelog contient une liste des modifications apportées
+    à un projet, avec des informations sur les versions
+    et les dates de publication.
+  ]
   et hébergement d'exécutables.
 
+Toutes ces fonctionnalités sont très utiles mais
+nous préfèrerons limiter la portée du projet dans un premier temps.
+Nous nous limiterons donc à l'utilisation des Pull requests
+dans un premier temps, et nous verrons par la suite
+si l'utilisation des autres fonctionnalités
+est pertinente pour le service informatique.
+Il est préférable d'opérer des modifications
+sur les processus métiers
+de manière incrémentale
+-- cette première expérience avec les outils de Github
+permettra de déterminer si la solution est assez robuste.
+
+Puisque le code est géré par Git, nous allons aussi pouvoir tirer parti
+de sa capacité de gestion de branches pour mettre en place
+un processus de développement de type tronc commun.
+Le développement en tronc commun,
+ou _trunk-based development_
+#cite(
+  "fowler-ci",
+  "trunk-based-development-website",
+  style: "chicago-author-title"
+),
+est un modèle de gestion de branches
+qui consiste à fusionner les branches de développement
+dès que leurs modifications sont validées
+dans une branche principale, commune à tous les développeurs,
+et de faire en sorte que tout développement supplémentaire soit basé
+sur cette branche principale.
+Un diagramme résumant le processus est disponible en
+@trunk-based-development-branch-diagram.
+Cela permet de réduire le nombre de branches à maintenir,
+et de réduire le nombre de conflits lors des fusions de ces branches.
+L'étape de validation des modifications peut être automatisée
+par l'intermédiaire de l'intégration continue.
+@trunk-based-development-website
+
 == Étapes clés et bonnes pratiques de mise en place
-#lorem(350)
+La première étape du projet consistera donc principalement
+à adapter les processus de développement existants.
+L'élément principal à intégrer au développement est,
+comme dit précédemment, le développement sur tronc commun.
+C'est le meilleur moyen d'éviter des incohérences de version
+et de faciliter la collaboration entre les développeurs.
+
+La deuxième étape consistera à mettre en place les Github Actions
+en compilant le code et en automatisant le déclenchement
+des tests unitaires et d'intégration,
+afin d'assurer la qualité du code.
+Ces tests pourront être reportés dans les Pull requests,
+ce qui permettra d'intégrer les tests dans le processus de revue de code,
+et encouragera leur écriture.
+
+Enfin, la troisième et dernière étape
+consistera à traduire l'étape de déploiement
+vers un environnement de pré-production après la revue de code.
+Cette étape permettra de s'assurer que le code est fonctionnel
+une fois confronté à des données réelles
+avant de le déployer en production.
+Il a été jugé non pertinent à l'heure actuelle de mettre en place
+une étape de déploiement en continu, aussi cette dernière étape
+sera déclenchée manuellement.
+
+Enfin, il faut aussi garder à l'esprit que l'intégration continue
+est un processus qui doit être maintenu et amélioré,
+et qu'il requiert une certaine discipline de la part des développeurs.
+Il est donc important de mettre en place des bonnes pratiques
+pour assurer la pérennité de l'intégration continue.
+
+Parmi ces bonnes pratiques,
+on peut citer la correction instantanée des erreurs d'intégration,
+la réduction au minimum du temps de build,
+l'augmentation de la couverture de tests,
+et la réduction au minimum du nombre de branches.
+@fowler-ci
 
 == Pertinence
 // #lorem(350)
 
-Nous avons vu dans la @gains-et-avantages // Section III.3
+Nous avons vu dans la @gains-et-avantages // Section II.3
 que la mise en place des outils d'IC est devenue suffisamment intéressante
 puisqu'elle facilitera la collaboration sur un même projet
 de deux colloborateurs,
 sans parler des avantages classiques de l'IC.
+
+Notre approche, basée sur l'utilisation des Github Actions,
+est pertinente puisqu'elle permet de tirer parti
+des fonctionnalités de Github,
+qui sont déjà utilisées par le service informatique
+pour gérer le code source.
+
+Là où d'autres projets pourraient se contenter de simplement
+implémenter l'IC avec un outil dédié,
+nous avons choisi d'aller plus loin en redéfinissant
+les processus de développement,
+par exemple à travers la décision de développer sur tronc commun.
+
+Ce que le service informatique attend de ce projet,
+c'est un retour d'expérience sur l'implémentation de l'IC
+avec les Github Actions,
+et sur l'implémentation de processus liés à Github.
+Ce projet devrait en effet permettre de déterminer
+si l'utilisation de Github est pertinente pour le service informatique,
+et si oui, dans quelle mesure.
+Cela permettra de réduire le nombre d'outils à maintenir
+et de faciliter la prise en main de l'IC par les développeurs.
 
 #pagebreak()
 
@@ -965,3 +1091,31 @@ des adhésions.
   supplement: "Annexe",
   numbering: "A"
 ) <cycle-en-v>
+
+#figure(
+  image("assets/trunk1b.png"),
+  caption: [
+    Diagramme de développement en tronc commun --
+    à comparer avec l'@trunk-based-development-branch-diagram-at-scale
+    (Source: #link("https://trunkbaseddevelopment.com/",
+    "site de présentation du développement en tronc commun"))
+    @trunk-based-development-website
+  ],
+  kind: "appendix",
+  supplement: "Annexe",
+  numbering: "A"
+) <trunk-based-development-branch-diagram>
+
+#figure(
+  image("assets/trunk1c.png"),
+  caption: [
+    Diagramme de développement en tronc commun --
+    à comparer avec l'@trunk-based-development-branch-diagram
+    (Source: #link("https://trunkbaseddevelopment.com/",
+    "site de présentation du développement en tronc commun"))
+    @trunk-based-development-website
+  ],
+  kind: "appendix",
+  supplement: "Annexe",
+  numbering: "A"
+) <trunk-based-development-branch-diagram-at-scale>
