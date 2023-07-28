@@ -1,0 +1,52 @@
+name: Typst pdf build
+
+on:
+  push:
+    tags: [ "v*.*.*" ]
+    branches: [ master ]
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: yusancky/setup-typst@v2
+      with:
+        version: 'v0.6.0'
+    - name: Compile pdf
+      run: typst compile src/main.typ ./memoire.pdf
+    - name: Test file presence
+      run: file memoire.pdf
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: memoire
+        path: memoire.pdf
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+    - uses: actions/checkout@v3
+    - name: Is tag on master HEAD?
+      shell: pwsh
+      run: |
+        git checkout master
+        $mastersha = $(git show-ref refs/heads/master --hash)
+        $tagsha = $(git show-ref ${{ github.ref }} --hash)
+        Write-Output "refs/heads/master: $mastersha"
+        Write-Output "${{ github.ref }}: $tagsha"
+        if ($mastersha -ne $tagsha) {
+          Write-Error "tag must match HEAD of master"
+          exit 1
+        }
+    - name: Download pdf
+      uses: actions/download-artifact@v3
+      with:
+        name: memoire
+    - uses: softprops/action-gh-release@v1
+      with:
+        files: memoire.pdf
+        tag_name: ${{ github.ref }}
