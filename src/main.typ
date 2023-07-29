@@ -257,8 +257,8 @@ notamment en créant des alternatives plus faciles d'utilisation.
     Java Maven en générant un rapport (écrite en
     #link("https://www.groovy-lang.org/", "Groovy"))
   ],
-  kind: "example",
-  supplement: "Exemple"
+  kind: "code",
+  supplement: "Fichier"
 ) <jenkins-example>
 
 #figure(
@@ -321,8 +321,8 @@ configurés en YAML également).
     Une pipeline Travis qui permet de tester une application
     Java Maven en générant un rapport
   ],
-  kind: "example",
-  supplement: "Exemple"
+  kind: "code",
+  supplement: "Fichier"
 ) <travis-example>
 
 #figure(
@@ -375,8 +375,8 @@ davantage l'intégration continue.
     Une pipeline CircleCI qui permet de tester une application
     Java Maven en générant un rapport
   ],
-  kind: "example",
-  supplement: "Exemple"
+  kind: "code",
+  supplement: "Fichier"
 ) <circle-example>
 
 #figure(
@@ -452,8 +452,8 @@ gestion du projet, fournissant des services de gestion de projet approchant
     Une pipeline Gitlab qui permet de tester une application
     Java Maven en générant un rapport
   ],
-  kind: "example",
-  supplement: "Exemple"
+  kind: "code",
+  supplement: "Fichier"
 ) <gitlab-example>
 
 #figure(
@@ -519,8 +519,8 @@ Il en diffère cependant sur certains points @github-about-ci :
     Une pipeline Github Actions qui permet de tester une application
     Java Maven en générant un rapport
   ],
-  kind: "example",
-  supplement: "Exemple"
+  kind: "code",
+  supplement: "Fichier"
 ) <github-actions-example>
 
 #figure(
@@ -971,8 +971,10 @@ L'étape de validation des modifications peut être automatisée
 par l'intermédiaire de l'intégration continue,
 notamment, dans le cas de Github, par l'intermédiaire des Pull requests.
 @trunk-based-development-website
+Certains projets de l'Adagp utilisent déjà ce modèle de gestion de branches,
+mais il n'est pas encore utilisé de manière systématique.
 
-== Étapes clés et bonnes pratiques de mise en place
+== Étapes clés et bonnes pratiques de mise en place <liste-étapes-clés>
 La première étape du projet consistera donc principalement
 à adapter les processus de développement existants.
 L'élément principal à intégrer au développement est,
@@ -1010,6 +1012,9 @@ la réduction au minimum du temps de build,
 l'augmentation de la couverture de tests,
 et la réduction au minimum du nombre de branches.
 @fowler-ci
+Ce dernier point est particulièrement important,
+et devra être pris en compte tout au long des futurs
+développements sur les projets concernés.
 
 == Pertinence
 // #lorem(350)
@@ -1039,26 +1044,244 @@ et sur l'implémentation de processus liés à Github.
 Ce projet devrait en effet permettre de déterminer
 si l'utilisation de Github est pertinente pour le service informatique,
 et si oui, dans quelle mesure.
-Cela permettra de réduire le nombre d'outils à maintenir
+Le projet, une fois abouti et diffusé à d'autres processus,
+permettra de réduire le nombre d'outils à maintenir
 et de faciliter la prise en main de l'IC par les développeurs.
 
 #pagebreak()
 
 = Mise en œuvre et responsabilités liées à la mission
 == Responsabilités assumées
-Ma mission consiste à épauler les autres membres du service informatique
-sur de nouveaux projets, soit en collaboration avec eux, soit en
-réalisant des projets en autonomie.
-Parmi ces derniers,
-on peut citer le développement du formulaire d'adhésion en ligne,
-qui permet aux artistes d'adhérer à l'Adagp par internet,
-ce qui permet de faciliter le traitement de ces demandes pour le service
-des adhésions.
 // #lorem(500)
+Ma mission pendant mon alternance au sein de l'Adagp
+consiste à épauler les autres membres du service informatique
+sur ses nouveaux projets,
+soit en collaboration avec le reste du service,
+soit en réalisant ces projets en autonomie.
+
+Dans le cadre de mon alternance, j'ai déjà eu l'occasion
+de travailler sur plusieurs projets en collaboration avec le reste du service.
+Parmi ces projets, on peut citer le projet du formulaire en ligne,
+qui consistait à mettre en place un formulaire en ligne
+à l'aide de l'outil Drupal Webforms
+pour permettre aux futurs adhérents de l'Adagp de s'inscrire en ligne,
+sans avoir à se déplacer à l'Adagp.
+Ce projet permet aussi d'informatiser le processus d'adhésion,
+ce qui facilite le travail du pôle adhésion
+et permet d'y augmenter la capacité de traitement des dossiers.
+
+Le projet qui concerne ce mémoire est un projet en autonomie
+et interne au service informatique.
+C'est un projet de recherche et développement,
+qui s'appuiera le développement d'un outil informatique interne,
+qui a lui aussi été développé en autonomie.
+Cet ancien projet, dont j'avais aussi la charge,
+est un processus serveur écrit en Typescript pour pour Node.js,
+et utilisait une base de données Redis.
+Il incluait aussi deux processus clients d'exemple,
+dont un écrit en Javascript avec Node.js,
+et un autre en Java avec Spring Boot.
+
+Mon rôle dans ce projet de recherche et développement
+consiste à déterminer le moyen d'utiliser les Github Actions
+pour mettre en place de l'intégration continue l'ancien projet.
+
+Une autre de mes responsabilités est de documenter
+les choix et technologies utilisées dans ce projet,
+ce qui a mené à la rédaction de ce mémoire.
+Ce dernier est un outil de communication interne
+qui permettra de diffuser les connaissances acquises
+à d'autres projets du service informatique.
+
+Détaillons maintenant les différentes étapes de ce projet.
 == Actions entreprises
-#lorem(500)
+// #lorem(500)
+
+Nous l'avons déjà vu dans la @liste-étapes-clés, // Section II.2
+la première étape sur ces projets est d'adapter les processus
+de développement pour permettre l'intégration continue.
+Le projet précédent avait déjà été développé
+en suivant le développement sur tronc commun,
+et quelques tests avaient déjà été écrits,
+donc le gros du travail était dejà fait.
+Avant de passer à l'étape suivante cependant,
+j'ai entrepris de faire une revue des tests existants,
+notamment sur le client Java,
+qui a la couverture fonctionnelle la plus importante.
+
+Pour réaliser cette revue, j'ai utilisé le rapport de couverture
+des tests généré par Eclipse (voir @couverture-tests-avant).
+À partir de ces résultats, j'ai pu déterminer les parties
+du code qui n'étaient pas couvertes par les tests,
+et j'ai pu les prioriser pour les tests à écrire.
+
+#figure(
+  image("assets/couverture-tests-before.png"),
+  caption: [
+    Rapport de couverture des tests avant
+    l'ajout de tests supplémentaires
+  ],
+) <couverture-tests-avant>
+
+En particulier, j'ai pu déterminer que les tests
+ignoraient complètement le test des routes nécessitant
+un token d'authentification, donc j'ai écrit des tests
+couvrant ce cas de figure.
+En conséquence, la couverture des tests a augmenté
+de 43,8% à 89,6% (voir @couverture-tests-après).
+Notons d'ailleurs que je n'ai pas écrit de tests
+pour les autres fichiers que `SseWebClient.java`,
+car ils ne contiennent que des fonctions utilitaires
+qui ne nécessitent pas de tests unitaires ou d'intégration.
+
+#figure(
+  image("assets/couverture-tests-after.png"),
+  caption: [
+    Rapport de couverture des tests après
+    l'ajout de tests supplémentaires
+  ],
+) <couverture-tests-après>
+
+De plus, j'ai remarqué que les tests faisaient appel à un client web
+(le `WebClient` de Spring Boot),
+qui nécessitait un service externe pour fonctionner.
+J'ai donc décidé de "moquer" ce service externe,
+c'est-à-dire de créer un serveur web
+qui ne fait que simuler les réponses aux appels
+du client au service externe.
+Cela permet de s'affranchir de la nécessité d'avoir un service externe
+pour faire fonctionner les tests,
+et donc de pouvoir les exécuter sur le serveur d'intégration continue,
+sans avoir à préparer un environnement complexe
+pour la bonne exécution des tests.
+
+Ensuite, j'ai pu passer à l'étape suivante,
+qui consiste à mettre en place l'intégration continue
+à l'aide des Github Actions.
+Pour cela, j'ai écrit un fichier de configuration
+(voir @configuration-github-actions).
+
+#figure(
+  ```yaml
+  name: maven-build
+  run-name: Run maven up to 'verify' phase and archive JAR
+
+  on: [push, pull_request]
+
+  jobs:
+    maven-build:
+      strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest]
+
+      runs-on: ${{ matrix.os }}
+
+      concurrency:
+        group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}
+        cancel-in-progress: true
+
+      steps:
+      - uses: actions/checkout@v3
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'oracle'
+          cache: maven
+      - name: Maven build
+        run: mvn -B clean verify
+      - uses: actions/upload-artifact@v3
+        with:
+          name: compiled-jar
+          path: target/*.jar
+          retention-days: 1
+  ```,
+  caption: [
+    Fichier de configuration des Github Actions
+    pour l'IC du client Java
+  ],
+  kind: "code",
+  supplement: "Fichier"
+) <configuration-github-actions>
+
+Ce fichier permet de lancer les tests unitaires et d'intégration
+à chaque fois qu'un commit est poussé sur la branche principale,
+ou qu'une pull request est ouverte.
+Il permet aussi de compiler un fichier JAR
+et de l'archiver en tant qu'artefact de l'action (pendant 1 jour).
+Cela permet de pouvoir récupérer le fichier JAR
+pour le déployer rapidement.
+Il réalise ces actions sur Windows et Ubuntu,
+et utilise le cache de Maven pour accélérer les builds.
+La configuration est simplifiée par l'utilisation de Maven,
+qui permet de lancer les tests et de compiler le JAR
+en une seule commande.
+En effet, Maven est un outil de build pour Java,
+qui est organisé en phases.
+Chaque phase correspond à une étape du build,
+et la préciser dans la commande permet de lancer
+toutes les étapes jusqu'à la phase spécifiée.
+Dans notre cas, la phase `verify` est exécute aussi les phases `test`,
+`integration-test` et `package`.
+La phase `test` lance les tests unitaires,
+`integration-test` ceux d'intégration,
+et la phase `package` compile le code dans un fichier JAR.
+
 == Défis rencontrés et leurs solutions
-#lorem(500)
+// #lorem(500)
+
+Le premier défi rencontré a été de comprendre comment fonctionnait
+le client web de Spring Boot,
+et comment le "moquer" pour les tests.
+En effet, le client web est une abstraction
+qui permet de faire des requêtes HTTP
+sans avoir à écrire le code de la requête.
+Il suffit de spécifier l'URL, le type de requête,
+et éventuellement des paramètres,
+et le client web se charge d'envoyer la requête
+et de récupérer la réponse sous le format souhaité.
+
+Mais comment faire pour tester le code qui utilise le client web,
+sans avoir à faire appel à un service externe ?
+Comme dit plus tôt,
+la solution est de créer un serveur web "fictif",
+qui va simuler les réponses du service externe.
+Un exemple de fichier de tests d'intégration utilisant ce mécanisme
+est disponible en @sse-web-client-it.
+
+Une alternative aurait été d'utiliser un conteneur de service
+sur la configuration des Github Actions
+pour lancer le véritable service externe,
+mais cela aurait été moins intéressant à mettre en place,
+pour plusieurs raisons :
+1. Il aurait fallu créer un `Dockerfile` pour le serveur Node.js,
+  ce qui veut dire que ce dernier
+  devrait gérer une étape de build supplémentaire,
+  et donc que le build serait plus long et plus difficile à maintenir.
+2. Il aurait fallu limiter les tests à la plateforme Linux,
+  car Github Actions ne permet pas de lancer des conteneurs de service
+  si le runner est hébergé sur Windows,
+  or il est important de tester le code sur les deux plateformes
+  puisqu'elles sont potentiellement toutes deux utilisées par l'Adagp.
+  Cela aurait donc limité l'applicabilité des tests.
+Ce sont ces deux raisons qui expliquent que le serveur externe ne soit
+pas lui-même testé dans le cadre de ce mémoire.
+
+Le build pouvait aussi être assez long, alors que les tests
+ne sont pas très nombreux.
+En effet, le build compile le code, mais pour cela il doit télécharger
+toutes les dépendances du projet.
+Cela prend du temps, et cela peut être évité en utilisant le cache de Maven.
+Le cache de Maven permet de stocker les dépendances déjà téléchargées
+pour les réutiliser lors des builds suivants.
+Cela permet de réduire le temps de build,
+et donc de réduire le temps avant de recevoir le retour des tests.
+Cela permet aussi de réduire la consommation de bande passante,
+puisque les dépendances ne sont téléchargées qu'une seule fois.
+Le cache de Maven est activé dans la configuration des Github Actions
+dans le @configuration-github-actions,
+grâce à la ligne `cache: maven` qui configure `actions/setup-java`
+pour cacher les dépendances de Maven.
 
 #pagebreak()
 
@@ -1143,3 +1366,55 @@ des adhésions.
   supplement: "Annexe",
   numbering: "A"
 ) <trunk-based-development-branch-diagram-at-scale>
+
+#figure(
+  ```java
+  public class SseWebClientIT {
+    
+    private final MockWebServer mockWebServer = new MockWebServer();
+    private final SseWebClient<String> webClient = new SseWebClient<>(
+        WebClient.create(mockWebServer.url("/").toString()),
+        String.class
+    );
+
+    @AfterEach
+    void teardownMockServer() throws IOException {
+      mockWebServer.shutdown();
+    }
+
+    @Test
+    void shouldRetrieveDataFromServer() {
+      final StringBuilder eventStreamBuilder = new StringBuilder();
+
+      // add 15 events
+      for (int i = 0; i < 15; i++) {
+        eventStreamBuilder
+            .append("event: newEvent\ndata: mydata\n\n");
+      }
+
+      mockWebServer.enqueue(
+          new MockResponse()
+              .setResponseCode(200)
+              .setHeader(
+                  HttpHeaders.CONTENT_TYPE,
+                  MediaType.TEXT_EVENT_STREAM
+              )
+              .setBody(eventStreamBuilder.toString())
+      );
+
+      Flux<String> times = webClient.retrieveData("/events");
+      
+      assertNotNull(times);
+      times.take(5).count().subscribe((c) -> assertTrue(c > 0));
+    }
+
+    // other test cases
+  }
+  ```,
+  caption: [
+    Exemple de test d'intégration avec un serveur web fictif
+  ],
+  kind: "appendix",
+  supplement: "Annexe",
+  numbering: "A"
+) <sse-web-client-it>
