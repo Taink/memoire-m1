@@ -1148,7 +1148,7 @@ qui nécessitait un service externe pour fonctionner.
 J'ai donc décidé de "moquer" ce service externe,
 c'est-à-dire de créer un serveur web
 qui ne fait que simuler les réponses aux appels
-du client au service externe.
+du client au service externe (voir @sse-web-client-it).
 Cela permet de s'affranchir de la nécessité d'avoir un service externe
 pour faire fonctionner les tests,
 et donc de pouvoir les exécuter sur le serveur d'intégration continue,
@@ -1281,7 +1281,7 @@ puisque les dépendances ne sont téléchargées qu'une seule fois.
 Le cache de Maven est activé dans la configuration des Github Actions
 dans le @configuration-github-actions,
 grâce à la ligne `cache: maven` qui configure `actions/setup-java`
-pour cacher les dépendances de Maven.
+pour mettre en cache les dépendances de Maven.
 
 #pagebreak()
 
