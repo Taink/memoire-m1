@@ -35,14 +35,22 @@
     }
   }
 
-  show raw: it => box(
-    fill: luma(230),
-    radius: 4pt,
-    inset: 8pt,
+  // code blocks
+  show raw.where(block: true): box.with(
+    fill: luma(240),
+    radius: 3pt,
+    inset: 10pt,
     stroke: gray,
-    it,
   )
 
+  // inline code
+  show raw.where(block: false): box.with(
+    fill: luma(240),
+    radius: 3pt,
+    inset: (x: 2pt, y: 0pt),
+    outset: (y: 3pt),
+    stroke: gray,
+  )
 
   // Title page.
   v(0.6fr)
