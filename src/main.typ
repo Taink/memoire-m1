@@ -97,6 +97,13 @@ Nous aborderons notre problématique dans un projet qui consistera
 à mettre en place ces outils d'intégration continue,
 et à les intégrer dans les processus métiers de l'Adagp.
 
+De plus, ce mémoire sera l'occasion de mettre en pratique
+les connaissances acquises durant l'exécution de ce projet :
+nous mettrons en place les outils d'intégration continue
+sur le projet de rédaction de ce mémoire.
+Il utilisera un langage de balisage, les fichiers Typst.
+Nous reviendrons sur son utilisation dans la @meta-memoire-markup.
+
 Ce mémoire commencera par une analyse de l'état de l'art
 au travers d'une revue de la littérature existante sur les pratiques
 d'intégration continue.
@@ -1260,7 +1267,7 @@ La phase `test` lance les tests unitaires,
 `integration-test` ceux d'intégration,
 et la phase `package` compile le code dans un fichier JAR.
 
-== Défis rencontrés et leurs solutions
+== Défis rencontrés et leurs solutions <liste-défis-rencontrés>
 // #lorem(500)
 
 Le premier défi rencontré a été de comprendre comment fonctionnait
@@ -1316,21 +1323,257 @@ dans le @configuration-github-actions,
 grâce à la ligne `cache: maven` qui configure `actions/setup-java`
 pour mettre en cache les dépendances de Maven.
 
+Enfin, avec un peu plus de temps, il aurait été intéressant
+de poursuivre avec la troisème étape décrite dans la @liste-étapes-clés.
+En effet, cela aurait permis de tester le client Java
+dans un environnement plus proche de la réalité,
+et de confronter le client Java à des situations
+qui ne sont pas prévues par les tests automatiques.
+
+Les processus de build et de test sont maintenant automatisés,
+donc il est toujours possible de déployer manuellement le projet
+auquel l'intégration continue a été ajoutée.
+Des processus existant déjà à l'Adagp pour déployer des projets comparables,
+il a été décidé de ne pas en automatiser le déploiement ici -- pour l'instant.
+C'est la raison pour laquelle ce mémoire
+se concentre sur l'intégration continue,
+et non sur un processus complet.
+
+== Rédaction de ce mémoire <meta-memoire-markup>
+
+Ce mémoire a été rédigé en utilisant le langage de balisage des fichiers
+#link("https://typst.app/", "Typst").
+C'est un nouveau langage de balisage, à la fois similaire à Markdown
+pour sa simplicité et sa lisibilité, et à LaTeX pour sa puissance et
+sa capacité à gérer des documents complexes.
+Puisqu'il est encore en développement,
+il n'est pas encore totalement abouti,
+mais il était adapté aux besoins de ce mémoire.
+
+Afin de faciliter la rédaction de ce mémoire,
+son évolution a été suivie par un outil de gestion de versions, Git.
+Cela permet de conserver un historique des modifications,
+et puisque Typst utilise un format de fichier texte,
+il est possible de voir les modifications apportées à chaque version
+du mémoire, et de les comparer.
+
+Pour aller plus loin et vérifier la robustesse des Github Actions
+dans le cadre même de la rédaction de ce mémoire,
+un processus d'intégration continue a été mis en place
+pour compiler un PDF à chaque modification du mémoire.
+
+Ce processus est décrit dans le fichier de configuration disponible en
+@configuration-github-actions-memoire.
+
 #pagebreak()
 
 = Étude des résultats et limites du travail réalisé
 == Résultats obtenus
-#lorem(500)
+Le résultat de ce travail est un client Java compilé,
+testé sur Windows et Linux,
+et qui fournit une archive de son JAR pendant 1 jour.
+
+Github Actions, en plus de lancer les tests et d'archiver le JAR,
+permet d'afficher les résultats des tests dans une interface web.
+
+Une capture d'écran de cette interface est disponible en @ci-results-dashboard.
+On peut diviser cette interface en trois parties :
+1. Un résumé de l'exécution, en haut.
+  Il indique le statut de l'exécution,
+  le temps qu'elle a pris,
+  quel commit l'a déclenché et le nombre d'artefacts générés.
+2. La liste des builds, avec leur statut et leur durée, au centre.
+  Cette liste se présente sous la forme d'un graphique,
+  qui lie les relations de chaque "job",
+  c'est-à-dire chaque tâche du processus d'intégration continue.
+  Dans notre cas, il n'y a qu'un seul job, mais deux exécutions :
+  une pour Windows, et une pour Linux.
+3. Les artefacts, en bas.
+
+#figure(
+  image("assets/ci-results-dashboard.png"),
+  caption: "Résultats des tests sur Github Actions",
+) <ci-results-dashboard>
+
+L'interface permet aussi de voir les logs de chaque job, en cliquant dessus.
+Cela permet de voir les logs de chaque étape d'un job.
+Une capture d'écran de cette interface est disponible en @ci-results-job.
+Sur cette capture d'écran, on peut voir que le job a été exécuté sur Ubuntu,
+et que les tests ont réussi.
+
+L'étape de build de Maven est déroulée, à côté de laquelle on peut voir
+le temps qu'elle a pris, et son statut particulier.
+Une fois déroulée, les logs sont affichés, et on peut voir
+le déclenchement des tests puis leur réussite en @ci-results-job2.
+
+#figure(
+  image("assets/ci-results-job.png"),
+  caption: "Affichage d'un job sur Github Actions",
+) <ci-results-job>
+
+#figure(
+  image("assets/ci-results-job2.png"),
+  caption: "Affichage d'un job, avec les logs déroulés, et les résultats des tests",
+) <ci-results-job2>
+
+
+On a donc un reporting détaillé de l'exécution des tests,
+qui permet de voir les résultats et les logs de chaque étape,
+ainsi qu'un JAR compilé.
+
 == Analyse critique
-#lorem(400)
+// #lorem(400)
+Les résultats obtenus sont satisfaisants.
+Le client Java est compilé et testé sur deux plateformes,
+et les résultats des tests sont affichés dans une interface web.
+Cela permet de s'assurer que le client Java est fonctionnel,
+et que les tests sont toujours valides.
+
+L'intégration continue a été mise en place sur un projet existant,
+et pourra aussi bien servir de précédent à des projets futurs
+ou bien à d'autres projets plus anciens qui nécessiteraient un travail
+de ce genre pour être maintenus.
+
+Nous allons maintenant revoir point par point
+d'abord les avantages de notre approche,
+puis ses limites.
+
 === Avantages
-#lorem(500)
-=== Limitations
-#lorem(500)
+// #lorem(500)
+L'intégration continue permet de s'assurer que le projet est toujours
+fonctionnel, et que les tests sont toujours valides.
+Cela permet de détecter rapidement les régressions,
+et de les corriger avant qu'elles ne soient trop importantes.
+
+La taille du projet choisi a permis d'itérer rapidement
+sur les différents choix de solution,
+et de trouver une solution qui convienne davantage.
+
+La collaboration est également facilitée du fait de la simplicité
+du modèle de développement en tronc commun et des certitudes
+apportées par l'intégration continue sur les pull requests.
+
+Le résultat est clair : le projet est accueillant aux collaborations,
+et les contributions sont validées par l'intégration continue.
+Cela offre un environnement dans lequel la discipline nécessaire
+à la maintenance d'une grande qualité logicielle est facilitée.
+
+L'intégration n'est plus un obstacle au développement puisque le
+développement et le partage des modifications apportées au projet
+nécessitent que l'intégration fonctionne à toutes les étapes.
+=== Limitations <section-limitations>
+La plus grosse limitation de cette approche est la taille du projet
+de départ.
+
+En effet, le projet est petit, et ne nécessite pas beaucoup de tests.
+Cela a permis d'itérer rapidement sur les différentes solutions,
+mais cela a aussi limité la portée de notre expérimentation sur
+la robustesse de la solution Github Actions.
+Le retour d'expérience est partiellement amélioré par le choix
+d'appliquer l'IC à la rédaction du mémoire, mais cela reste
+marginal et une limitation important de notre approche.
+
+Une autre limitation est le fait que le projet ne soit pas
+complètement abouti par rapport aux étapes clés décrites dans la
+@liste-étapes-clés.
+En effet, le projet ne possède pas d'étape de déploiement et la
+relègue à "un exercice pour le lecteur", d'une certaine manière.
+Cela est dû au fait que le projet est un prototype,
+et que le temps de développement était limité.
+
+Il reste enfin un élément non testé sur ce le projet initial :
+le serveur Node.js sur lequel le client Java se connecte.
+Nous avons effectivement brièvement mentionné dans la @liste-défis-rencontrés
+que le serveur Node.js n'était pas testé.
+Cela est dû au fait que le serveur Node.js est un prototype,
+et que la mise en place de ses tests nécessitait un travail qui dépassait
+les prérogatives initiales de ce projet.
+
 == Facteurs d'influence sur les résultats
-#lorem(400)
+// #lorem(400)
+// facteur d'influence : technologies utilisées
+Le premier facteur d'influence sur les résultats est le choix
+des technologies utilisées.
+Le projet initial utilise Java, et Maven.
+Ce sont des solutions robustes, quasiment clé en main,
+et elles ne démontrent peut-être pas la robustesse de la solution
+Github Actions par rapport à des solutions plus exotiques.
+Ce n'est cependant pas un problème pour le cas précis des Github Actions,
+car c'est une solution très flexible et customisable, et la communauté
+autour de Github Actions est très active ;
+beaucoup d'actions existent déjà, et il est facile d'en créer de nouvelles
+(voir @github-actions).
+La rédaction de ce mémoire en témoigne d'ailleurs :
+le projet est rédigé dans un langage de balisage assez nouveau,
+et donc peu supporté.
+Plusieurs solutions étaient disponibles pour la compilation du mémoire,
+ce qui prouve la flexibilité de Github Actions.
+La solution choisie, de passer par l'action `yusancky/setup-typst`,
+est la méthode canonique, et la plus simple à mettre en place,
+mais il aurait été possible de passer par un conteneur Docker par exemple
+(voir @configuration-github-actions-memoire).
+
+// facteur d'influence : taille du projet
+Comme nous l'avons vu dans la @section-limitations,
+la taille du projet est un facteur d'influence important,
+qui a limité la portée de notre expérimentation.
+Il a dicté la simplicité de la configuration, et a réduit
+le temps nécessaire à la mise en place de l'intégration continue.
+
+// facteur d'influence : temps de développement
+Ce temps de mise en place est un autre facteur d'influence.
+Le projet avait un temps de développement limité,
+et il a donc fallu privilégier des solutions rapides
+et simples à mettre, mais aussi à transmettre et maintenir.
+
+// facteur d'influence : expérience du développeur
+Ma propre expérience a aussi influencé les résultats.
+J'étais déjà familier avec Github Actions, et j'ai donc pu
+mettre en place l'intégration continue rapidement.
+Un autre développeur aurait peut-être privilégié une autre solution,
+pour des raisons qui ne me sont pas familières du fait de mon
+inexpérience sur cette dernière.
+Mon expérience a aussi influencé le choix des technologies,
+puisque j'ai choisi des technologies que je connaissais déjà.
+
+// facteur d'influence : taille de l'équipe ciblée
+Enfin, la taille de l'équipe ciblée est un autre facteur d'influence.
+En effet, l'intégration continue est plus utile dans une équipe
+où la collaboration des équipe est fréquente,
+puisqu'elle permet de s'assurer que les modifications apportées
+potentiellement quotidiennement (voir plus souvent encore)
+par les autres membres de l'équipe ne cassent pas le projet.
+Peut-être que si cette solution avait été mise en place dans
+un environnement plus gros, n'aurait-elle pas été aussi pertinente.
+Ce mémoire se limitant au cas de l'Adagp,
+ce n'est pas un facteur d'influence d'une grande importance
+pour son service informatique.
+
 == Améliorations possibles
-#lorem(400)
+// #lorem(400)
+
+Les premières améliorations possibles sont les plus évidentes :
+il s'agit de compléter le projet initial pour qu'il corresponde
+aux étapes clés décrites dans la @liste-étapes-clés.
+Cela permettrait de valider l'approche sur un projet plus complet,
+et de réellement tester la robustesse de la solution Github Actions
+sur un processus d'intégration continue réellement abouti.
+Il faudrait donc ajouter une étape de déploiement,
+et compléter le serveur Node.js pour qu'il soit testé.
+
+Les autres sont plus discutables car elles relèvent de l'opinion,
+ou des circonstances du projet.
+
+Il aurait été par exemple préférable
+de choisir une application existante plus complexe,
+pour éprouver réellement la solution Github Actions.
+
+// amélioration possible : tests unitaires
+Il aurait aussi été préférable de mettre en place des tests unitaires.
+Le projet initial ne s'y prêtait pas, car il s'agissait d'un prototype
+algorithmiquement très simple.
+Cependant, il aurait été possible de mettre en place des tests unitaires
+sur le serveur Node.js, pour tester son bon fonctionnement.
 
 #pagebreak()
 
@@ -1451,3 +1694,58 @@ pour mettre en cache les dépendances de Maven.
   supplement: "Annexe",
   numbering: "A"
 ) <sse-web-client-it>
+
+#figure(
+  ```yaml
+  name: Typst pdf build
+
+  on:
+    push:
+      tags: [ "v*.*.*" ]
+      branches: [ master ]
+    pull_request:
+      branches: [ master ]
+    
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+      - uses: yusancky/setup-typst@v2
+        with:
+          version: 'v0.6.0'
+      - name: Compile pdf
+        run: typst compile src/main.typ ./memoire.pdf
+      - name: Test file presence
+        run: file memoire.pdf
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: memoire
+          path: memoire.pdf
+
+    publish:
+      needs: build
+      runs-on: ubuntu-latest
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+      steps:
+      - uses: actions/checkout@v3
+      - name: Download pdf
+        uses: actions/download-artifact@v3
+        with:
+          name: memoire
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: memoire.pdf
+  ```,
+  caption: [
+    Configuration de Github Actions pour la compilation du code source
+    de ce mémoire et la génération du PDF final --
+    un PDF est généré à chaque push ou PR sur la branche master,
+    et il est publié sur la page de release de chaque nouveau tag de version
+  ],
+  kind: "appendix",
+  supplement: "Annexe",
+  numbering: "A"
+) <configuration-github-actions-memoire>
