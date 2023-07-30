@@ -92,7 +92,6 @@
     #heading(outlined: false, numbering: none, text(0.85em)[Abstract])
     #abstract_en
 
-
     #v(8em, weak: true)
 
     #heading(outlined: false, numbering: none, text(0.85em)[Résumé])

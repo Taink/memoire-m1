@@ -160,3 +160,25 @@ cnc-sprd:
   author: CNC
   url: https://www.cnc.fr/professionnels/jeunes-professionnels/ressources-auteurs/legislation-et-droits-d-auteur/principales-societes-civiles-de-perception-et-de-repartition-des-droits
   date: 2009-06-23
+
+overcoming-challenges-small-company:
+  type: Article
+  title: "Overcoming Challenges with Continuous Integration and Deployment Pipelines When Moving from Monolithic Apps to Microservices: An experience report from a small company"
+  author:
+    - Debroy, Vidroha
+    - Miller, Senecca
+  doi: "10.1109/MS.2019.2947004"
+  date: 2019
+  parent:
+    type: Periodical
+    title: IEEE Software
+    volume: 37
+    issue: 3
+    page-range: 21-29,
+    date: 2020-05
+
+paving-devops-runway:
+  type: Web
+  title: Paving the DevOps runway
+  author: Sareen, Deepak
+  url: https://cloud.google.com/blog/products/devops-sre/devops-awards-2022-winner-deutsche-bank?hl=en

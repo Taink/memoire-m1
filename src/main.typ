@@ -1489,7 +1489,7 @@ Cela est dû au fait que le serveur Node.js est un prototype,
 et que la mise en place de ses tests nécessitait un travail qui dépassait
 les prérogatives initiales de ce projet.
 
-== Facteurs d'influence sur les résultats
+== Facteurs d'influence sur les résultats <section-facteurs-influence>
 // #lorem(400)
 // facteur d'influence : technologies utilisées
 Le premier facteur d'influence sur les résultats est le choix
@@ -1578,14 +1578,131 @@ sur le serveur Node.js, pour tester son bon fonctionnement.
 #pagebreak()
 
 = Positionnement dans l'état de l'art
-#lorem(150)
-== Comparaison avec autres résultats prééxistants
-#lorem(500)
+== Comparaison des résultats obtenus
+// #lorem(500)
+
+Nous avons vu plus tôt que le service informatique de l'Adagp
+n'utilisait pas d'intégration continue.
+Plusieurs raisons ont été évoquées, mais la principale est que
+le service informatique n'a pas alloué de temps pour la mise en place
+d'une telle solution, qui n'est de toute façon pas une priorité.
+
+// comparaison des résultats obtenus : temps de mise en place
+Dans ce projet, la rapidité de mise en place a donc été
+le premier facteur d'influence sur les choix réalisés.
+Github Actions a été privilégié car il s'agit d'une solution
+très simple à mettre en place, et qui ne nécessite pas de serveur dédié.
+
+Dans le cas de @overcoming-challenges-small-company,
+la contrainte majeure n'était pas le temps de mise en place,
+mais le coût de la solution.
+La taille de l'entreprise limitait ses perspectives pour répondre
+aux défis d'un changement de structure de leurs logiciels.
+Ils ont fait le choix de mettre en place des pipelines
+qui géraient elles-mêmes leur propre infrastructure,
+ce qui leur a permis d'automatiser une grande partie de leur processus.
+L'automaticité de la solution est un facteur d'influence
+qui n'était pas envisagé dans notre projet --
+nous n'avons pas de besoin de scalabilité qui pourraient nous mener
+à chosir une infrastructure en microservice.
+Cependant, ce rapport démontre que tous les facteurs envisagés pendant
+notre étude ne correspondent pas à une liste exhaustive des critères à
+prendre en compte, et ce pour une bonne raison :
+la liste est potentiellement infinie,
+et dépend du contexte de l'entreprise.
+
+// FROM BLOG: With an extensive history and global operations, Deutsche Bank had developed a technology infrastructure built from legacy systems. With duplicate capabilities and pockets of automation, the bank knew it needed a more consistent approach that decreased risk, complexity, and cost, while introducing new products and services to their customers
+Voyons le cas d'une entreprise de plus grande taille, la Deutsche Bank.
+Leur infrastructure technologique était construite sur des systèmes
+hérités de leur bagage historique,
+et ils ont décidé de mettre en place des pratiques d'automatisation
+de façon plus systématique.
+@paving-devops-runway
+
+Que tirer de cette expérience, dans notre contexte ?
+Déjà, ils établissent une liste de trois critères importants
+au début de leur publication :
+- le développement de compétences au sein de l'entreprise
+- la standardisation de leurs solutions
+- la documentation des défis rencontrés et leurs solutions
+On constate alors contre-intuitivement que leurs critères
+correspondent relativement bien à ceux que nous avons établis
+dans notre étude, alors que l'Adagp est un bien plus petite entreprise.
+Ils ont même fait le choix d'employer la même solution que nous pour
+leur intégration continue : les workflows de Github, ou Github Actions.
+Leur approche est évidemment plus globale que la nôtre,
+puisqu'ils ont mis en place un nouvelle infrastructure complète là
+où nous avons simplement mis en place une solution d'intégration continue,
+pour un seul projet de recherche et développement.
+Cela pointe cependant un fait : certains éléments de
+la liste des critères de réussite d'un projet d'intégration continue
+ne dépend pas du contexte de l'entreprise, mais sont universels --
+ou du moins, valables pour une grande variété de contextes.
+
 == Contributions originales
 // qu'ai-je apporté ?
-#lorem(400)
+// #lorem(400)
+Le projet couvert par ce mémoire était de petite envergure,
+et n'a pas permis de produire de contributions révolutionnaires
+ou même particulièrement originales.
+Le seul élément original de ce projet est la mise en place
+d'une solution d'intégration continue pour l'écriture du mémoire lui-même.
+
+Cependant, ce projet a fait remonter plusieurs points d'attention
+pour la mise en place d'une intégration continue :
+- la mise en place d'une intégration continue est un processus
+  qui nécessite de la réflexion et de l'expérimentation,
+  et qui ne peut pas être réalisé d'un seul coup ;
+  c'est un procédé complexe et progressif (cf. @approche-théorie)
+- beaucoup de publications résument l'intégration continue
+  à la mise en place d'un serveur d'intégration continue,
+  mais il s'agit d'une vision réductrice ;
+  la mise en place d'une intégration continue nécessite
+  de prendre en compte de nombreux facteurs (cf. @section-facteurs-influence)
+
 == Implications et perspectives futures
-#lorem(500)
+// #lorem(500)
+
+Ce mémoire a produit un travail de recherche et d'expérimentation
+sur l'intégration continue, et plus particulièrement sur la solution
+Github Actions.
+Il a permis de mettre en place une solution d'intégration continue
+pour un projet Java, et de tester la robustesse de la solution Github Actions
+jusqu'à un certain point.
+Il a permis de mettre en évidence les principaux prérequis pour la mise
+en place d'une intégration continue, et de démontrer que Github Actions
+est une solution viable pour ce faire.
+
+Si une entreprise souhaite réaliser un travail similaire,
+il est important de prendre en compte les facteurs d'influence
+qui ont été mis en évidence dans ce mémoire.
+Il est aussi important d'établir une liste de critères de réussite
+pour le projet, et de les garder en tête tout au long du projet.
+Enfin, il est important de garder en tête que la mise en place
+d'une intégration continue est un processus complexe et progressif,
+qui nécessite de la réflexion et de l'expérimentation --
+il ne faut pas s'attendre à ce que la solution soit parfaite,
+ni jamais terminée.
+Incorporer l'intégration continue dans les processus métiers
+de son entreprise constitue un changement radical
+dans la gestion des projets de développement de l'entreprise.
+
+Parmis les principales perspectives d'extension de ce travail,
+il y a la mise en place d'une intégration continue plus complète,
+qui permettrait de valider l'approche sur un projet plus complexe.
+Il serait aussi intéressant de tester la solution Github Actions
+sur un projet plus complexe.
+
+Une autre perspective d'extension serait de tester l'utilisation
+de la solution Github dans sa totalité, pour voir comment elle
+peut employer l'intégration continue pour la gestion de projet
+et voir si les Github Actions peuvent être utilisées pour
+la gestion de projet.
+
+Enfin, il pourrait être intéressant de comparer le contexte interne
+de solutions propriétaires d'intégration continue avec celui
+de solutions open-source, pour voir si les facteurs d'influence
+sont les mêmes.
 
 #pagebreak()
 
