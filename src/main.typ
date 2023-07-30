@@ -1481,7 +1481,7 @@ relègue à "un exercice pour le lecteur", d'une certaine manière.
 Cela est dû au fait que le projet est un prototype,
 et que le temps de développement était limité.
 
-Il reste enfin un élément non testé sur ce le projet initial :
+Il reste enfin un élément non testé sur le projet initial :
 le serveur Node.js sur lequel le client Java se connecte.
 Nous avons effectivement brièvement mentionné dans la @liste-défis-rencontrés
 que le serveur Node.js n'était pas testé.
