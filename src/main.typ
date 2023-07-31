@@ -57,8 +57,9 @@ Il est possible de créer un produit logiciel à partir de rien,
 car il n'y a pas de contraintes physiques à la création d'un logiciel.
 Il n'est pas nécessaire de rassembler des matières premières,
 de les transformer, de les assembler, etc.
-Il suffit de créer un fichier texte, et d'y inscrire du code --
-ce code sera ensuite exécuté par une machine, et le logiciel sera créé.
+Il suffit de créer un fichier texte et d'y inscrire du code --
+ce code sera ensuite exécuté par une machine
+et le logiciel verra le jour.
 
 Ce benéfice est accompagné d'un piège :
 il est très facile de créer un logiciel,
@@ -68,7 +69,7 @@ D'une certaine manière, le produit logiciel est l'opposé du produit physique :
 plus il est utilisé, plus il est difficile à échelonner.
 Plus un produit physique est âgé, plus il se déteriore.
 Un produit logiciel, lui, ne se déteriore pas de la même manière :
-il gagne en complexité, et devient plus difficile à maintenir.
+il gagne en complexité et devient plus difficile à maintenir.
 Il doit accomoder de plus en plus de cas d'utilisation,
 et couvrir de plus en plus de fonctionnalités.
 Pour gérer cette complexité grandissante,
@@ -110,7 +111,7 @@ d'intégration continue.
 Nous continuerons en analysant le contexte de notre étude de cas,
 avant de proposer une solution à notre problématique
 au travers d'approches aussi bien théoriques que pratiques.
-Nous mettrons en œuvre cette solution, et en critiquerons les résultats puis
+Nous mettrons en œuvre cette solution et en critiquerons les résultats puis
 finirons en positionnant notre projet dans l'état de l'art,
 pour conclure par une réponse à notre problématique.
 
@@ -262,7 +263,7 @@ les outils d'intégration continue les plus utilisés.
 
 === Jenkins <jenkins>
 Jenkins est un outil d'intégration continue open-source écrit en Java.
-Il est très flexible, et permet de mettre en place des pipelines
+Il est très flexible et permet de mettre en place des pipelines
 d'intégration continue très complexes.
 Il est relativement facile à prendre en main,
 mais la complexité des pipelines qu'il permet de mettre en œuvre
@@ -336,12 +337,12 @@ site sur une infrastructure n'est pas facile,
 de l'aveu de Travis eux-même@travis-blog-install],
 et s'est surtout fait connaître pour son offre gratuite pour les
 répertoires publics open-source.
-Il est plutôt flexible, et permet de faire à peu près la même chose
+Il est plutôt flexible et permet de faire à peu près la même chose
 que #link(label("jenkins"))[Jenkins].
 La seule différence avec ce dernier c'est qu'il doit suivre les changements
 réalisés sur une plateforme en ligne, ce qui limite logiquement
 sa compatibilité à une poignée de sites.
-Il est cependant très facile d'utilisation, et utilise un fichier de
+Il est cependant très facile d'utilisation et utilise un fichier de
 configuration écrit en YAML (son format est donc répandu).
 C'est une idée qui est reprise dans beaucoup d'autres systèmes
 similaires (et le reste des outils présentés dans cette section sont
@@ -466,7 +467,7 @@ les runners est laissée à l'instance Gitlab#footnote[L'instance peut aussi
 être hébergée sur site, mais c'est un projet à part entière.]
 
 Le service CI fonctionne main dans la main avec le reste de l'offre de 
-GitLab, qui se vend d'ailleurs comme une "plateforme DevOps", et qui offre
+GitLab, qui se vend d'ailleurs comme une "plateforme DevOps", offrant
 ainsi la possibilité d'unifier toutes les informations nécessaires à la
 gestion du projet, fournissant des services de gestion de projet approchant
 à certains égards des plateformes dédiées (comme Jira par exemple).
@@ -592,9 +593,9 @@ présente le concept au plus grand nombre.
 C'est un article fondateur, écrit en 2000 puis édité en 2006,
 qui fournit plusieurs informations importantes
 sur le concept d'intégration continue,
-son utilité, et son applicabilité.
+son utilité et son applicabilité.
 Il appuie sa présentation par des exemples pratiques tirés de
-son expérience professionnelle, et y établit les critères nécessaires à
+son expérience professionnelle et y établit les critères nécessaires à
 la bonne conduite de l'intégration continue :
 - Maintenir une source de vérité unique pour le code source
 - Automatiser le build
@@ -616,7 +617,7 @@ une synthèse très instructive sur les tenants et aboutissants de l'IC mais
 aussi d'autres étapes du cycle DevOps : la livraison et le déploiement
 continus.
 Dans leur sélection (qui inclut 69 ouvrages, de 2004 à juin 2016), ils
-notent que la majorité sont récents, et qu'ils sont pour la plupart produit
+notent que la majorité sont récents et qu'ils sont pour la plupart produit
 par l'industrie du développement logiciel.
 Ils constatent en outre une majorité de projets web et utilitaires,
 avec comme outils principaux Git/Github et Subversion pour le contrôle de
@@ -641,7 +642,7 @@ Une autre lacune, celle-là beaucoup plus importante, est que la plupart
 des ouvrages récents publiés présupposent une grande familiarité avec le
 reste des pratiques DevOps, et oublient un peu comment simplement intégrer
 les idées de l'intégration continue dans un contexte moins compatible.
-Très peu de publications expliquent leur choix de technologie, et les défis
+Très peu de publications expliquent leur choix de technologie et les défis
 qui ont pu les réorienter.
 
 Ce mémoire se place donc comme un témoignage de l'applicabilité des pratiques
@@ -736,7 +737,7 @@ suit un processus d'amélioration continue.
   et du service études et prospectives.
 
   Ce comité va en particulier établir l'importance de la demande.
-  Pour ce faire, il va en évaluer les gains, et risques potentiels.
+  Pour ce faire, il va en évaluer les gains et risques potentiels.
   Ce score détermine la priorité et les échéances d'implémentation
   de la demande si cette dernière est acceptée.
   En effet, les demandes, une fois acceptées,
@@ -959,7 +960,7 @@ il va être possible de tirer pleinement parti
 de l'ensemble des fonctionnalités de Github :
 - Les Issues, qui permettent de noter des tâches à réaliser sur le projet
 - Les Pull requests, qui permettent de gérer la fusion des branches,
-  de faire des revues de code, et de déclencher des actions
+  de faire des revues de code et de déclencher des actions
 - Une interface de gestion de projet, qui permet de manipuler
   des Issues et de les organiser sur différentes vues
   (tableau Kanban, Roadmap, Liste)
@@ -1311,7 +1312,7 @@ Le build pouvait aussi être assez long, alors que les tests
 ne sont pas très nombreux.
 En effet, le build compile le code, mais pour cela il doit télécharger
 toutes les dépendances du projet.
-Cela prend du temps, et cela peut être évité en utilisant le cache de Maven.
+Cela prend du temps et peut être évité en utilisant le cache de Maven.
 Le cache de Maven permet de stocker les dépendances déjà téléchargées
 pour les réutiliser lors des builds suivants.
 Cela permet de réduire le temps de build,
@@ -1355,7 +1356,7 @@ son évolution a été suivie par un outil de gestion de versions, Git.
 Cela permet de conserver un historique des modifications,
 et puisque Typst utilise un format de fichier texte,
 il est possible de voir les modifications apportées à chaque version
-du mémoire, et de les comparer.
+du mémoire et de les comparer.
 
 Pour aller plus loin et vérifier la robustesse des Github Actions
 dans le cadre même de la rédaction de ce mémoire,
@@ -1387,7 +1388,7 @@ On peut diviser cette interface en trois parties :
   qui lie les relations de chaque "job",
   c'est-à-dire chaque tâche du processus d'intégration continue.
   Dans notre cas, il n'y a qu'un seul job, mais deux exécutions :
-  une pour Windows, et une pour Linux.
+  une pour Windows et une pour Linux.
 3. Les artefacts, en bas.
 
 #figure(
@@ -1402,8 +1403,8 @@ Sur cette capture d'écran, on peut voir que le job a été exécuté sur Ubuntu
 et que les tests ont réussi.
 
 L'étape de build de Maven est déroulée, à côté de laquelle on peut voir
-le temps qu'elle a pris, et son statut particulier.
-Une fois déroulée, les logs sont affichés, et on peut voir
+le temps qu'elle a pris et son statut particulier.
+Une fois déroulée, les logs sont affichés et on peut voir
 le déclenchement des tests puis leur réussite en @ci-results-job2.
 
 #figure(
@@ -1413,7 +1414,7 @@ le déclenchement des tests puis leur réussite en @ci-results-job2.
 
 #figure(
   image("assets/ci-results-job2.png"),
-  caption: "Affichage d'un job, avec les logs déroulés, et les résultats des tests",
+  caption: "Affichage d'un job, avec les logs déroulés et les résultats des tests",
 ) <ci-results-job2>
 
 
@@ -1441,7 +1442,7 @@ puis ses limites.
 === Avantages
 // #lorem(500)
 L'intégration continue permet de s'assurer que le projet est toujours
-fonctionnel, et que les tests sont toujours valides.
+fonctionnel et que les tests sont toujours valides.
 Cela permet de détecter rapidement les régressions,
 et de les corriger avant qu'elles ne soient trop importantes.
 
@@ -1465,7 +1466,7 @@ nécessitent que l'intégration fonctionne à toutes les étapes.
 La plus grosse limitation de cette approche est la taille du projet
 de départ.
 
-En effet, le projet est petit, et ne nécessite pas beaucoup de tests.
+En effet, le projet est petit et ne nécessite pas beaucoup de tests.
 Cela a permis d'itérer rapidement sur les différentes solutions,
 mais cela a aussi limité la portée de notre expérimentation sur
 la robustesse de la solution Github Actions.
@@ -1494,14 +1495,14 @@ les prérogatives initiales de ce projet.
 // facteur d'influence : technologies utilisées
 Le premier facteur d'influence sur les résultats est le choix
 des technologies utilisées.
-Le projet initial utilise Java, et Maven.
+Le projet initial utilise Java et Maven.
 Ce sont des solutions robustes, quasiment clé en main,
 et elles ne démontrent peut-être pas la robustesse de la solution
 Github Actions par rapport à des solutions plus exotiques.
 Ce n'est cependant pas un problème pour le cas précis des Github Actions,
 car c'est une solution très flexible et customisable, et la communauté
 autour de Github Actions est très active ;
-beaucoup d'actions existent déjà, et il est facile d'en créer de nouvelles
+beaucoup d'actions existent déjà et il est facile d'en créer de nouvelles
 (voir @github-actions).
 La rédaction de ce mémoire en témoigne d'ailleurs :
 le projet est rédigé dans un langage de balisage assez nouveau,
@@ -1509,7 +1510,7 @@ et donc peu supporté.
 Plusieurs solutions étaient disponibles pour la compilation du mémoire,
 ce qui prouve la flexibilité de Github Actions.
 La solution choisie, de passer par l'action `yusancky/setup-typst`,
-est la méthode canonique, et la plus simple à mettre en place,
+est la méthode canonique et la plus simple à mettre en place,
 mais il aurait été possible de passer par un conteneur Docker par exemple
 (voir @configuration-github-actions-memoire).
 
@@ -1517,7 +1518,7 @@ mais il aurait été possible de passer par un conteneur Docker par exemple
 Comme nous l'avons vu dans la @section-limitations,
 la taille du projet est un facteur d'influence important,
 qui a limité la portée de notre expérimentation.
-Il a dicté la simplicité de la configuration, et a réduit
+Il a dicté la simplicité de la configuration et a réduit
 le temps nécessaire à la mise en place de l'intégration continue.
 
 // facteur d'influence : temps de développement
@@ -1528,7 +1529,7 @@ et simples à mettre, mais aussi à transmettre et maintenir.
 
 // facteur d'influence : expérience du développeur
 Ma propre expérience a aussi influencé les résultats.
-J'étais déjà familier avec Github Actions, et j'ai donc pu
+J'étais déjà familier avec Github Actions et j'ai donc pu
 mettre en place l'intégration continue rapidement.
 Un autre développeur aurait peut-être privilégié une autre solution,
 pour des raisons qui ne me sont pas familières du fait de mon
@@ -1591,7 +1592,7 @@ d'une telle solution, qui n'est de toute façon pas une priorité.
 Dans ce projet, la rapidité de mise en place a donc été
 le premier facteur d'influence sur les choix réalisés.
 Github Actions a été privilégié car il s'agit d'une solution
-très simple à mettre en place, et qui ne nécessite pas de serveur dédié.
+très simple à mettre en place et qui ne nécessite pas de serveur dédié.
 
 Dans le cas de @overcoming-challenges-small-company,
 la contrainte majeure n'était pas le temps de mise en place,
@@ -1607,7 +1608,7 @@ nous n'avons pas de besoin de scalabilité qui pourraient nous mener
 à chosir une infrastructure en microservice.
 Cependant, ce rapport démontre que tous les facteurs envisagés pendant
 notre étude ne correspondent pas à une liste exhaustive des critères à
-prendre en compte, et ce pour une bonne raison :
+prendre en compte et ce pour une bonne raison :
 la liste est potentiellement infinie,
 et dépend du contexte de l'entreprise.
 
@@ -1663,20 +1664,20 @@ pour la mise en place d'une intégration continue :
 // #lorem(500)
 
 Ce mémoire a produit un travail de recherche et d'expérimentation
-sur l'intégration continue, et plus particulièrement sur la solution
+sur l'intégration continue et plus particulièrement sur la solution
 Github Actions.
 Il a permis de mettre en place une solution d'intégration continue
-pour un projet Java, et de tester la robustesse de la solution Github Actions
+pour un projet Java et de tester la robustesse de la solution Github Actions
 jusqu'à un certain point.
 Il a permis de mettre en évidence les principaux prérequis pour la mise
-en place d'une intégration continue, et de démontrer que Github Actions
+en place d'une intégration continue et de démontrer que Github Actions
 est une solution viable pour ce faire.
 
 Si une entreprise souhaite réaliser un travail similaire,
 il est important de prendre en compte les facteurs d'influence
 qui ont été mis en évidence dans ce mémoire.
 Il est aussi important d'établir une liste de critères de réussite
-pour le projet, et de les garder en tête tout au long du projet.
+pour le projet et de les garder en tête tout au long du projet.
 Enfin, il est important de garder en tête que la mise en place
 d'une intégration continue est un processus complexe et progressif,
 qui nécessite de la réflexion et de l'expérimentation --
@@ -1737,7 +1738,7 @@ les tests doivent éprouver la qualité du logiciel,
 et la solution doit être facile à maintenir.
 
 Ce mémoire m'aura personnellement permis d'acquérir des connaissances
-sur l'intégration continue, et sur la solution Github Actions,
+sur l'intégration continue et sur la solution Github Actions,
 sous un angle théorique et pratique, et de les confronter
 aux besoins de l'entreprise dans laquelle je réalise mon alternance.
 Il m'aura aussi permis de mettre en pratique des compétences de
@@ -1757,7 +1758,7 @@ notamment par exemple dans la revue de code ou dans le déploiement.
   pour ses conseils avisés au début de la rédaction du mémoire.
 - Merci à mon maître d'apprentissage, Frédéric GOUILLON,
   pour son soutien et ses conseils
-  pendant la réalisation de ce mémoire, et pendant mon apprentissage.
+  pendant la réalisation de ce mémoire et pendant mon apprentissage.
 - Merci au reste du service informatique,
   Tovonirina RAZAFIMAHATRATRA et Vincent LY,
   pour leur disponibilité et leur aide, tout au long de mon temps à l'Adagp.
