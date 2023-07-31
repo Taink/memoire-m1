@@ -1582,7 +1582,8 @@ le premier facteur d'influence sur les choix réalisés.
 Github Actions a été privilégié car il s'agit d'une solution
 très simple à mettre en place et qui ne nécessite pas de serveur dédié.
 
-Dans le cas de @overcoming-challenges-small-company,
+Dans le cas de
+#cite("overcoming-challenges-small-company", style: "chicago-author-date"),
 la contrainte majeure n'était pas le temps de mise en place,
 mais le coût de la solution.
 La taille de l'entreprise limitait ses perspectives pour répondre
@@ -1608,6 +1609,7 @@ de façon plus systématique.
 @paving-devops-runway
 
 Que tirer de cette expérience, dans notre contexte ?
+
 Déjà, ils établissent une liste de trois critères importants
 au début de leur publication :
 - le développement de compétences au sein de l'entreprise
@@ -1615,7 +1617,7 @@ au début de leur publication :
 - la documentation des défis rencontrés et leurs solutions
 On constate alors contre-intuitivement que leurs critères
 correspondent relativement bien à ceux que nous avons établis
-dans notre étude, alors que l'ADAGP est un bien plus petite entreprise.
+dans notre étude, quand l'ADAGP est un bien plus petite entreprise.
 Ils ont même fait le choix d'employer la même solution que nous pour
 leur intégration continue : les workflows de Github, ou Github Actions.
 Leur approche est évidemment plus globale que la nôtre,
@@ -1631,7 +1633,7 @@ ou du moins, valables pour une grande variété de contextes.
 // qu'ai-je apporté ?
 // #lorem(400)
 Le projet couvert par ce mémoire était de petite envergure,
-et n'a pas permis de produire de contributions révolutionnaires
+il n'a pas permis de produire de contributions révolutionnaires
 ou même particulièrement originales.
 Le seul élément original de ce projet est la mise en place
 d'une solution d'intégration continue pour l'écriture du mémoire lui-même.
@@ -1679,7 +1681,7 @@ Parmi les principales perspectives d'extension de ce travail,
 il y a la mise en place d'une intégration continue plus complète,
 qui permettrait de valider l'approche sur un projet plus complexe.
 Il serait aussi intéressant de tester la solution Github Actions
-sur un projet plus complexe.
+sur un projet plus complexe, par exemple sur certaines de l'ERP SIGEDAV.
 
 Une autre perspective d'extension serait de tester l'utilisation
 de la solution Github dans sa totalité, pour voir comment elle
