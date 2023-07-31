@@ -78,8 +78,8 @@ qui permettent de maintenir la qualité du logiciel.
 C'est là que la discipline des collaborateurs intervient :
 il est difficile de maintenir la complexité
 à des niveaux raisonnables sans discipline.
-L'obstacle principal à la création d'un logiciel de qualité est
-la discipline nécessaire à sa création.
+La discipline est indispensable à la création d'un
+logiciel de qualité qui le restera.
 
 Pour pallier cet obstacle, divers outils ont été créés pour aider
 à maintenir la discipline nécessaire à la création d'un logiciel de qualité.
@@ -111,7 +111,7 @@ d'intégration continue.
 Nous continuerons en analysant le contexte de notre étude de cas,
 avant de proposer une solution à notre problématique
 au travers d'approches aussi bien théoriques que pratiques.
-Nous mettrons en œuvre cette solution et en critiquerons les résultats puis
+Nous testerons cette solution et en critiquerons les résultats puis
 finirons en positionnant notre projet dans l'état de l'art,
 pour conclure par une réponse à notre problématique.
 
