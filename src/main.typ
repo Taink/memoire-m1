@@ -640,7 +640,7 @@ processus métiers orthogonaux aux pratiques DevOps.
 
 = Contextualisation de la mission en entreprise
 // #lorem(300)
-Notre allons réaliser une étude de cas, celui de l'ADAGP.
+Notre allons réaliser une étude de cas : celui de l'ADAGP.
 Cette entreprise, créée en 1953, est une société à but non lucratif.
 
 "ADAGP" est un acronyme qui signie
@@ -654,11 +654,11 @@ qui représente des artistes d'horizons très différents :
 plus de 40 disciplines artistiques sont représentées
 parmi les arts graphiques et plastiques
 (allant de la peinture à l'architecture,
-la photographie à la sculpture,
-en passant par la ferronerie et la bande dessinée ou le manga).
+de la photographie à la sculpture,
+en passant par la ferronerie, la bande dessinée et le manga).
 
 D'après le CNC @cnc-sprd,
-"[l'ADAGP] intervient dans les domaines suivants :
+"[l'ADAGP] _intervient dans les domaines suivants :
 droit de reproduction
 (livres, posters, presse, merchandising...),
 droit de représentation
@@ -667,7 +667,7 @@ droit de suite,
 multimédia,
 copie privée,
 photocopie,
-droit de prêt".
+droit de prêt_".
 
 Elle joue en somme un rôle d'intermédiaire juridique entre les artistes
 et les personnes qui, d'une façon ou d'une autre,
@@ -683,8 +683,8 @@ Son statut juridique de SPRD
 la soumet à un contrôle annuel de la Cour des
 Comptes (à l'instar d'autres sociétés d'auteur comme la SACEM ou la SACD par
 exemple) et son statut de société d'auteur (et de société à but non lucratif)
-l'oblige à redistribuer ses perceptions dans diverses actions,
-dont l'Action Culturelle par exemple.
+l'oblige à redistribuer ses perceptions et mettre en place diverses actions,
+comme l'Action Culturelle par exemple.
 
 == Contexte de l'entreprise et processus métiers existants
 // #lorem(400)
@@ -696,10 +696,10 @@ Ce dernier est l'outil utilisé par l'ensemble de l'entreprise
 pour gérer les droits de ses adhérents.
 
 C'est un service important, essentiel au bon fonctionnement de l'ADAGP,
-et qui a à ce titre une multitude de responsabilités, parmi lesquelles :
+à qui il incombe une multitude de responsabilités, parmi lesquelles :
 - Le développement et le support de SIGEDAV, l'ERP interne (écrit en Java),
-- Le développement et le support de l'extranet,
-- La gestion du parc informatique de l'ADAGP,
+- Le développement et le support de l'Extranet,
+- La gestion du parc informatique,
 - La gestion du réseau interne,
 - Le support technique
 
@@ -773,11 +773,12 @@ pour chaque nouvelle demande d'amélioration d'une application.
 
 Enfin, chacun des membres du service a une spécialité qui lui incombe
 (Web, Applications Java, ...),
-et les application tombent dans l'une de ces spécialités.
+et les application correspondent à l'une de ces spécialités.
 L'application tombe sous la responsabilité de la personne
-qui est spécialisé dans le domaine de l'application.
-Ça n'exclut évidemment pas la responsabilité de support,
-et si le membre responsable d'une application particulière est absent,
+qui est spécialisée dans le domaine de l'application.
+
+Cela n'exclut évidemment pas la responsabilité de support :
+si le membre responsable d'une application particulière est absent,
 il faut que les autres membres puissent au moins diagnostiquer les erreurs
 qui pourraient survenir pour y remédier.
 Par conséquent, chaque membre fournit aux autres une documentation relative
@@ -809,12 +810,11 @@ se limite à la solution Bamboo d'Atlassian,
 qui était utilisée pour l'intégration continue de l'ERP interne
 avant son abandon par manque d'intérêt.
 Depuis lors, l'ADAGP n'a pas réutilisé d'outils d'intégration continue.
-De plus, Bamboo est un outil qui est aujourd'hui délaissé par Atlassian,
-en faveur de la solution Bitbucket Pipelines,
-et qui est payant.
+De plus, Bamboo est un outil payant qui est aujourd'hui délaissé par Atlassian,
+en faveur de la solution Bitbucket Pipelines.
 
-Enfin, l'ADAGP est une entreprise à but non lucratif de taille moyenne,
-qui n'a pas nécessairement les moyens de mettre en place une solution
+Enfin, l'ADAGP étant une entreprise à but non lucratif de taille moyenne,
+elle n'a pas nécessairement les moyens de mettre en place une solution
 d'intégration continue complexe et coûteuse.
 Il faut donc trouver une solution qui soit à la fois efficace et si
 possible gratuite, sinon très peu coûteuse.
@@ -873,7 +873,8 @@ et rapidement corrigés.
 
 Un autre avantage à l'incorporation de ces outils,
 c'est que beaucoup de processus internes seront automatisés.
-C'est une charge supplémentaire mais un gain conséquent.
+C'est une charge supplémentaire mais un gain conséquent,
+à la fois en temps, en efficacité et en qualité.
 
 Enfin, l'intégration continue est un des chemins
 que le service informatique souhaite emprunter
@@ -1674,7 +1675,7 @@ Incorporer l'intégration continue dans les processus métiers
 de son entreprise constitue un changement radical
 dans la gestion des projets de développement de l'entreprise.
 
-Parmis les principales perspectives d'extension de ce travail,
+Parmi les principales perspectives d'extension de ce travail,
 il y a la mise en place d'une intégration continue plus complète,
 qui permettrait de valider l'approche sur un projet plus complexe.
 Il serait aussi intéressant de tester la solution Github Actions
