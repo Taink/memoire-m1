@@ -1729,7 +1729,7 @@ et la solution doit être facile à maintenir.
 
 Ce mémoire m'aura personnellement permis d'acquérir des connaissances
 sur l'intégration continue et sur la solution Github Actions,
-sous un angle théorique et pratique, et de les confronter
+sous un angle théorique et pratique, pour les confronter
 aux besoins de l'entreprise dans laquelle je réalise mon alternance.
 Il m'aura aussi permis de mettre en pratique des compétences de
 rédaction à la fois académiques et techniques, et d'éprouver
