@@ -14,7 +14,6 @@
 ) = {
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
-  set page(numbering: "1", number-align: center)
 
   // Keep in mind this is also used in the SVGs.
   let body-font = "New Computer Modern Sans"
@@ -70,7 +69,7 @@
 
   // Author information.
   pad(
-    top: 0.7em,
+    top: 5em,
     right: 20%,
     grid(
       columns: (1fr,) * calc.min(3, authors.len()),
@@ -86,7 +85,7 @@
 
   v(2.4fr)
   pagebreak()
-
+  set page(numbering: "1", number-align: center)
   // Abstract page.
   align(horizon+center)[
     #heading(outlined: false, numbering: none, text(0.85em)[Abstract])

@@ -45,7 +45,7 @@
     and concludes by establishing a critical analysis of the project's results
     and then positioning itself in relation to the state of the art.
   ],
-  date: "Version du 31 Juillet 2023",
+  date: "31 Juillet 2023",
   schoolLogo: "./assets/efrei.png",
   companyLogo: "./assets/adagp.svg",
 )
