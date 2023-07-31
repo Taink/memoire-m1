@@ -10,40 +10,40 @@
   // abstract: lorem(300),
   // abstract_en: lorem(300),
   abstract: [
-    La création d'un logiciel de qualité est un processus complexe,
+    La création d'un logiciel de qualité est un processus complexe
     nécessitant une grande discipline de la part de ses développeurs.
     Pour encourager cette discipline, divers outils ont été créés
     pour aider à maintenir la qualité du logiciel :
-    les outils d'intégration continue.
+    les outils d'intégration continue. \
     Ce mémoire s'intéresse au cas de l'Adagp,
     une entreprise qui souhaite incorporer
     ces outils dans ses processus métiers.
     Nous y abordons les bonnes pratiques, telles que les changements
     précédant la mise en place de ces produits
-    et les raisons qui motivent les choix réalisés.
+    et les raisons qui motivent les choix réalisés. \
     Le mémoire décrit ensuite la mise en place de l'intégration continue par
     l'intermédiaire des Github Actions sur un projet précédent,
-    mais aussi la rédaction même de ce mémoire,
+    mais aussi la rédaction même de ce mémoire
     et conclut en établissant une analyse critique des résultats du projet
-    puis en se positionnant par rapport à l'état de l'art.
+    avant de se positionner par rapport à l'état de l'art.
   ],
   abstract_en: [
-    The creation of quality software is a complex process,
+    The creation of quality software is a complex process
     requiring a great deal of discipline from its developers.
     To encourage this discipline, various tools have been created
     to help maintain software quality:
-    continuous integration tools.
+    continuous integration tools. \
     This thesis focuses on the case of Adagp,
     a company which wishes to incorporate
     these tools into its business processes.
     We address good practices, such as the changes
     preceding the implementation of these products
-    and the motivations behind the decisions that were made.
+    and the motivations behind the decisions that were made. \
     The thesis then describes the implementation of continuous integration by
-    means of Github Actions both on a previous project,
+    means of Github Actions both on a previous project
     and the writing of this thesis itself,
     and concludes by establishing a critical analysis of the project's results
-    and then positioning itself in relation to the state of the art.
+    before positioning itself in relation to the state of the art.
   ],
   date: "31 Juillet 2023",
   schoolLogo: "./assets/efrei.png",
