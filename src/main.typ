@@ -900,7 +900,7 @@ pour les développeurs et les chefs de projets,
 et un temps de communication pour les autres collaborateurs,
 si cela est jugé nécessaire.
 
-Il faut aussi prendre en considération que ce projet
+Il faut également prendre en considération que ce projet
 constitue surtout un retour d'expérience
 sur la mise en place de l'intégration continue
 dans un processus de développement de bout en bout.
@@ -909,7 +909,7 @@ Nous avons vu précédemment, dans la @défis-et-obstacles, // Section II.2
 que le service informatique a négligé jusqu'ici l'intégration continue,
 principalement à cause de la charge de travail que représente
 la maintenance d'un outil de ce genre,
-sans compter la charge monétaire des outils les plus faciles à maintenir.
+sans compter la charge financière des outils les plus faciles à maintenir.
 
 Une solution idéale, d'après nos conclusions précédentes,
 aurait les caractéristiques suivantes :
@@ -1019,8 +1019,8 @@ Ces tests pourront être reportés dans les Pull requests,
 ce qui permettra d'intégrer les tests dans le processus de revue de code,
 et encouragera leur écriture.
 
-Enfin, la troisième et dernière étape
-consistera à traduire l'étape de déploiement
+La troisième et dernière étape,
+consiste à traduire l'étape de déploiement
 vers un environnement de pré-production après la revue de code.
 Cette étape permettra de s'assurer que le code est fonctionnel
 une fois confronté à des données réelles
@@ -1030,8 +1030,8 @@ une étape de déploiement en continu, aussi cette dernière étape
 sera déclenchée manuellement.
 
 Enfin, il faut aussi garder à l'esprit que l'intégration continue
-est un processus qui doit être maintenu et amélioré,
-et qu'il requiert une certaine discipline de la part des développeurs.
+est un processus qui doit être maintenu et amélioré ;
+il requiert une certaine discipline de la part des développeurs.
 Il est donc important de mettre en place des bonnes pratiques
 pour assurer la pérennité de l'intégration continue.
 
@@ -1072,7 +1072,8 @@ avec les Github Actions,
 et sur l'implémentation de processus liés à Github.
 Ce projet devrait en effet permettre de déterminer
 si l'utilisation de Github est pertinente pour le service informatique,
-et si oui, dans quelle mesure.
+et si c'est le cas, dans quelle mesure.
+
 Le projet, une fois abouti et diffusé à d'autres processus,
 permettra de réduire le nombre d'outils à maintenir
 et de faciliter la prise en main de l'IC par les développeurs.
