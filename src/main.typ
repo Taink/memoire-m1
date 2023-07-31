@@ -1385,8 +1385,8 @@ On peut diviser cette interface en trois parties :
   caption: "Résultats des tests sur Github Actions",
 ) <ci-results-dashboard>
 
-L'interface permet aussi de voir les logs de chaque job, en cliquant dessus.
-Cela permet de voir les logs de chaque étape d'un job.
+L'interface permet aussi de voir les logs de chaque _job_, en cliquant dessus.
+Cela permet de voir les logs de chaque étape d'un _job_.
 Une capture d'écran de cette interface est disponible en @ci-results-job.
 Sur cette capture d'écran, on peut voir que le job a été exécuté sur Ubuntu,
 et que les tests ont réussi.
@@ -1415,47 +1415,46 @@ ainsi qu'un JAR compilé.
 // #lorem(400)
 Les résultats obtenus sont satisfaisants.
 Le client Java est compilé et testé sur deux plateformes,
-et les résultats des tests sont affichés dans une interface web.
-Cela permet de s'assurer que le client Java est fonctionnel,
+les résultats des tests sont affichés dans une interface web.
+Cela permet de s'assurer que le client Java est fonctionnel
 et que les tests sont toujours valides.
 
 L'intégration continue a été mise en place sur un projet existant,
-et pourra aussi bien servir de précédent à des projets futurs
-ou bien à d'autres projets plus anciens qui nécessiteraient un travail
+elle pourra aussi bien servir de précédent à des projets futurs
+qu'à d'autres projets plus anciens qui nécessiteraient un travail
 de ce genre pour être maintenus.
 
 Nous allons maintenant revoir point par point
-d'abord les avantages de notre approche,
-puis ses limites.
+les avantages de notre approche puis ses limites.
 
 === Avantages
 // #lorem(500)
 L'intégration continue permet de s'assurer que le projet est toujours
 fonctionnel et que les tests sont toujours valides.
-Cela permet de détecter rapidement les régressions,
+Cela permet de détecter rapidement les régressions
 et de les corriger avant qu'elles ne soient trop importantes.
 
 La taille du projet choisi a permis d'itérer rapidement
 sur les différents choix de solution,
-et de trouver une solution qui convienne davantage.
+et d'en trouver une qui convienne davantage.
 
 La collaboration est également facilitée du fait de la simplicité
 du modèle de développement en tronc commun et des certitudes
 apportées par l'intégration continue sur les pull requests.
 
-Le résultat est clair : le projet est accueillant aux collaborations,
+Le résultat est clair : le projet est ouvert aux collaborations
 et les contributions sont validées par l'intégration continue.
 Cela offre un environnement dans lequel la discipline nécessaire
 à la maintenance d'une grande qualité logicielle est facilitée.
 
-L'intégration n'est plus un obstacle au développement puisque le
+L'intégration n'est plus un obstacle au développement car le
 développement et le partage des modifications apportées au projet
-nécessitent que l'intégration fonctionne à toutes les étapes.
+nécessitent que l'intégration soit valide à toutes les étapes.
 === Limitations <section-limitations>
 La plus grosse limitation de cette approche est la taille du projet
 de départ.
 
-En effet, le projet est petit et ne nécessite pas beaucoup de tests.
+En effet, le projet est petit : il ne nécessite pas beaucoup de tests.
 Cela a permis d'itérer rapidement sur les différentes solutions,
 mais cela a aussi limité la portée de notre expérimentation sur
 la robustesse de la solution Github Actions.
@@ -1463,19 +1462,19 @@ Le retour d'expérience est partiellement amélioré par le choix
 d'appliquer l'IC à la rédaction du mémoire, mais cela reste
 marginal et une limitation important de notre approche.
 
-Une autre limitation est le fait que le projet ne soit pas
-complètement abouti par rapport aux étapes clés décrites dans la
+Une autre limitation réside dans le fait que le projet ne soit pas
+complètement abouti, par rapport aux étapes clés décrites dans la
 @liste-étapes-clés.
 En effet, le projet ne possède pas d'étape de déploiement et la
-relègue à "un exercice pour le lecteur", d'une certaine manière.
-Cela est dû au fait que le projet est un prototype,
+relègue d'une certaine manière à un "exercice pour le lecteur".
+Cela est dû au fait que le projet est un prototype
 et que le temps de développement était limité.
 
 Il reste enfin un élément non testé sur le projet initial :
 le serveur Node.js sur lequel le client Java se connecte.
 Nous avons effectivement brièvement mentionné dans la @liste-défis-rencontrés
 que le serveur Node.js n'était pas testé.
-Cela est dû au fait que le serveur Node.js est un prototype,
+Cela est dû au fait que le serveur Node.js est un prototype
 et que la mise en place de ses tests nécessitait un travail qui dépassait
 les prérogatives initiales de ce projet.
 
@@ -1493,13 +1492,13 @@ car c'est une solution très flexible et customisable, et la communauté
 autour de Github Actions est très active ;
 beaucoup d'actions existent déjà et il est facile d'en créer de nouvelles
 (voir @github-actions).
-La rédaction de ce mémoire en témoigne d'ailleurs :
+La rédaction de ce mémoire est là pour en témoigner :
 le projet est rédigé dans un langage de balisage assez nouveau,
-et donc peu supporté.
-Plusieurs solutions étaient disponibles pour la compilation du mémoire,
+et donc peu supporté, mais plusieurs solutions étaient disponibles
+pour sa compilation en PDF,
 ce qui prouve la flexibilité de Github Actions.
 La solution choisie, de passer par l'action `yusancky/setup-typst`,
-est la méthode canonique et la plus simple à mettre en place,
+est la méthode canonique, la plus simple à mettre en place,
 mais il aurait été possible de passer par un conteneur Docker par exemple
 (voir @configuration-github-actions-memoire).
 
@@ -1514,11 +1513,11 @@ le temps nécessaire à la mise en place de l'intégration continue.
 Ce temps de mise en place est un autre facteur d'influence.
 Le projet avait un temps de développement limité,
 et il a donc fallu privilégier des solutions rapides
-et simples à mettre, mais aussi à transmettre et maintenir.
+et simples à mettre en place, mais aussi à transmettre et maintenir.
 
 // facteur d'influence : expérience du développeur
 Ma propre expérience a aussi influencé les résultats.
-J'étais déjà familier avec Github Actions et j'ai donc pu
+J'étais déjà familier avec Github Actions, j'ai donc pu
 mettre en place l'intégration continue rapidement.
 Un autre développeur aurait peut-être privilégié une autre solution,
 pour des raisons qui ne me sont pas familières du fait de mon
@@ -1529,7 +1528,7 @@ puisque j'ai choisi des technologies que je connaissais déjà.
 // facteur d'influence : taille de l'équipe ciblée
 Enfin, la taille de l'équipe ciblée est un autre facteur d'influence.
 En effet, l'intégration continue est plus utile dans une équipe
-où la collaboration des équipe est fréquente,
+où la collaboration simultanée sur un même projet est fréquente,
 puisqu'elle permet de s'assurer que les modifications apportées
 potentiellement quotidiennement (voir plus souvent encore)
 par les autres membres de l'équipe ne cassent pas le projet.
@@ -1548,10 +1547,10 @@ aux étapes clés décrites dans la @liste-étapes-clés.
 Cela permettrait de valider l'approche sur un projet plus complet,
 et de réellement tester la robustesse de la solution Github Actions
 sur un processus d'intégration continue réellement abouti.
-Il faudrait donc ajouter une étape de déploiement,
+Il faudrait donc ajouter une étape de déploiement
 et compléter le serveur Node.js pour qu'il soit testé.
 
-Les autres sont plus discutables car elles relèvent de l'opinion,
+Les autres sont plus discutables car elles relèvent de l'opinion
 ou des circonstances du projet.
 
 Il aurait été par exemple préférable
@@ -1560,7 +1559,7 @@ pour éprouver réellement la solution Github Actions.
 
 // amélioration possible : tests unitaires
 Il aurait aussi été préférable de mettre en place des tests unitaires.
-Le projet initial ne s'y prêtait pas, car il s'agissait d'un prototype
+Le projet initial ne s'y prêtait pas car il s'agissait d'un prototype
 algorithmiquement très simple.
 Cependant, il aurait été possible de mettre en place des tests unitaires
 sur le serveur Node.js, pour tester son bon fonctionnement.
