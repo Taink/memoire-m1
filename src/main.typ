@@ -1100,11 +1100,11 @@ Ce projet permet aussi d'informatiser le processus d'adhésion,
 ce qui facilite le travail du pôle adhésion
 et permet d'y augmenter la capacité de traitement des dossiers.
 
-Le projet qui concerne ce mémoire est un projet en autonomie
+D'autre part, le projet qui concerne ce mémoire est un projet en autonomie
 et interne au service informatique.
 C'est un projet de recherche et développement,
-qui s'appuiera le développement d'un outil informatique interne,
-qui a lui aussi été développé en autonomie.
+qui s'appuiera sur le précédent développement d'un outil informatique interne,
+qui a lui aussi été réalisé en autonomie.
 Cet ancien projet, dont j'avais aussi la charge,
 est un processus serveur écrit en Typescript pour pour Node.js,
 et utilisait une base de données Redis.
@@ -1114,14 +1114,14 @@ et un autre en Java avec Spring Boot.
 
 Mon rôle dans ce projet de recherche et développement
 consiste à déterminer le moyen d'utiliser les Github Actions
-pour mettre en place de l'intégration continue l'ancien projet.
+pour mettre en place l'intégration continue sur l'ancien projet.
 
 Une autre de mes responsabilités est de documenter
 les choix et technologies utilisées dans ce projet,
-ce qui a mené à la rédaction de ce mémoire.
+ce qui a motive la rédaction de ce mémoire.
 Ce dernier est un outil de communication interne
 qui permettra de diffuser les connaissances acquises
-à d'autres projets du service informatique.
+pour d'autres projets du service informatique.
 
 Détaillons maintenant les différentes étapes de ce projet.
 == Actions entreprises
@@ -1133,7 +1133,7 @@ de développement pour permettre l'intégration continue.
 Le projet précédent avait déjà été développé
 en suivant le développement sur tronc commun,
 et quelques tests avaient déjà été écrits,
-donc le gros du travail était dejà fait.
+le gros du travail était donc déjà fait.
 Avant de passer à l'étape suivante cependant,
 j'ai entrepris de faire une revue des tests existants,
 notamment sur le client Java,
@@ -1155,7 +1155,7 @@ et j'ai pu les prioriser pour les tests à écrire.
 
 En particulier, j'ai pu déterminer que les tests
 ignoraient complètement le test des routes nécessitant
-un token d'authentification, donc j'ai écrit des tests
+un token d'authentification, j'ai donc écrit des tests
 couvrant ce cas de figure.
 En conséquence, la couverture des tests a augmenté
 de 43,8% à 89,6% (voir @couverture-tests-après).
@@ -1181,7 +1181,7 @@ qui ne fait que simuler les réponses aux appels
 du client au service externe (voir @sse-web-client-it).
 Cela permet de s'affranchir de la nécessité d'avoir un service externe
 pour faire fonctionner les tests,
-et donc de pouvoir les exécuter sur le serveur d'intégration continue,
+donc de pouvoir les exécuter sur le serveur d'intégration continue
 sans avoir à préparer un environnement complexe
 pour la bonne exécution des tests.
 
@@ -1287,7 +1287,7 @@ pour plusieurs raisons :
 1. Il aurait fallu créer un `Dockerfile` pour le serveur Node.js,
   ce qui veut dire que ce dernier
   devrait gérer une étape de build supplémentaire,
-  et donc que le build serait plus long et plus difficile à maintenir.
+  donc que le build serait plus long et plus difficile à maintenir.
 2. Il aurait fallu limiter les tests à la plateforme Linux,
   car Github Actions ne permet pas de lancer des conteneurs de service
   si le runner est hébergé sur Windows,
@@ -1297,15 +1297,15 @@ pour plusieurs raisons :
 Ce sont ces deux raisons qui expliquent que le serveur externe ne soit
 pas lui-même testé dans le cadre de ce mémoire.
 
-Le build pouvait aussi être assez long, alors que les tests
-ne sont pas très nombreux.
+Le build pouvait aussi être assez long, quand les tests ne sont pourtant
+pas très nombreux.
 En effet, le build compile le code, mais pour cela il doit télécharger
 toutes les dépendances du projet.
-Cela prend du temps et peut être évité en utilisant le cache de Maven.
+Cela prend du temps mais peut être évité en utilisant le cache de Maven.
 Le cache de Maven permet de stocker les dépendances déjà téléchargées
 pour les réutiliser lors des builds suivants.
-Cela permet de réduire le temps de build,
-et donc de réduire le temps avant de recevoir le retour des tests.
+On peut ainsi réduire le temps de build,
+donc le temps d'attente avant de recevoir le retour des tests.
 Cela permet aussi de réduire la consommation de bande passante,
 puisque les dépendances ne sont téléchargées qu'une seule fois.
 Le cache de Maven est activé dans la configuration des Github Actions
@@ -1321,7 +1321,7 @@ et de confronter le client Java à des situations
 qui ne sont pas prévues par les tests automatiques.
 
 Les processus de build et de test sont maintenant automatisés,
-donc il est toujours possible de déployer manuellement le projet
+il est donc toujours possible de déployer manuellement le projet
 auquel l'intégration continue a été ajoutée.
 Des processus existant déjà à l'ADAGP pour déployer des projets comparables,
 il a été décidé de ne pas en automatiser le déploiement ici -- pour l'instant.
@@ -1338,9 +1338,9 @@ pour sa simplicité et sa lisibilité, et à LaTeX pour sa puissance et
 sa capacité à gérer des documents complexes.
 Puisqu'il est encore en développement,
 il n'est pas encore totalement abouti,
-mais il était adapté aux besoins de ce mémoire.
+mais pour autant adapté aux besoins de ce mémoire.
 
-Afin de faciliter la rédaction de ce mémoire,
+Pour faciliter la rédaction de ce mémoire,
 son évolution a été suivie par un outil de gestion de versions, Git.
 Cela permet de conserver un historique des modifications,
 et puisque Typst utilise un format de fichier texte,
