@@ -1706,17 +1706,69 @@ sont les mêmes.
 
 #pagebreak()
 
-#heading(numbering: none)[Conclusion]
+#heading(numbering: none, level: 1)[Conclusion]
 
 // - Résumé des principales conclusions du mémoire
-// - Récapitulation des contributions et des recommandations
-// - Possibilités d'extension et de recherche future
+L'engouement récent pour les solutions d'intégration continue
+découle de leur efficacité dans la résolution des problèmes
+de maintenabilité des projets informatiques.
+C'est un avantage indéniable qui profite à toute entreprise
+souhaitant s'investir dans la qualité des logiciels qui la composent.
 
-#lorem(500)
+Dans le contexte de l'Adagp, la mise en place d'une intégration continue
+devrait permettre de faciliter le travail de maintenance de qualité logicielle
+en automatisant beaucoup de tâches, tout en standardisant les processus
+et leur documentation.
+
+// - Récapitulation des contributions et des recommandations
+Ce que ce projet a apporté à l'Adagp, c'est une réponse à la question
+de la faisabilité de la mise en place d'une intégration continue
+dans ses processus métiers, en établissant une liste de facteurs
+d'influence et de critères de réussite pour un projet d'intégration continue.
+Ces facteurs sont :
+- la complexité du projet ;
+- la taille de l'équipe, ou le nombre de collaborateurs ;
+- les processus de développement en place ;
+- l'expérience des collaborateurs ;
+- le temps alloué au projet ;
+- le budget alloué au projet ;
+- le choix de la solution d'intégration continue.
+Quant aux critères de réussite, ils sont moins nombreux :
+les tests doivent éprouver la qualité du logiciel,
+et la solution doit être facile à maintenir.
+
+Ce mémoire m'aura personnellement permis d'acquérir des connaissances
+sur l'intégration continue, et sur la solution Github Actions,
+sous un angle théorique et pratique, et de les confronter
+aux besoins de l'entreprise dans laquelle je réalise mon alternance.
+Il m'aura aussi permis de mettre en pratique des compétences de
+rédaction à la fois académiques et techniques, et d'éprouver
+une nouvelle solution pour leur rédaction.
+
+// - Possibilités d'extension et de recherche future
+Une prochaine étape pour l'Adagp serait de mettre en place
+une solution d'intégration continue plus complète,
+sur un projet plus complexe, pour valider l'approche.
+Il faudrait alors intégrer davantage les éléments apportés par
+l'intégration continue dans les processus métiers de l'entreprise,
+notamment par exemple dans la revue de code ou dans le déploiement.
+
+#heading(numbering: none, level: 2)[Remerciements]
+- Merci à ma tutrice, Imen RACHED,
+  pour ses conseils avisés au début de la rédaction du mémoire.
+- Merci à mon maître d'apprentissage, Frédéric GOUILLON,
+  pour son soutien et ses conseils
+  pendant la réalisation de ce mémoire, et pendant mon apprentissage.
+- Merci au reste du service informatique,
+  Tovonirina RAZAFIMAHATRATRA et Vincent LY,
+  pour leur disponibilité et leur aide, tout au long de mon temps à l'Adagp.
+- Merci au reste de mes collègues de l'Adagp,
+  pour leur accueil et leur bonne humeur.
+- Merci à ma famille, pour les conseils apportés et leur soutien.
 
 #pagebreak()
 
-#bibliography("./bibliography.yml", title: "Bibliographie", style: "ieee")
+#bibliography("./bibliography.yml", title: "Références", style: "ieee")
 
 #pagebreak()
 
