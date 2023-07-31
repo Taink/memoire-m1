@@ -5,7 +5,7 @@
   title: "Incorporer des outils d'intégration continue dans les processus métiers",
   subtitle: "Mémoire de fin d'année de M1 à l'EFREI",
   authors: (
-    (name: "Maxime Daniel", email: "maxime.daniel@efrei.net", company: "Adagp", company_email: "maxime.daniel@adagp.fr"),
+    (name: "Maxime Daniel", email: "maxime.daniel@efrei.net", company: "ADAGP", company_email: "maxime.daniel@adagp.fr"),
   ),
   // abstract: lorem(300),
   // abstract_en: lorem(300),
@@ -15,7 +15,7 @@
     Pour encourager cette discipline, divers outils ont été créés
     pour aider à maintenir la qualité du logiciel :
     les outils d'intégration continue. \
-    Ce mémoire s'intéresse au cas de l'Adagp,
+    Ce mémoire s'intéresse au cas de l'ADAGP,
     une entreprise qui souhaite incorporer
     ces outils dans ses processus métiers.
     Nous y abordons les bonnes pratiques, telles que les changements
@@ -33,7 +33,7 @@
     To encourage this discipline, various tools have been created
     to help maintain software quality:
     continuous integration tools. \
-    This thesis focuses on the case of Adagp,
+    This thesis focuses on the case of ADAGP,
     a company which wishes to incorporate
     these tools into its business processes.
     We address good practices, such as the changes
@@ -91,12 +91,12 @@ de façon automatique et systématisée.
 Ce mémoire aura donc pour but de répondre à la question suivante :
 comment intégrer les outils d'intégration continue dans des processus métiers existants ?
 
-Pour y répondre, nous nous intéresserons au cas de l'Adagp,
+Pour y répondre, nous nous intéresserons au cas de l'ADAGP,
 qui souhaite incorporer à ses processus métiers
 des outils d'intégration continue.
 Nous aborderons notre problématique dans un projet qui consistera
 à mettre en place ces outils d'intégration continue,
-et à les intégrer dans les processus métiers de l'Adagp.
+et à les intégrer dans les processus métiers de l'ADAGP.
 
 De plus, ce mémoire sera l'occasion de mettre en pratique
 les connaissances acquises durant l'exécution de ce projet :
@@ -118,26 +118,13 @@ pour conclure par une réponse à notre problématique.
 #pagebreak()
 
 = État de l'art
-// Intro de cette partie ?
-// idées ci-dessous
-
-// Parmi ces outils, les outils d'intégration continue
-// sont une partie essentielle du processus de déploiement.
-// Il s'agit d'un ensemble de pratiques visant
-// à assurer la qualité du code écrit au fur du développement
-// de nouvelles fonctionnalités.
-
-// Comme nous l'avons dit plus tôt, les outils d'intégration continue
-// sont une composante essentielle de des processus de déploiement modernes.
-// Commençons donc par en établir une définition.
-
 == Définitions
 === Intégration
 Avant de parler d'intégration continue, définir la notion d'intégration
 dans notre contexte devrait permettre de faire comprendre exactement
 ce que l'intégration _continue_ vise à faire.
 
-Dans notre contexte, l'intégration désigne l'étape durant laquelle
+Ici, l'intégration désigne l'étape durant laquelle
 on rassemble les modifications réalisées par les équipes de développement.
 Cette étape précède généralement l'envoi d'un livrable au client,
 et comprend donc la mise en commun des modifications,
@@ -145,11 +132,11 @@ la compilation (ou une étape équivalente), qu'on appelle généralement _build
 et enfin les tests de conformité fonctionnelle
 (souvent réalisés par un service QA dédié).
 
-C'est une étape longue et compliquée, car elle peut révèler des bugs
+C'est une étape longue et compliquée, qui peut révèler des bugs
 qui nécessiteront un travail conséquent pour être corrigés.
 C'est également souvent une source de conflits entre les équipes de
 développement, l'une introduisant des changements qui impactent les autres,
-sans qu'aucune équipe ne soit au courant avant l'intégration.
+sans qu'aucune équipe n'en soit informée avant l'intégration.
 De plus, sur les projets à plus long terme,
 c'est une étape qui peut révèler des bugs de _régression_#footnote[La
 régression correspond à une diminution de la qualité ou de la complétude
@@ -165,7 +152,7 @@ le développement.
 === Intégration continue <définition-ci>
 Introduite dans les pratiques d'_Extreme Programming_#footnote[Il s'agit
 d'une méthodologie similaire à la méthode Agile. Nous n'entrerons pas
-dans les détails de son fonctionnement ici puisque la CI est devenue
+dans les détails de son fonctionnement ici puisque l'IC est devenue
 indépendante de sa création et s'est standardisée dans l'industrie.]
 la définition exacte de l'intégration continue
 (ou "CI" pour "_Continuous Integration_"
@@ -185,24 +172,24 @@ diffère parmi les experts du domaine
 
 Le socle commun est bien retranscrit par la définition de Wikipedia
 @wikipedia-ci :
-"L'intégration continue est un ensemble de pratiques utilisées
+"_L'intégration continue est un ensemble de pratiques utilisées
 en génie logiciel consistant à
 vérifier à chaque modification de code source que
 le résultat des modifications ne produit pas de régression
-dans l'application développée."
+dans l'application développée._"
 
 Il est en effet important de comprendre que l'intégration continue
 désigne les pratiques à intégrer dans ses processus métiers,
 et non les outils qui permettent d'en faciliter la mise en place.
 Martin Fowler @fowler-ci explique d'ailleurs, dans son article sur le sujet,
-que la différence entre un projet qui pratique de la CI
+que la différence entre un projet qui pratique l'IC
 et un projet qui n'en pratique pas ne réside pas dans l'utilisation
 d'un outil cher et/ou complexe,
 mais dans la pratique quotidienne d'une intégration par les développeurs
 sur un répertoire contrôlé du code source#footnote[Un répertoire contrôlé
 du code source est un répertoire de code source utilisant un système de
 contrôle de version, comme Git, CVS ou Subversion par exemple.]<vcs>.
-
+#pagebreak() // lisibilité
 Par ailleurs, les experts s'accordent aussi sur les objectifs de
 l'intégration continue :
 - Accélérer la correction de bugs, au travers de tests systématiques
@@ -268,8 +255,8 @@ d'intégration continue très complexes.
 Il est relativement facile à prendre en main,
 mais la complexité des pipelines qu'il permet de mettre en œuvre
 impacte sa facilité d'utilisation par rapport à des solutions plus modernes.
-C'est en effet un des premiers outils répandu de son genre et
-il a défini de nombreux standards dans son marché.
+C'est en effet un des premiers outils répandu dans son genre et
+il a établi de nombreux standards dans son marché.
 Il occupe encore aujourd'hui une large part
 du marché des outils d'intégration continue, même si
 des solutions plus récentes l'ont fait peu à peu tomber en désuétude,
@@ -294,7 +281,7 @@ notamment en créant des alternatives plus faciles d'utilisation.
   }
   ```,
   caption: [
-    Une pipeline Jenkins qui permet de tester une application
+    un pipeline Jenkins qui permet de tester une application
     Java Maven en générant un rapport (écrite en
     #link("https://www.groovy-lang.org/", "Groovy"))
   ],
@@ -359,7 +346,7 @@ configurés en YAML également).
     - cat target/surefire-reports/*.txt
   ```,
   caption: [
-    Une pipeline Travis qui permet de tester une application
+    un pipeline Travis qui permet de tester une application
     Java Maven en générant un rapport
   ],
   kind: "code",
@@ -413,7 +400,7 @@ davantage l'intégration continue.
             path: target/surefire-reports
   ```,
   caption: [
-    Une pipeline CircleCI qui permet de tester une application
+    un pipeline CircleCI qui permet de tester une application
     Java Maven en générant un rapport
   ],
   kind: "code",
@@ -450,7 +437,7 @@ Il s'appuie sur l'utilisation de conteneurs Docker,
 qui lui permettent d'exécuter ses tâches dans un environnement
 reproductible, souvent très proche de celui de production.
 Son principal atout réside dans son intégration à la plateforme GitLab ;
-il est possible depuis une pipeline Gitlab d'interagir en profondeur
+il est possible depuis un pipeline Gitlab d'interagir en profondeur
 avec le reste de plateforme, qui peut alors réagir directement aux
 changements introduits dans les dernières versions.
 @gitlab-about-ci
@@ -490,7 +477,7 @@ gestion du projet, fournissant des services de gestion de projet approchant
         - target/surefire-reports
   ```,
   caption: [
-    Une pipeline Gitlab qui permet de tester une application
+    un pipeline Gitlab qui permet de tester une application
     Java Maven en générant un rapport
   ],
   kind: "code",
@@ -526,8 +513,8 @@ Il en diffère cependant sur certains points @github-about-ci :
   partagées par la communauté
 - Il peut interagir avec des évènements plus variés que des modifications
   de code ; des pull requests, des issues, des commentaires, des reviews...
-  C'est un outil donc beaucoup plus flexible sur la communication que
-  son concurrent, qui lui est davantage pensé pour fonctionner
+  C'est donc un outil beaucoup plus flexible sur la communication que
+  son concurrent qui lui, est davantage pensé pour fonctionner
   avec des systèmes de déploiement complexes.
 - Son runner n'est pas lui-même dans un conteneur Docker : c'est simplement
   un script shell. Cela signifie que l'environnement d'exécution du runner
@@ -557,7 +544,7 @@ Il en diffère cependant sur certains points @github-about-ci :
           path: target/surefire-reports
   ```,
   caption: [
-    Une pipeline Github Actions qui permet de tester une application
+    un pipeline Github Actions qui permet de tester une application
     Java Maven en générant un rapport
   ],
   kind: "code",
@@ -633,10 +620,10 @@ par ordre d'importance :
 6. Le domaine d'application
 7. Une infrastructure appropriée
 
-Une lacune présente dans la littérature existante est cependant qu'elle peut
+Une lacune présente dans la littérature existante demeure : elle peut
 être sujette, du fait de sa production par des acteurs de l'industrie,
 à des conflits d'intérêts ou du moins des manques d'objectivité.
-Il est donc difficile de se baser sur l'avis d'une ou deux revues.
+Il est donc difficile de se fonder un avis sur une ou deux revues.
 
 Une autre lacune, celle-là beaucoup plus importante, est que la plupart
 des ouvrages récents publiés présupposent une grande familiarité avec le
@@ -653,7 +640,7 @@ processus métiers orthogonaux aux pratiques DevOps.
 
 = Contextualisation de la mission en entreprise
 // #lorem(300)
-Notre allons réaliser une étude de cas, celui de l'Adagp.
+Notre allons réaliser une étude de cas, celui de l'ADAGP.
 Cette entreprise, créée en 1953, est une société à but non lucratif.
 
 "ADAGP" est un acronyme qui signie
@@ -701,22 +688,22 @@ dont l'Action Culturelle par exemple.
 
 == Contexte de l'entreprise et processus métiers existants
 // #lorem(400)
-Je suis alternant au sein du service informatique de l'Adagp.
+Je suis alternant au sein du service informatique de l'ADAGP.
 Ce service est composé de 4 personnes (3 si on omet ma présence),
-et intervient dans tous les autres services de l'Adagp,
+et intervient dans tous les autres services de l'ADAGP,
 notamment à travers l'ERP développé en interne, SIGEDAV.
 Ce dernier est l'outil utilisé par l'ensemble de l'entreprise
 pour gérer les droits de ses adhérents.
 
-C'est un service important, essentiel au bon fonctionnement de l'Adagp,
+C'est un service important, essentiel au bon fonctionnement de l'ADAGP,
 et qui a à ce titre une multitude de responsabilités, parmi lesquelles :
 - Le développement et le support de SIGEDAV, l'ERP interne (écrit en Java),
 - Le développement et le support de l'extranet,
-- La gestion du parc informatique de l'Adagp,
+- La gestion du parc informatique de l'ADAGP,
 - La gestion du réseau interne,
 - Le support technique
 
-Contrairement à la plupart des autres services de l'Adagp,
+Contrairement à la plupart des autres services de l'ADAGP,
 ses effectifs n'ont pas changé depuis le début de mon alternance.
 Sa petite taille est à la racine de ses choix de processus métiers.
 
@@ -774,12 +761,12 @@ suit un processus d'amélioration continue.
 
 #figure(
   image("assets/cycle-développement-adagp.excalidraw.svg", width: 80%),
-  caption: [Cycle de l'amélioration continue des applications à l'Adagp.]
+  caption: [Cycle de l'amélioration continue des applications à l'ADAGP.]
 ) <cycle-dev-adagp>
 
 On peut voir en @cycle-dev-adagp que certaines étapes
 mènent à revenir en arrière dans le processus d'amélioration continue.
-Une autre façon de schématiser le cycle de développement de l'Adagp
+Une autre façon de schématiser le cycle de développement de l'ADAGP
 est comme une série de cycles en V
 (dont le cas général est produit en @cycle-en-v),
 pour chaque nouvelle demande d'amélioration d'une application.
@@ -806,7 +793,7 @@ peut constituer un défi à de multiples égards.
 
 Premièrement, l'intégration continue bénéficie grandement
 de l'automatisation de certaines tâches,
-travail qui n'est généralement pas déjà fait à l'Adagp.
+travail qui n'est généralement pas déjà fait à l'ADAGP.
 Les tâches de test et de déploiement sont réalisées manuellement,
 ce qui peut entraîner des oublis et des erreurs.
 Le code d'automatisation devra donc être intégralement écrit
@@ -821,12 +808,12 @@ L'expérience du service avec un outil d'intégration continue
 se limite à la solution Bamboo d'Atlassian,
 qui était utilisée pour l'intégration continue de l'ERP interne
 avant son abandon par manque d'intérêt.
-Depuis lors, l'Adagp n'a pas réutilisé d'outils d'intégration continue.
+Depuis lors, l'ADAGP n'a pas réutilisé d'outils d'intégration continue.
 De plus, Bamboo est un outil qui est aujourd'hui délaissé par Atlassian,
 en faveur de la solution Bitbucket Pipelines,
 et qui est payant.
 
-Enfin, l'Adagp est une entreprise à but non lucratif de taille moyenne,
+Enfin, l'ADAGP est une entreprise à but non lucratif de taille moyenne,
 qui n'a pas nécessairement les moyens de mettre en place une solution
 d'intégration continue complexe et coûteuse.
 Il faut donc trouver une solution qui soit à la fois efficace et si
@@ -842,7 +829,7 @@ note que l'effort et le temps alloués
 à l'expérimentation des approches d'intégration continue
 sont les facteurs les plus importants pour le succès
 des projets d'incorporation des pratiques d'intégration continue,
-or les effectifs du service informatique de l'Adagp étant limités,
+or les effectifs du service informatique de l'ADAGP étant limités,
 il est difficile de trouver du temps pour expérimenter
 les différentes solutions disponibles
 en plus des améliorations à apporter aux applications existantes.
@@ -927,7 +914,7 @@ Une solution idéale, d'après nos conclusions précédentes,
 aurait les caractéristiques suivantes :
 - Elle serait facile (voire agréable) d'utilisation
 - Elle serait gratuite
-- Elle serait compatible avec les technologies utilisées à l'Adagp
+- Elle serait compatible avec les technologies utilisées à l'ADAGP
   (Java, Maven, Git, Github)
 - Elle serait facile à mettre en place
 - Elle ne nécessiterait pas (ou très peu) de maintenance
@@ -936,7 +923,7 @@ L'outil qui s'approche le plus de ces critères,
 ce sont les Github Actions (voir @github-actions-recap).
 
 Le choix des Github Actions n'est pas anodin ;
-l'Adagp confie déjà l'hébergement de ses répertoires de code à Github,
+l'ADAGP confie déjà l'hébergement de ses répertoires de code à Github,
 donc il n'y aura pas de migration de code à réaliser.
 De plus, Github Actions est un outil
 très facile à mettre en place et à maintenir,
@@ -1012,7 +999,7 @@ L'étape de validation des modifications peut être automatisée
 par l'intermédiaire de l'intégration continue,
 notamment, dans le cas de Github, par l'intermédiaire des Pull requests.
 @trunk-based-development-website
-Certains projets de l'Adagp utilisent déjà ce modèle de gestion de branches,
+Certains projets de l'ADAGP utilisent déjà ce modèle de gestion de branches,
 mais il n'est pas encore utilisé de manière systématique.
 
 == Étapes clés et bonnes pratiques de mise en place <liste-étapes-clés>
@@ -1094,7 +1081,7 @@ et de faciliter la prise en main de l'IC par les développeurs.
 = Mise en œuvre et responsabilités liées à la mission
 == Responsabilités assumées
 // #lorem(500)
-Ma mission pendant mon alternance au sein de l'Adagp
+Ma mission pendant mon alternance au sein de l'ADAGP
 consiste à épauler les autres membres du service informatique
 sur ses nouveaux projets,
 soit en collaboration avec le reste du service,
@@ -1105,8 +1092,8 @@ de travailler sur plusieurs projets en collaboration avec le reste du service.
 Parmi ces projets, on peut citer le projet du formulaire en ligne,
 qui consistait à mettre en place un formulaire en ligne
 à l'aide de l'outil Drupal Webforms
-pour permettre aux futurs adhérents de l'Adagp de s'inscrire en ligne,
-sans avoir à se déplacer à l'Adagp.
+pour permettre aux futurs adhérents de l'ADAGP de s'inscrire en ligne,
+sans avoir à se déplacer à l'ADAGP.
 Ce projet permet aussi d'informatiser le processus d'adhésion,
 ce qui facilite le travail du pôle adhésion
 et permet d'y augmenter la capacité de traitement des dossiers.
@@ -1303,7 +1290,7 @@ pour plusieurs raisons :
   car Github Actions ne permet pas de lancer des conteneurs de service
   si le runner est hébergé sur Windows,
   or il est important de tester le code sur les deux plateformes
-  puisqu'elles sont potentiellement toutes deux utilisées par l'Adagp.
+  puisqu'elles sont potentiellement toutes deux utilisées par l'ADAGP.
   Cela aurait donc limité l'applicabilité des tests.
 Ce sont ces deux raisons qui expliquent que le serveur externe ne soit
 pas lui-même testé dans le cadre de ce mémoire.
@@ -1334,7 +1321,7 @@ qui ne sont pas prévues par les tests automatiques.
 Les processus de build et de test sont maintenant automatisés,
 donc il est toujours possible de déployer manuellement le projet
 auquel l'intégration continue a été ajoutée.
-Des processus existant déjà à l'Adagp pour déployer des projets comparables,
+Des processus existant déjà à l'ADAGP pour déployer des projets comparables,
 il a été décidé de ne pas en automatiser le déploiement ici -- pour l'instant.
 C'est la raison pour laquelle ce mémoire
 se concentre sur l'intégration continue,
@@ -1546,7 +1533,7 @@ potentiellement quotidiennement (voir plus souvent encore)
 par les autres membres de l'équipe ne cassent pas le projet.
 Peut-être que si cette solution avait été mise en place dans
 un environnement plus gros, n'aurait-elle pas été aussi pertinente.
-Ce mémoire se limitant au cas de l'Adagp,
+Ce mémoire se limitant au cas de l'ADAGP,
 ce n'est pas un facteur d'influence d'une grande importance
 pour son service informatique.
 
@@ -1582,7 +1569,7 @@ sur le serveur Node.js, pour tester son bon fonctionnement.
 == Comparaison des résultats obtenus
 // #lorem(500)
 
-Nous avons vu plus tôt que le service informatique de l'Adagp
+Nous avons vu plus tôt que le service informatique de l'ADAGP
 n'utilisait pas d'intégration continue.
 Plusieurs raisons ont été évoquées, mais la principale est que
 le service informatique n'a pas alloué de temps pour la mise en place
@@ -1627,7 +1614,7 @@ au début de leur publication :
 - la documentation des défis rencontrés et leurs solutions
 On constate alors contre-intuitivement que leurs critères
 correspondent relativement bien à ceux que nous avons établis
-dans notre étude, alors que l'Adagp est un bien plus petite entreprise.
+dans notre étude, alors que l'ADAGP est un bien plus petite entreprise.
 Ils ont même fait le choix d'employer la même solution que nous pour
 leur intégration continue : les workflows de Github, ou Github Actions.
 Leur approche est évidemment plus globale que la nôtre,
@@ -1715,13 +1702,13 @@ de maintenabilité des projets informatiques.
 C'est un avantage indéniable qui profite à toute entreprise
 souhaitant s'investir dans la qualité des logiciels qui la composent.
 
-Dans le contexte de l'Adagp, la mise en place d'une intégration continue
+Dans le contexte de l'ADAGP, la mise en place d'une intégration continue
 devrait permettre de faciliter le travail de maintenance de qualité logicielle
 en automatisant beaucoup de tâches, tout en standardisant les processus
 et leur documentation.
 
 // - Récapitulation des contributions et des recommandations
-Ce que ce projet a apporté à l'Adagp, c'est une réponse à la question
+Ce que ce projet a apporté à l'ADAGP, c'est une réponse à la question
 de la faisabilité de la mise en place d'une intégration continue
 dans ses processus métiers, en établissant une liste de facteurs
 d'influence et de critères de réussite pour un projet d'intégration continue.
@@ -1746,7 +1733,7 @@ rédaction à la fois académiques et techniques, et d'éprouver
 une nouvelle solution pour leur rédaction.
 
 // - Possibilités d'extension et de recherche future
-Une prochaine étape pour l'Adagp serait de mettre en place
+Une prochaine étape pour l'ADAGP serait de mettre en place
 une solution d'intégration continue plus complète,
 sur un projet plus complexe, pour valider l'approche.
 Il faudrait alors intégrer davantage les éléments apportés par
@@ -1761,8 +1748,8 @@ notamment par exemple dans la revue de code ou dans le déploiement.
   pendant la réalisation de ce mémoire et pendant mon apprentissage.
 - Merci au reste du service informatique,
   Tovonirina RAZAFIMAHATRATRA et Vincent LY,
-  pour leur disponibilité et leur aide, tout au long de mon temps à l'Adagp.
-- Merci au reste de mes collègues de l'Adagp,
+  pour leur disponibilité et leur aide, tout au long de mon temps à l'ADAGP.
+- Merci au reste de mes collègues de l'ADAGP,
   pour leur accueil et leur bonne humeur.
 - Merci à ma famille, pour les conseils apportés et leur soutien.
 

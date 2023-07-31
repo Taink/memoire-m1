@@ -19,7 +19,8 @@
   let body-font = "New Computer Modern Sans"
   let heading-font = "Linux Libertine"
   
-  set text(12pt, font: body-font, lang: "fr")
+  set par(justify: true)
+  set text(12pt, font: body-font, lang: "fr", overhang: false)
   show heading: set text(font: heading-font)
   show math.equation: set text(weight: 400)
   set heading(numbering: "I.1.A -", supplement: "Section")
