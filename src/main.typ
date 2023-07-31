@@ -1611,7 +1611,6 @@ prendre en compte, et ce pour une bonne raison :
 la liste est potentiellement infinie,
 et dépend du contexte de l'entreprise.
 
-// FROM BLOG: With an extensive history and global operations, Deutsche Bank had developed a technology infrastructure built from legacy systems. With duplicate capabilities and pockets of automation, the bank knew it needed a more consistent approach that decreased risk, complexity, and cost, while introducing new products and services to their customers
 Voyons le cas d'une entreprise de plus grande taille, la Deutsche Bank.
 Leur infrastructure technologique était construite sur des systèmes
 hérités de leur bagage historique,
