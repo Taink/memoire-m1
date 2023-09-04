@@ -40,7 +40,7 @@
 #title-slide(
     title: [Soutenance du mémoire de M1],
     subtitle: [Incorporer des outils d'intégration continue dans
-    les processus métiers"],
+    les processus métiers],
     authors: "Maxime Daniel",
     date: "4 septembre 2023",
 )
@@ -68,6 +68,13 @@
     des auteurs et ayants-droit d'art visuel
     (peinture, sculpture, photographie, architecture, etc.)
     et les aide à gérer leurs droits.
+
+    J'y assiste le service informatique,
+    dans des projets de développement soit en collaboration
+    soit en autonomie.
+
+    Ce mémoire est le compte rendu d'un projet de recherche et
+    développement.
 ]
 
 #slide(title: "À propos du mémoire")[
@@ -86,7 +93,6 @@
 ]
 
 #new-section-slide("Choix de l'outil")
-
 
 #slide(title: "Quels sont les principaux outils ?")[
     Durant la phase de recherche du mémoire,
@@ -217,9 +223,8 @@
         - Pas (ou peu) de maintenance nécessaire
     ]
 
-    La solution qui correspond le plus : #uncover(6)[
-        *Github Actions*.
-    ]
+    La solution qui correspond le plus :
+    #uncover(6)[*Github Actions*.]
 ]
 
 #let example(body) = block(
@@ -230,7 +235,11 @@
     text(size: .8em, body)
 )
 
-#new-section-slide("Mise en place")
+#new-section-slide("Contexte")
+
+#slide(title: "Le projet ciblé")[
+
+]
 
 #slide[
     #align(center)[
@@ -255,6 +264,9 @@
             Il faut instaurer l'écriture de tests, et l'utilisation
             du développement sur tronc commun (qui est plus adapté
             à l'automatisation et la collaboration).
+
+            C'est une amélioration facile à réaliser car globalement
+            déjà en place dans le service informatique.
         ]
     )
 ]
