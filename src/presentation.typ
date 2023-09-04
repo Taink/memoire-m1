@@ -399,19 +399,37 @@
 
   #pause
 
-  C'est un témoignage de la flexibilité de cette solution.
+  C'est un témoignage de la flexibilité de la solution Github Actions.
 ]
 
 #new-section-slide("Conclusion")
 
-#slide[
-  Points d'attention :
-  - La mise en place de l'intégration continue est un investissement
-    complexe et progressif
-  - De nombreux facteurs doivent être pris en compte pour réussir
-    un projet d'intégration continue
+#slide(title: "Conclusion")[
+  #only(1)[
+    Points d'attention :
+    - La mise en place de l'intégration continue est un investissement
+      complexe et progressif
+    - De nombreux facteurs doivent être pris en compte pour réussir
+      un projet d'intégration continue
 
-  Critères de réussite du projet :
-  - Éprouver la qualité du logiciel
-  - Solution facile à maintenir
+    Critères de réussite du projet :
+    - Éprouver la qualité du code et du logiciel
+    - Solution facile à maintenir
+  ]
+  #only("2-3")[
+    Ce projet a permis de :
+    - vérifier la viabilité des Github Actions,
+    - établir un moyen de parvenir à une solution fonctionnelle,
+    - tester un prototype pour un futur projet.
+
+    #only(3)[
+      Pistes d'amélioration :
+      - Projet plus gros
+      - Utilisation plus avancée de Github
+    ]
+  ]
+]
+
+#focus-slide[
+  Merci pour votre attention !
 ]
