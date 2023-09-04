@@ -205,6 +205,23 @@
     )
 ]
 
+#slide(title: "Solution retenue")[
+    Étant donné notre contexte, une solution idéale aurait les
+    caractéristiques suivantes :
+    #line-by-line[
+        - Facile (voire agréable) d'utilisation
+        - Gratuite
+        - Compatible avec les technologies utilisées à l'ADAGP
+          (Java, Maven, Git et Github)
+        - Facile à mettre en place
+        - Pas (ou peu) de maintenance nécessaire
+    ]
+
+    La solution qui correspond le plus : #uncover(6)[
+        *Github Actions*.
+    ]
+]
+
 #let example(body) = block(
     width: 100%,
     inset: .5em,
@@ -242,7 +259,7 @@
     )
 ]
 
-#new-section-slide("Étapes du projet")
+#new-section-slide("Mise en œuvre")
 
 #slide(title: [L'écriture des tests])[
     - Amélioration de la couverture des tests,
@@ -261,33 +278,114 @@
     ]
 ]
 
-/* #slide(title: [Fit to height])[
-    You can scale content such that it has a certain height using
-    `#fit-to-height(height, content)`:
+#set text(size: 15pt)
 
-    #fit-to-height(2.5cm)[Height is `2.5cm`]
+#slide(title: [Écriture du fichier de configuration Github Actions])[
+    #alternatives([
+    ```yaml
+    name: maven-build
+    run-name: Run maven up to 'verify' phase and archive JAR
+
+    on: [push, pull_request]
+
+    jobs:
+        maven-build:
+        strategy:
+            matrix:
+            os: [windows-latest, ubuntu-latest]
+
+        runs-on: ${{ matrix.os }}
+
+        concurrency:
+            group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}
+            cancel-in-progress: true
+
+        ...
+    ```],[
+    ```yaml
+      ...
+
+      steps:
+        - uses: actions/checkout@v3
+        - name: Setup JDK
+          uses: actions/setup-java@v3
+          with:
+            java-version: '17'
+            distribution: 'oracle'
+            cache: maven
+        - name: Maven build
+          run: mvn -B clean verify
+        - uses: actions/upload-artifact@v3
+          with:
+            name: compiled-jar
+            path: target/*.jar
+            retention-days: 1
+    ```
+    ])
 ]
 
-#slide(title: "Fill remaining space")[
-    This function also allows you to fill the remaining space by using fractions
-    as heights, i.e. `fit-to-height(1fr)[...]`:
+#set text(size: 20pt)
 
-    #fit-to-height(1fr)[Wow!]
+#new-section-slide("Analyse critique")
+
+#slide(title: "Revue des résultats obtenus")[
+  #align(center)[
+    #image("./assets/ci-results-dashboard.png")
+  ]
+]
+#slide[
+  #align(center)[
+    #image("./assets/ci-results-job.png")
+  ]
+]
+#slide[
+  #align(center)[
+    #image("./assets/ci-results-job2.png")
+  ]
 ]
 
-#slide(title: "Side by side content")[
-    Often you want to put different content next to each other.
-    We have the function `#side-by-side` for that:
+#slide(title: "Avantages")[
+  - Taille du projet
+  - Modèle de développement en tronc commun
+  - Automatisation de l'intégration (difficulté réduite)
+]
 
-    #side-by-side(lorem(10), lorem(20), lorem(15))
-] */
+#slide(title: "Limitations")[
+  - Taille du projet
+  - Solution Github Actions pas complètement testée
+  - Le service externe n'est pas complètement testé
+]
+
+#slide(title: "Facteurs d'influence")[
+  - Choix de technologies
+    - Maven
+    - Github Actions
+  - Taille du projet
+  - Temps de mise en place
+  - Expérience préalable
+]
+
+#slide(title: "Utilisation de Github Actions sur le mémoire et la présentation")[
+  Cette présentation et le mémoire ont étés compilés via un même
+  logiciel de composition, Typst.
+  
+  La compilation de ces deux éléments est réalisée via Github Actions.
+
+  #pause
+
+  C'est un témoignage de la flexibilité de cette solution.
+]
 
 #new-section-slide("Conclusion")
 
-#slide(title: "That's it!")[
-    Hopefully you now have some kind of idea what you can do with this template.
+#slide[
+  Points d'attention :
+  - La mise en place de l'intégration continue est un investissement
+    complexe et progressif
+  - De nombreux facteurs doivent être pris en compte pour réussir
+    un projet d'intégration continue
 
-    Consider giving it
-    #link("https://github.com/andreasKroepelin/polylux")[a GitHub star #text(font: "OpenMoji")[#emoji.star]]
-    or open an issue if you run into bugs or have feature requests.
+  Critères de réussite du projet :
+  - Éprouver la qualité du logiciel
+  - Solution facile à maintenir
 ]
