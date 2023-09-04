@@ -135,6 +135,8 @@
 ]
 
 #slide(title: "Travis CI")[
+  Cette solution hébergée s'est fait connaître pour son offre gratuite
+  sur les projets open-source.
 
   #table(
     columns: (1fr, 1fr),
@@ -157,6 +159,8 @@
 ]
 
 #slide(title: "Circle CI")[
+  Cette solution est comparable à Travis, mais met un accent
+  sur la performance de l'exécution des tests.
 
   #table(
     columns: (1fr, 1fr),
@@ -177,6 +181,9 @@
 ]
 
 #slide(title: "GitLab CI")[
+  L'orchestrateur des tâches est forcément hébergé mais
+  l'exécuteur (ou "runner") des tâches peut être sur site,
+  ce qui rend la solution complètement gratuite.
   #table(
     columns: (1fr, 1fr),
     inset: 10pt,
@@ -195,6 +202,8 @@
 ]
 
 #slide(title: "Github Actions")[
+  Globalement GitLab CI mais dédié à Github.
+
   #table(
     columns: (1fr, 1fr),
     inset: 10pt,
