@@ -202,7 +202,7 @@
 ]
 
 #slide(title: "Github Actions")[
-  Globalement GitLab CI mais dédié à Github.
+  Équivalent de GitLab CI mais dédié à Github.
 
   #table(
     columns: (1fr, 1fr),
@@ -220,6 +220,25 @@
   )
 ]
 
+#let example(body) = block(
+  width: 100%,
+  inset: .5em,
+  fill: aqua.lighten(80%),
+  radius: .5em,
+  text(size: .8em, body)
+)
+
+#new-section-slide("Contexte")
+
+#slide(title: "Le projet ciblé")[
+  Client Java d'un service de notification externe.
+
+  Le client utilise Maven pour la compilation,
+  donc le gros du travail d'intégration est déjà fait :
+  les scripts sont déjà préparés et il faut juste exécuter une seule
+  commande.
+]
+
 #slide(title: "Solution retenue")[
   Étant donné notre contexte, une solution idéale aurait les
   caractéristiques suivantes :
@@ -234,20 +253,6 @@
 
   La solution qui correspond le plus :
   #uncover(6)[*Github Actions*.]
-]
-
-#let example(body) = block(
-  width: 100%,
-  inset: .5em,
-  fill: aqua.lighten(80%),
-  radius: .5em,
-  text(size: .8em, body)
-)
-
-#new-section-slide("Contexte")
-
-#slide(title: "Le projet ciblé")[
-
 ]
 
 #slide[
