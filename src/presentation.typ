@@ -7,232 +7,232 @@
 
 // code blocks
 #show raw.where(block: true): box.with(
-    fill: luma(240),
-    radius: 3pt,
-    inset: 10pt,
-    stroke: gray,
+  fill: luma(240),
+  radius: 3pt,
+  inset: 10pt,
+  stroke: gray,
 )
 
 // inline code
 #show raw.where(block: false): box.with(
-    fill: luma(240),
-    radius: 3pt,
-    inset: (x: 2pt, y: 0pt),
-    outset: (y: 3pt),
-    stroke: gray,
+  fill: luma(240),
+  radius: 3pt,
+  inset: (x: 2pt, y: 0pt),
+  outset: (y: 3pt),
+  stroke: gray,
 )
 
 #show: clean-theme.with(
-    footer: [Maxime Daniel, 4 septembre 2023],
-    short-title: [Soutenance du mémoire de M1],
-    logo: [
-        #grid(
-            columns: 2,
-            column-gutter: 1em,
-            image("./assets/adagp.svg"),
-            image("./assets/efrei.png")
-        )
-    ],
+  footer: [Maxime Daniel, 4 septembre 2023],
+  short-title: [Soutenance du mémoire de M1],
+  logo: [
+    #grid(
+      columns: 2,
+      column-gutter: 1em,
+      image("./assets/adagp.svg"),
+      image("./assets/efrei.png")
+    )
+  ],
 )
 
 #set text(size: 20pt)
 
 #title-slide(
-    title: [Soutenance du mémoire de M1],
-    subtitle: [Incorporer des outils d'intégration continue dans
-    les processus métiers],
-    authors: "Maxime Daniel",
-    date: "4 septembre 2023",
+  title: [Soutenance du mémoire de M1],
+  subtitle: [Incorporer des outils d'intégration continue dans
+  les processus métiers],
+  authors: "Maxime Daniel",
+  date: "4 septembre 2023",
 )
 
 #new-section-slide("Introduction")
 
 #slide[
-    Depuis le 1er septembre 2021, je suis en alternance à l'ADAGP.
+  Depuis le 1er septembre 2021, je suis en alternance à l'ADAGP.
 
-    Durant ces deux années d'alternance,
-    j'ai eu l'occasion travailler sur de multiples projets :
+  Durant ces deux années d'alternance,
+  j'ai eu l'occasion travailler sur de multiples projets :
 
-    #line-by-line[
-        - Le formulaire d'adhésion en ligne,
-        - La maintenance du wiki de l'ADAGP,
-        - Une API de notification,
-        - ...et ce mémoire.
-    ]
+  #line-by-line[
+    - Le formulaire d'adhésion en ligne,
+    - La maintenance du wiki de l'ADAGP,
+    - Une API de notification,
+    - ...et ce mémoire.
+  ]
 ]
 
 #slide(title: "À propos de l'ADAGP")[
-    C'est une société de gestion des droits d'auteur.
+  C'est une société de gestion des droits d'auteur.
 
-    Elle défend les intérêts de ses adhérents,
-    des auteurs et ayants-droit d'art visuel
-    (peinture, sculpture, photographie, architecture, etc.)
-    et les aide à gérer leurs droits.
+  Elle défend les intérêts de ses adhérents,
+  des auteurs et ayants-droit d'art visuel
+  (peinture, sculpture, photographie, architecture, etc.)
+  et les aide à gérer leurs droits.
 
-    J'y assiste le service informatique,
-    dans des projets de développement soit en collaboration
-    soit en autonomie.
+  J'y assiste le service informatique,
+  dans des projets de développement soit en collaboration
+  soit en autonomie.
 
-    Ce mémoire est le compte rendu d'un projet de recherche et
-    développement.
+  Ce mémoire est le compte rendu d'un projet de recherche et
+  développement.
 ]
 
 #slide(title: "À propos du mémoire")[
-    Ce mémoire s'inscrit dans un effort de modernisation de l'ADAGP.
+  Ce mémoire s'inscrit dans un effort de modernisation de l'ADAGP.
 
-    L'intérêt de ce mémoire est de proposer une solution
-    pour automatiser certains processus métiers de l'ADAGP,
-    en utilisant des outils d'intégration continue.
+  L'intérêt de ce mémoire est de proposer une solution
+  pour automatiser certains processus métiers de l'ADAGP,
+  en utilisant des outils d'intégration continue.
 
-    Le but est de rendre ces processus systématiques, reproductibles,
-    et de les rendre plus efficaces.
+  Le but est de rendre ces processus systématiques, reproductibles,
+  et de les rendre plus efficaces.
 ]
 
 #slide(title: "Dans cette présentation")[
-    #polylux-outline(padding: 1em, enum-args: (tight: false))
+  #polylux-outline(padding: 1em, enum-args: (tight: false))
 ]
 
 #new-section-slide("Choix de l'outil")
 
 #slide(title: "Quels sont les principaux outils ?")[
-    Durant la phase de recherche du mémoire,
-    j'ai noté que ces outils revenaient souvent :
+  Durant la phase de recherche du mémoire,
+  j'ai noté que ces outils revenaient souvent :
 
-    - Jenkins
-    - Travis CI
-    - Circle CI
-    - GitLab CI
-    - Github Actions
+  - Jenkins
+  - Travis CI
+  - Circle CI
+  - GitLab CI
+  - Github Actions
 ]
 
 #slide(title: "Jenkins")[
-    Jenkins est la solution "historique", c'est une des premières
-    solutions d'intégration continue comparables aux plus modernes.
+  Jenkins est la solution "historique", c'est une des premières
+  solutions d'intégration continue comparables aux plus modernes.
 
-    #table(
-        columns: (1fr, 1fr),
-        inset: 10pt,
-        align: horizon,
-        [*Principaux atouts*], [*Compatible avec*],
-        align(left)[
-        - Écosystème robuste,
-        - Communauté active,
-        - Exécution sur site gratuite
-            #footnote[
-            L'exécution sur site est souvent
-            nécessaire dans des contextes où les données utilisées
-            sont sensibles,
-            ou du moins si le réseau d'entreprise
-            est derrière un pare-feu peu laxiste.
-            ]
-        ],
-        [
-        N'importe quel système : Jenkins est un serveur d'automatisation.
-        À partir du moment où une étape est automatisable, Jenkins peut
-        l'automatiser.
-        ]
-    )
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+    - Écosystème robuste,
+    - Communauté active,
+    - Exécution sur site gratuite
+      #footnote[
+      L'exécution sur site est souvent
+      nécessaire dans des contextes où les données utilisées
+      sont sensibles,
+      ou du moins si le réseau d'entreprise
+      est derrière un pare-feu peu laxiste.
+      ]
+    ],
+    [
+    N'importe quel système : Jenkins est un serveur d'automatisation.
+    À partir du moment où une étape est automatisable, Jenkins peut
+    l'automatiser.
+    ]
+  )
 ]
 
 #slide(title: "Travis CI")[
 
-    #table(
-        columns: (1fr, 1fr),
-        inset: 10pt,
-        align: horizon,
-        [*Principaux atouts*], [*Compatible avec*],
-        align(left)[
-        - Facile d'utilisation,
-        - Communauté active,
-        - Mise en place très rapide,
-        - Gratuit sur les projets open-source
-        ],
-        align(left)[
-        - Github
-        - Atlassian Bitbucket
-        - GitLab
-        - Assembla
-        ]
-    )
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+    - Facile d'utilisation,
+    - Communauté active,
+    - Mise en place très rapide,
+    - Gratuit sur les projets open-source
+    ],
+    align(left)[
+    - Github
+    - Atlassian Bitbucket
+    - GitLab
+    - Assembla
+    ]
+  )
 ]
 
 #slide(title: "Circle CI")[
 
-    #table(
-        columns: (1fr, 1fr),
-        inset: 10pt,
-        align: horizon,
-        [*Principaux atouts*], [*Compatible avec*],
-        align(left)[
-        - Assez facile d'utilisation,
-        - Mise en place et exécution très rapides,
-        - Gratuit sur les projets open-source
-        ],
-        align(left)[
-        - Github
-        - Atlassian Bitbucket
-        - Github Enterprise
-        ]
-    )
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+    - Assez facile d'utilisation,
+    - Mise en place et exécution très rapides,
+    - Gratuit sur les projets open-source
+    ],
+    align(left)[
+    - Github
+    - Atlassian Bitbucket
+    - Github Enterprise
+    ]
+  )
 ]
 
 #slide(title: "GitLab CI")[
-    #table(
-        columns: (1fr, 1fr),
-        inset: 10pt,
-        align: horizon,
-        [*Principaux atouts*], [*Compatible avec*],
-        align(left)[
-        - Intégration privilégiée avec Gitlab
-        - Gratuit si runner auto-hébergé +
-            crédits gratuits sur runners partagés
-        ],
-        [
-        Gitlab seulement, possibilité d'importer des projets depuis
-        Bitbucket et Github cependant.
-        ]
-    )
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+    - Intégration privilégiée avec Gitlab
+    - Gratuit si runner auto-hébergé +
+      crédits gratuits sur runners partagés
+    ],
+    [
+    Gitlab seulement, possibilité d'importer des projets depuis
+    Bitbucket et Github cependant.
+    ]
+  )
 ]
 
 #slide(title: "Github Actions")[
-    #table(
-        columns: (1fr, 1fr),
-        inset: 10pt,
-        align: horizon,
-        [*Principaux atouts*], [*Compatible avec*],
-        align(left)[
-        - Intégration privilégiée avec Github,
-        - Gratuit si runner auto-hébergé +
-            crédits gratuits sur runners partagés
-        ],
-        [
-        Github seulement.
-        ]
-    )
+  #table(
+    columns: (1fr, 1fr),
+    inset: 10pt,
+    align: horizon,
+    [*Principaux atouts*], [*Compatible avec*],
+    align(left)[
+    - Intégration privilégiée avec Github,
+    - Gratuit si runner auto-hébergé +
+      crédits gratuits sur runners partagés
+    ],
+    [
+    Github seulement.
+    ]
+  )
 ]
 
 #slide(title: "Solution retenue")[
-    Étant donné notre contexte, une solution idéale aurait les
-    caractéristiques suivantes :
-    #line-by-line[
-        - Facile (voire agréable) d'utilisation
-        - Gratuite
-        - Compatible avec les technologies utilisées à l'ADAGP
-          (Java, Maven, Git et Github)
-        - Facile à mettre en place
-        - Pas (ou peu) de maintenance nécessaire
-    ]
+  Étant donné notre contexte, une solution idéale aurait les
+  caractéristiques suivantes :
+  #line-by-line[
+    - Facile (voire agréable) d'utilisation
+    - Gratuite
+    - Compatible avec les technologies utilisées à l'ADAGP
+      (Java, Maven, Git et Github)
+    - Facile à mettre en place
+    - Pas (ou peu) de maintenance nécessaire
+  ]
 
-    La solution qui correspond le plus :
-    #uncover(6)[*Github Actions*.]
+  La solution qui correspond le plus :
+  #uncover(6)[*Github Actions*.]
 ]
 
 #let example(body) = block(
-    width: 100%,
-    inset: .5em,
-    fill: aqua.lighten(80%),
-    radius: .5em,
-    text(size: .8em, body)
+  width: 100%,
+  inset: .5em,
+  fill: aqua.lighten(80%),
+  radius: .5em,
+  text(size: .8em, body)
 )
 
 #new-section-slide("Contexte")
@@ -242,98 +242,98 @@
 ]
 
 #slide[
-    #align(center)[
-        #image("./assets/cycle-développement-adagp.excalidraw.svg")
-    ]
+  #align(center)[
+    #image("./assets/cycle-développement-adagp.excalidraw.svg")
+  ]
 ]
 
 #slide(title: "Deux pistes d'amélioration")[
-    #side-by-side(
-        [
-            Il faut automatiser les processus en utilisant des outils
-            d'intégration continue.
+  #side-by-side(
+    [
+      Il faut automatiser les processus en utilisant des outils
+      d'intégration continue.
 
-            Il faut donc prévoir une infrastructure pour les exécuter,
-            ainsi que des scripts exécutant ces processus.
-        ],
-        [
-            #pause
-            Les méthodologies de développement doivent aussi changer
-            pour s'adapter à l'automatisation.
+      Il faut donc prévoir une infrastructure pour les exécuter,
+      ainsi que des scripts exécutant ces processus.
+    ],
+    [
+      #pause
+      Les méthodologies de développement doivent aussi changer
+      pour s'adapter à l'automatisation.
 
-            Il faut instaurer l'écriture de tests, et l'utilisation
-            du développement sur tronc commun (qui est plus adapté
-            à l'automatisation et la collaboration).
+      Il faut instaurer l'écriture de tests, et l'utilisation
+      du développement sur tronc commun (qui est plus adapté
+      à l'automatisation et la collaboration).
 
-            C'est une amélioration facile à réaliser car globalement
-            déjà en place dans le service informatique.
-        ]
-    )
+      C'est une amélioration facile à réaliser car globalement
+      déjà en place dans le service informatique.
+    ]
+  )
 ]
 
 #new-section-slide("Mise en œuvre")
 
 #slide(title: [L'écriture des tests])[
-    - Amélioration de la couverture des tests,
-    - Écriture des tests...
-    - ...et améliorations fonctionnelles (mocking...)
+  - Amélioration de la couverture des tests,
+  - Écriture des tests...
+  - ...et améliorations fonctionnelles (mocking...)
 ]
 
 #slide(title: [`SssWebClient` avant les tests mockés])[
-    #align(center)[
-        #image("./assets/couverture-tests-before.png")
-    ]
+  #align(center)[
+    #image("./assets/couverture-tests-before.png")
+  ]
 ]
 #slide(title: [`SssWebClient` après les tests mockés])[
-    #align(center)[
-        #image("./assets/couverture-tests-after.png")
-    ]
+  #align(center)[
+    #image("./assets/couverture-tests-after.png")
+  ]
 ]
 
 #set text(size: 15pt)
 
 #slide(title: [Écriture du fichier de configuration Github Actions])[
-    #alternatives([
-    ```yaml
-    name: maven-build
-    run-name: Run maven up to 'verify' phase and archive JAR
+  #alternatives([
+  ```yaml
+  name: maven-build
+  run-name: Run maven up to 'verify' phase and archive JAR
 
-    on: [push, pull_request]
+  on: [push, pull_request]
 
-    jobs:
-        maven-build:
-        strategy:
-            matrix:
-            os: [windows-latest, ubuntu-latest]
+  jobs:
+    maven-build:
+    strategy:
+      matrix:
+      os: [windows-latest, ubuntu-latest]
 
-        runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-        concurrency:
-            group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}
-            cancel-in-progress: true
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}
+      cancel-in-progress: true
 
-        ...
-    ```],[
-    ```yaml
-      ...
+    ...
+  ```],[
+  ```yaml
+    ...
 
-      steps:
-        - uses: actions/checkout@v3
-        - name: Setup JDK
-          uses: actions/setup-java@v3
-          with:
-            java-version: '17'
-            distribution: 'oracle'
-            cache: maven
-        - name: Maven build
-          run: mvn -B clean verify
-        - uses: actions/upload-artifact@v3
-          with:
-            name: compiled-jar
-            path: target/*.jar
-            retention-days: 1
-    ```
-    ])
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'oracle'
+          cache: maven
+      - name: Maven build
+        run: mvn -B clean verify
+      - uses: actions/upload-artifact@v3
+        with:
+          name: compiled-jar
+          path: target/*.jar
+          retention-days: 1
+  ```
+  ])
 ]
 
 #set text(size: 20pt)
@@ -380,7 +380,7 @@
 #slide(title: "Utilisation de Github Actions sur le mémoire et la présentation")[
   Cette présentation et le mémoire ont étés compilés via un même
   logiciel de composition, Typst.
-  
+
   La compilation de ces deux éléments est réalisée via Github Actions.
 
   #pause
