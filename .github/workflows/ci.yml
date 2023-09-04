@@ -16,15 +16,19 @@ jobs:
     - uses: yusancky/setup-typst@v2
       with:
         version: 'v0.6.0'
-    - name: Compile pdf
+    - name: Compile memoire pdf
       run: typst compile src/main.typ ./memoire.pdf
+    - name: Compile slides pdf
+      run: typst compile src/presentation.typ ./presentation.pdf
     - name: Test file presence
-      run: file memoire.pdf
+      run: file memoire.pdf presentation.pdf
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: memoire
-        path: memoire.pdf
+        path: |
+          memoire.pdf
+          presentation.pdf
 
   publish:
     needs: build
@@ -38,4 +42,6 @@ jobs:
         name: memoire
     - uses: softprops/action-gh-release@v1
       with:
-        files: memoire.pdf
+        files: |
+          memoire.pdf
+          presentation.pdf
